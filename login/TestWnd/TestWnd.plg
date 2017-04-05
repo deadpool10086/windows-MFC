@@ -1,0 +1,38 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: TestWnd - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\john\AppData\Local\Temp\RSPB0FB.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/TestWnd.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\prowork\login\TestWnd\TestWndDlg.cpp"
+]
+Creating command line "cl.exe @C:\Users\john\AppData\Local\Temp\RSPB0FB.tmp" 
+Creating temporary file "C:\Users\john\AppData\Local\Temp\RSPB0FC.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/TestWnd.pdb" /debug /machine:I386 /out:"Debug/TestWnd.exe" /pdbtype:sept 
+.\Debug\MyButton.obj
+.\Debug\MyList.obj
+.\Debug\StdAfx.obj
+.\Debug\TestWnd.obj
+.\Debug\TestWndDlg.obj
+.\Debug\TestWnd.res
+]
+Creating command line "link.exe @C:\Users\john\AppData\Local\Temp\RSPB0FC.tmp"
+<h3>Output Window</h3>
+Compiling...
+TestWndDlg.cpp
+c:\prowork\login\testwnd\testwnddlg.cpp(4) : warning C4652: compiler option 'Generate Browser Info' inconsistent with precompiled header; current command-line option will override that defined in the precompiled header
+Linking...
+
+
+
+<h3>Results</h3>
+TestWnd.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: MFC32 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\john\AppData\Local\Temp\RSP9453.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR"Debug/" /Fp"Debug/MFC32.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\prowork\login\MFC32\MainDlg.cpp"
+]
+Creating command line "cl.exe @C:\Users\john\AppData\Local\Temp\RSP9453.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/MFC32.pdb" /debug /machine:I386 /out:"Debug/MFC32.exe" /pdbtype:sept  .\Debug\MainDlg.obj .\Debug\MFC32.obj .\Debug\StdAfx.obj .\Debug\MFC32.res "
+<h3>Output Window</h3>
+Compiling...
+MainDlg.cpp
+Linking...
+LINK : warning LNK4076: invalid incremental status file "Debug/MFC32.ilk"; linking nonincrementally
+Creating command line "bscmake.exe /nologo /o"Debug/MFC32.bsc"  .\Debug\StdAfx.sbr .\Debug\MainDlg.sbr .\Debug\MFC32.sbr"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+MFC32.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
