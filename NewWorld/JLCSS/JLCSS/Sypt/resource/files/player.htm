@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>实验动画播放器</title>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	overflow-x:hidden;
+	overflow-y:hidden;
+}
+-->
+</style>
+</head>
+<body bgcolor="#404040" scroll=no>
+<script>
+	function expand(wWidth,wHeight){date=new Date();playerId="playerFF";if(navigator.userAgent.indexOf("MSIE")>0){playerId="playerIE";window.status="cmdResize,"+date.getTime()+","+wWidth+","+wHeight;}else{document.title="cmdResize,"+date.getTime()+","+wWidth+","+wHeight;}document.getElementById(playerId).width=wWidth;document.getElementById(playerId).height=wHeight}
+	function cmdAbout(){date=new Date();if(navigator.userAgent.indexOf("MSIE")>0){window.status="cmdAbout,"+date.getTime()}else{document.title="cmdAbout,"+date.getTime()}}
+	function cmdMin(){date=new Date();if(navigator.userAgent.indexOf("MSIE")>0){window.status="cmdMin,"+date.getTime()}else{document.title="cmdMin,"+date.getTime()}}
+	function cmdClose(){date=new Date();if(navigator.userAgent.indexOf("MSIE")>0){window.status="cmdClose,"+date.getTime()}else{document.title="cmdClose,"+date.getTime()}}
+	defaultMedia="";
+	if (location.href.lastIndexOf("#")>=0)
+		defaultMedia="?defaultMedia="+location.href.substring(location.href.lastIndexOf("#")+1);
+	playerHtml='';
+	playerHtml+='<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="771" height="478" id="playerIE" name="playerIE" align="middle">';
+	playerHtml+='<param name="allowScriptAccess" value="always" />';
+	playerHtml+='<param name="movie" value="player.swf'+defaultMedia+'" />';
+	playerHtml+='<param name="loop" value="false" />';
+	playerHtml+='<param name="menu" value="false" />';
+	playerHtml+='<param name="quality" value="high" />';
+	playerHtml+='<param name="wmode" value="transparent" />';
+	playerHtml+='<param name="bgcolor" value="#404040" />';
+	playerHtml+='<embed src="player.swf'+defaultMedia+'" loop="false" menu="false" quality="high" wmode="transparent" bgcolor="#404040" width="771" height="478" name="playerFF" id="playerFF" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />';
+	document.write(playerHtml)
+</script>
+</body>
+</html>

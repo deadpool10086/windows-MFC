@@ -1,0 +1,5085 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<netpdl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="netpdl.xsd">
+	
+	<proto name="NetBios_SS" showname_cn="NETBIOS 会话服务"
+		showname_en="NETBIOS Session Service" company="jlcss">
+		<preproto name="TCPv4">
+			<protoref name="NetBios_SS">
+				<expr oper="||">
+					<expr oper="eq">
+						<fieldref name="sPort"/>
+						<number value="139"/>
+					</expr>
+					<expr oper="eq">
+						<fieldref name="dPort"/>
+						<number value="139"/>
+					</expr>
+				</expr>
+			</protoref>
+		</preproto>
+		<preproto name="UDPv4">
+			<protoref name="NetBios_SS">
+				<expr oper="||">
+					<expr oper="eq">
+						<fieldref name="sPort"/>
+						<number value="139"/>
+					</expr>
+					<expr oper="eq">
+						<fieldref name="dPort"/>
+						<number value="139"/>
+					</expr>
+				</expr>
+			</protoref>
+		</preproto>
+
+		<fields>
+			<presentif>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+			</presentif>
+			<fixed name="type" size="byte" showname_cn="类型" showname_en="Type"
+				showmap="netbios_session_service_type_map" showfmt="dec"/>
+			<detail length="3">	
+				<masked name="flag" showname_cn="标志" showname_en="Flag" showfmt="bin">
+					<bit name="b-type_node" mask="0c" showfmt="bin"
+						showname_cn="B-type node" showname_en="B-type node"
+						showmap="b-byte_node_map"/>
+					<bit name="first_node" mask="02" showfmt="bin"
+						showname_cn="First packet" showname_en="First packet"
+						showmap="first_packet_map"/>
+					<bit name="more_follow" mask="01" showfmt="bin"
+						showname_cn="More follow" showname_en="More follow"
+						showmap="more_follow_map"/>
+				</masked>
+				<fixed name="total_length" size="short" showname_cn="会话长度"
+					showname_en="Total session packet length" showfmt="dec"/>
+
+			</detail>
+				<switch>
+					<expr oper="=">
+						<fieldref name="type"/>
+					</expr>
+					<case value="129">
+						<fixed name="type0" showname_cn="名称类型" showname_en="Name Type" size="byte" showfmt="dec"/>
+						<variable  name="hostName0" showname_cn="主机名称1" showname_en="Host Name 2" varend="size" >
+							<expr oper="=">
+								<number value="33"/>
+							</expr>
+						</variable>
+						<fixed name="type0" showname_cn="名称类型" showname_en="Name Type" size="byte" showfmt="dec"/>
+						<variable  name="hostName0" showname_cn="主机名称2" showname_en="Host Name 2" varend="size" >
+							<expr oper="=">
+								<number value="33"/>
+							</expr>
+						</variable>
+					</case>
+				</switch>
+			<nextproto>
+				<protoref name="SMB">
+					<expr oper="eq">
+						<fieldref name="type"/>
+						<number value="00"/>
+					</expr>
+				</protoref>
+				<protoref name="UserData">
+					<expr oper="1"/>
+				</protoref>
+			</nextproto>
+
+			
+		</fields>
+		<showmap name="b-byte_node_map">
+			<case value="0" oper="eq" show_cn="B-byte node"
+				show_en="B-byte node en"/>
+			<case value="1" oper="ge" show_cn="B-byte node ge 1"
+				show_en="B-byte node ge 1 en"/>
+		</showmap>
+		<showmap name="first_packet_map">
+			<case value="1" oper="eq" show_cn="第一个数据包" show_en="First packet"/>
+			<case value="0" oper="eq" show_cn="非第一个数据包" show_en="Not first packet"/>
+		</showmap>
+		<showmap name="more_follow_map">
+			<case value="1" oper="eq" show_cn="接下来还有更多" show_en="More follow"/>
+			<case value="0" oper="eq" show_cn="只有这一个数据" show_en="Not more follow"/>
+		</showmap>
+		<showmap name="netbios_session_service_type_map">
+			<case value="81" show_cn="会话请求" show_en="Session Request"/>
+			<case value="00" show_cn="会话数据" show_en="Session Data"/>
+		</showmap>
+		<showsum>
+			<text content_cn="Netbios 会话协议" content_en="NetBios Session"/>
+		</showsum>
+		<defaultdata>
+			<protodata length="4" data="00 00 00 25"/>
+			<fulldata length="58"
+				data="00 0b 6a f6 c1 ab 00 e0 50 a6 0a b2 08 00 45 00 00 51 a4 2c 40 00 80 06 fd 4b ac 10 00 24 ac 10 00 ea 0b a4 00 8b 7e a2 8a b5 00 29 20 b1 50 18 fb 03 c9 6e 00 00 00 00 00 25"/>
+		</defaultdata>
+	</proto>
+	
+	<proto name="Microsoft_DS" showname_cn="Microsoft-DS"
+		showname_en="Microsoft-DS" company="jlcss">
+		<preproto name="TCPv4">
+			<protoref name="Microsoft_DS">
+				<expr oper="||">
+					<expr oper="eq">
+						<fieldref name="sPort"/>
+						<number value="445"/>
+					</expr>
+					<expr oper="eq">
+						<fieldref name="dPort"/>
+						<number value="445"/>
+					</expr>
+				</expr>
+			</protoref>
+		</preproto>
+		<fields>
+			<if>
+				<expr oper="ge">
+					<innervarref type="_codedlen"/>
+					<number value="4"/>
+				</expr>
+				<then>
+					<fixed name="reversed" size="byte" showname_cn="保留(MBZ)"
+						showname_en="Reversed(MBZ)"/>
+					<fixed name="total_length" size="byte" vector="3" showname_cn="会话数据长度"
+						showname_en="Total session data length" showfmt="dec"/>
+				</then>
+				<else>
+					<variable name="data" showname_cn="数据" showname_en="Data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</else>
+			</if>		
+			<nextproto>
+				<protoref name="SMB">
+					<expr oper="1">
+					</expr>
+				</protoref>
+			</nextproto>
+		</fields>
+		
+		<showsum>
+			<text content_cn="Microsoft DS" content_en="Microsoft DS"/>
+		</showsum>
+		
+		<defaultdata>
+			<protodata data="00 00 00 31" length="4"/>
+			<fulldata
+				data="00 00 e8 40 38 11 00 e0 50 a6 0a b2 08 00 45 00 00 5d e0 fe 40 00 80 06 c1 41 ac 10 00 24 ac 10 00 16 0e c8 01 bd 16 59 08 ef 98 0d c0 e6 50 18 fe e7 f2 11 00 00 00 00 00 31 ff 53 4d 42 2b 00 00 00 00 18 43 c0 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff fe 00 00 fe ff 01 01 00 0c 00 4a 6c 4a 6d 49 68 43 6c 42 73 72 00"
+				length="107"/>
+		</defaultdata>
+	</proto>
+	
+	<proto name="NetBios_DGM" showname_cn="NETBIOS 数据报服务"
+		showname_en="NETBIOS Datagram Service" company="jlcss">
+		<preproto name="UDPv4">
+			<protoref name="NetBios_DGM">
+				<expr oper="||">
+					<expr oper="eq">
+						<fieldref name="sPort"/>
+						<number value="138"/>
+					</expr>
+					<expr oper="eq">
+						<fieldref name="dPort"/>
+						<number value="138"/>
+					</expr>
+				</expr>
+			</protoref>
+		</preproto>
+		<fields>
+			<presentif>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+			</presentif>
+			<fixed name="type" showname_cn="类型" showname_en="Type" showfmt="dec"/>
+
+			<detail length="13">
+				<masked showfmt="bin" name="flag" showname_cn="标志" showname_en="Flag">
+					<bit showfmt="bin" name="b-type_node" mask="0c"
+						showname_cn="B-type node" showname_en="B-type node"
+						showmap="b-byte_node_map"/>
+					<bit showfmt="bin" name="first_node" mask="02"
+						showname_cn="First packet" showname_en="First packet"
+						showmap="first_packet_map"/>
+					<bit showfmt="bin" name="more_follow" mask="01"
+						showname_cn="More follow" showname_en="More follow"
+						showmap="more_follow_map"/>
+				</masked>
+				<fixed name="datagramid" size="short" showname_cn="数据报标识ID"
+					showname_en="Datagram identify" showfmt="dec"/>
+				<fixed name="srcnode" size="word" showname_cn="源结点ip地址"
+					showname_en="source node IP" showfmt="dec" showgrp="1"
+					showsep="."/>
+				<fixed name="port" size="short" showname_cn="端口" showname_en="Port" showfmt="dec"/>
+				<fixed name="totallength" size="short" showname_cn="数据总长度"
+					showname_en="Total length" showfmt="dec"/>
+				<fixed name="offset" size="short" showname_cn="数据偏移"
+					showname_en="Offset" showfmt="dec"/>
+			</detail>
+			
+			<variable name="src_netbios_name" varend="sentinel" termflag="00"
+				showname_cn="源NetBIOS名称" showname_en="Source NetBIOS name"/>
+			
+			<variable name="des_netbios_name" varend="sentinel" termflag="00"
+				showname_cn="目的NetBIOS名称"
+				showname_en="Destination NetBIOS name"/>
+			
+			<nextproto>
+				<protoref name="SMB">
+					<expr oper="1">
+					</expr>
+				</protoref>
+			</nextproto>
+		</fields>
+		<showmap name="b-byte_node_map">
+			<case value="0" oper="eq" show_cn="B-byte 节点"
+				show_en="B-byte node en"/>
+			<case value="1" oper="ge" show_cn="B-byte 节点"
+				show_en="B-byte node"/>
+		</showmap>
+		<showmap name="first_packet_map">
+			<case value="1" oper="eq" show_cn="第一个数据包" show_en="First packet"/>
+			<case value="0" oper="eq" show_cn="非第一个数据包" show_en="Not first packet"/>
+		</showmap>
+		<showmap name="more_follow_map">
+			<case value="1" oper="eq" show_cn="接下来还有更多" show_en="More follow"/>
+			<case value="0" oper="eq" show_cn="只有这一个数据" show_en="Not more follow"/>
+		</showmap>
+		<showsum>
+			<text content_cn="NETBIOS 数据报服务"
+				content_en="NETBIOS Datagram Services"/>
+		</showsum>
+		<defaultdata>
+			<protodata
+				data="11 02 80 ce ac 10 00 2a 00 8a 00 a0 00 00 20 45 4c 45 4a 45 4f 45 48 45 4b 45 4a 45 4f 43 41 43 41 43 41 43 41 43 41 43 41 43 41 43 41 41 41 00 20 45 45 45 46 46 47 45 46 45 4d 45 50 46 41 43 41 43 41 43 41 43 41 43 41 43 41 43 41 43 41 42 4e 00"
+				length="82"/>
+			<fulldata
+				data="ff ff ff ff ff ff 00 0b 6a f5 c0 8e 08 00 45 00 00 ca 03 5e 00 00 80 11 dd 7b ac 10 00 2a ac 10 00 ff 45 00 00 ca 03 5e 00 00 80 11 dd 7b ac 10 00 2a ac 10 00 ff 11 02 80 ce ac 10 00 2a 00 8a 00 a0 00 00 20 45 4c 45 4a 45 4f 45 48 45 4b 45 4a 45 4f 43 41 43 41 43 41 43 41 43 41 43 41 43 41 43 41 41 41 00 20 45 45 45 46 46 47 45 46 45 4d 45 50 46 41 43 41 43 41 43 41 43 41 43 41 43 41 43 41 43 41 42 4e 00 ff 53 4d 42 25 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 11 00 00 06 00 00 00 00 00 00 00 00 00 e8 03 00 00 00 00 00 00 00 00 06 00 56 00 03 00 01 00 01 00 02 00 17 00 5c 4d 41 49 4c 53 4c 4f 54 5c 42 52 4f 57 53 45 00 09 04 01 00 00 00"
+				length="216"/>
+		</defaultdata>
+	</proto>
+	
+	<proto name="SMB" showname_cn="SMB 协议" showname_en="SMB Protocol" company="jlcss">
+		<fields>
+			<presentif>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="4"/>
+				</expr>
+			</presentif>
+			<fixed name="constants" size="byte" vector="4" showname_cn="协议特征常量"
+				showname_en="constant" showfmt="ascii"
+				comment_cn="必须为FF 53 4D 42"/>
+			<presentif>
+				<expr oper="match">
+					<fieldref name="constants"/>
+					<pattern value="11111111010100110100110101000010"/>
+				</expr>
+			</presentif>
+			<fixed name="command" size="byte" showname_cn="命令" showname_en="Command"
+				showmap="cmd_map"/>
+
+			<masked showfmt="bin" name="status" size="word" showname_cn="协议状态字"
+				showname_en="Status word"
+				comment_cn="当前命令为请求时必须为0,32位NT样式状态码为1时协议状态字为NT32位状态字否则为dos状态字">
+				<bit showfmt="bin" name="status_err_class" mask="ff000000"
+					showname_cn="状态错误类" showname_en="status_err_class"/>
+				<bit showfmt="bin" name="status_reserved" mask="00ff0000"
+					showname_cn="保留位" showname_en="Reserved"/>
+				<!-- 下面的short反序. -->
+				<bit showfmt="bin" name="status_err_code" mask="0000ffff"
+					showname_cn="状态错误代码" showname_en="status_err_code"/>
+			</masked>
+			<!--<fixed name="reserved" size="word" showname_cn="保留"
+			showname_en="Reserved"/> -->
+			<masked showfmt="bin" name="flags1" size="byte" showname_cn="标志1"
+				showname_en="Flags1">
+				<bit showfmt="bin" name="client_command" mask="80"
+					showname_cn="客户端命令" showname_en="Client Command"
+					showmap="client_cmd_map"/>
+				<bit showfmt="bin" name="locking" mask="20" showname_cn="随机锁"
+					showname_en="Random lock" showmap="locking_map"/>
+				<bit showfmt="bin" name="pathname_fmt" mask="10"
+					showname_cn="文件路径名格式" showname_en="Pathname format"
+					showmap="pathname_fmt_map"/>
+				<bit showfmt="bin" name="pathname_tread" mask="08"
+					showname_cn="文件路径名是否大小写敏感"
+					showname_en="Pathname should be treaded"
+					showmap="tread_map"/>
+				<bit showfmt="bin" name="noask" mask="02" showname_cn="No/Ask"
+					showname_en="No/Ask" showmap="noask_map"/>
+				<bit showfmt="bin" name="locksupport" mask="01"
+					showname_cn="锁定时读/解锁时写"
+					showname_en="lock/read and unlock/write"
+					showmap="locksupport_map"/>
+			</masked>
+
+			<detail>
+				<expr oper="=">
+					<innervarref type="_codedlen"/>
+				</expr>
+				<masked showfmt="bin" name="flags2" size="short" showname_cn="标志2"
+					showname_en="Flags2">
+					<bit showfmt="bin" name="authentication" mask="0400"
+						showname_cn="安全验证" showname_en="Authentication"
+						showmap="authentication_map"/>
+					<bit showfmt="bin" name="client_supports_ext_attr" mask="0200"
+						showname_cn="客户端扩展属性支持"
+						showname_en="Client supports extends attributes"
+						showmap="client_supports_ext_attr_map"/>
+					<bit showfmt="bin" name="client_long_file_supports" mask="0100"
+						showname_cn="客户端长文件名支持"
+						showname_en="Client supports long file names"
+						showmap="client_long_file_supports_map"/>
+					<bit showfmt="bin" name="unicode" mask="0080"
+						showname_cn="Unicode字符串" showname_en="Unicode String"
+						showmap="unicode_map"/>
+					<bit showfmt="bin" name="nt_status_code" mask="0040"
+						showname_cn="32位NT样式状态码" showname_en="32 bit NT status code"
+						showmap="nt_status_code_map"/>
+					<bit showfmt="bin" name="paging_io" mask="0020"
+						showname_cn="Paging IO" showname_en="Paging IO"
+						showmap="paging_io_map"/>
+					<bit showfmt="bin" name="dfs_support" mask="0010"
+						showname_cn="DFS 支持" showname_en="DFS support"
+						showmap="dfs_support_map"/>
+					<bit showfmt="bin" name="extends_security" mask="0008"
+						showname_cn="扩展安全标记" showname_en="Extends Security"
+						showmap="extends_security_map"/>
+				</masked>
+				<if>
+					<expr oper="eq">
+						<fieldref name="authentication"/>
+						<number value="1"/>
+					</expr>
+					<then>
+						<fixed name="process_hight_id" size="short"
+							showname_cn="进程ID(高)" showname_en="Process ID(high)"/>
+						<fixed name="security_signature" size="word" vector="2"
+							showname_cn="安全标识" showname_en="Security Signature"/>
+						<fixed name="reserved_2" size="short" showname_cn="保留(MBZ)"
+							showname_en="Reserved(MBZ)"/>
+					</then>
+					<else>
+						<fixed name="reserved_1" size="short" vector="6"
+							showname_cn="保留(MBZ)" showname_en="Reserved(MBZ)"/>
+					</else>
+				</if>
+				<fixed name="tree_id" size="short" showname_cn="树ID"
+					showname_en="Tree ID"/>
+				<fixed name="process_id" size="short" showname_cn="进程ID"
+					showname_en="Process ID"/>
+				<fixed name="unauth_user_id" size="short" showname_cn="用户ID"
+					showname_en="Unauth User ID"/>
+				<fixed name="multiplex_id" size="short" showname_cn="组ID"
+					showname_en="Multiplex ID"/>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="4"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_close_file_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_close_file_response"/>
+							</else>
+						</if>
+						
+					</then>
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="43"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_echo_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_echo_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="0"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_create_dir_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_create_dir_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="1"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_delete_dir_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_delete_dir_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="06"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_delete_file_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_delete_file_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="05"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_flush_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_flush_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="36"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_locking_andX_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_locking_andX_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="116"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_logoff_andx_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_logoff_andx_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="37"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_transaction_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_transaction_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="8"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk
+									name="smb_cmd_get_file_attributes_request"/>
+							</then>
+							<else>
+								<if>
+									<expr oper="gt">
+										<innervarref type="_codedlen"/>
+										<number value="0"/>
+									</expr>
+									<then>
+										<includeblk
+											name="smb_cmd_get_file_attributes_response"/>
+									</then>
+								</if>
+							</else>
+						</if>
+					</then>
+				</if>
+				
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="114"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_negotiate_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_negotiate_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="164"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_nt_cancel"/>
+							</then>
+						</if>
+					</then>
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="162"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_nt_create_andx_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_nt_create_andx_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="113"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_tree_disconnect"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_tree_disconnect"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="49"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk
+									name="smb_cmd_close_and_tree_disconnect_request"/>
+							</then>
+							<else>
+								<includeblk
+									name="smb_cmd_close_and_tree_disconnect_response"/>
+							</else>
+						</if>
+					</then>
+					
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="117"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk
+									name="smb_cmd_tree_connect_andx_request"/>
+							</then>
+							<else>
+								<includeblk
+									name="smb_cmd_tree_connect_andx_response"/>
+							</else>
+						</if>
+					</then>
+					
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="160"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_nt_transact_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_nt_transact_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="45"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_open_andx_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_open_andx_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="46"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_read_andx_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_read_andx_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="07"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_rename_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_rename_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="47"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_write_andx_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmd_write_andx_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="115"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk
+									name="smb_cmd_setup_account_andx_request"/>
+							</then>
+							<else>
+								<includeblk
+									name="smb_cmb_setup_account_andx_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+				<if>
+					<expr oper="eq">
+						<fieldref name="command"/>
+						<number value="50"/>
+					</expr>
+					<then>
+						<if>
+							<expr oper="eq">
+								<fieldref name="client_command"/>
+								<number value="0"/>
+							</expr>
+							<then>
+								<includeblk name="smb_cmd_transaction_2_request"/>
+							</then>
+							<else>
+								<includeblk name="smb_cmb_transaction_2_response"/>
+							</else>
+						</if>
+					</then>
+				</if>
+			</detail>
+		</fields>
+		<!-- smb_cmd_close_file -->
+		<block name="smb_cmd_close_file_request" showname_cn="SMB 关闭文件(请求)"
+			showname_en="SMB Close file(request)">
+			<fixed name="word_count" showname_cn="双字节数" showname_en="Word count"/>
+			<fixed name="fid" size="short" showname_cn="文件句柄"
+				showname_en="File handle"/>
+			<fixed name="last_write_time" size="word" showname_cn="关闭时间"
+				showname_en="Close time"
+				showmap="smb_cmd_close_file_close_time_map"/>
+			<fixed name="byte_count" size="short" showname_cn="字节数"
+				showname_en="Byte count"/>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable showname_en="SMB Data" showname_cn="SMB 数据"
+						name="smb_data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+			
+		</block>
+		<block name="smb_cmd_close_file_response" showname_cn="SMB 关闭文件(响应)"
+			showname_en="SMB protocal-Close File(response)">
+			<if>
+				<expr oper="ge">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" size="byte" showname_cn="双字节数"
+						showname_en="Word count"/>
+					<fixed name="bytes_count" size="short" showname_cn="字节数"
+						showname_en="bytes count"/>
+				</then>
+			</if>
+			
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable showname_en="SMB Data" showname_cn="SMB 数据"
+						name="smb_data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<!-- smb_cmd_echo 
+		-->
+		<block name="smb_cmd_echo_request" showname_cn="Ping 服务器(echo)(请求)"
+			showname_en="Ping the Server(echo)(request)">
+			
+			<fixed name="word_count" size="byte" showname_cn="双字节数"
+				showname_en="Word count"/>
+			<fixed name="echo_count" size="short" showname_cn="响应次数"
+				showname_en="Number of times to echo data back"/>
+			<fixed name="fixedtmp" size="short" showname_cn="" showname_en=""
+				temp="yes"/>
+			<!-- bytes_counts字段数据主机序
+			-->
+			<fixed name="bytes_count" size="short" showname_cn="字节数"
+				showname_en="byte count"/>
+			<variable name="bytes_paratmers" varend="size" showname_cn="响应内容"
+				showname_en="Data to echo">
+				<expr oper="+">
+					<expr oper="/">
+						<expr oper="@">
+							<fieldref name="fixedtmp"/>
+							<number value="65280"/>
+							<!-- FF00 -->
+						</expr>
+						<number value="256"/>
+					</expr>
+					<expr oper="*">
+						<expr oper="@">
+							<fieldref name="fixedtmp"/>
+							<number value="255"/>
+						</expr>
+						<number value="256"/>
+					</expr>
+				</expr>
+			</variable>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable showname_en="SMB Data" showname_cn="SMB 数据"
+						name="smb_data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<block name="smb_cmd_echo_response" showname_cn="Ping 服务器(echo)(响应)"
+			showname_en="Ping the Server(echo)(response)">
+			<if>
+				<expr oper="ge">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" size="byte" showname_cn="双字节数"
+						showname_en="Word count"/>
+					<fixed name="sequence_number" size="short" showname_cn="序列数"
+						showname_en="Sequence Number of this echo"/>
+					<fixed name="fixedtmp" size="short" showname_cn=""
+						showname_en="" temp="yes"/>
+					<fixed name="bytes_count" size="short" showname_cn="字节数"
+						showname_en="bytes count"/>
+					<variable name="data_to_echo" varend="size" showname_cn="响应数据"
+						showname_en="Data to echo">
+						<expr oper="+">
+							<expr oper="/">
+								<expr oper="@">
+									<fieldref name="fixedtmp"/>
+									<number value="65280"/>
+									<!-- FF00 -->
+								</expr>
+								<number value="256"/>
+							</expr>
+							<expr oper="*">
+								<expr oper="@">
+									<fieldref name="fixedtmp"/>
+									<number value="255"/>
+								</expr>
+								<number value="256"/>
+							</expr>
+						</expr>
+					</variable>
+				</then>
+			</if>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable showname_en="SMB Data" showname_cn="SMB 数据"
+						name="smb_data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<!-- smb_cmd_create_request -->
+		<block name="smb_cmd_create_dir_request" showname_cn="创建目录(请求)"
+			showname_en="Create directory(request)">
+			<fixed name="word_count" size="byte" showname_cn="双字节数"
+				showname_en="Word count"/>
+			<variable name="word_parameters_temp" varend="size" showname_cn="双字节参数"
+				showname_en="Word parameters">
+				<expr oper="*">
+					<fieldref name="word_count"/>
+					<number value="2"/>
+				</expr>
+			</variable>
+			<fixed name="fixedtmp" size="short" showname_cn="" showname_en=""
+				temp="yes"/>
+			<!--bytes_count 数据主机序
+			-->
+			<fixed name="bytes_count" size="short" showname_cn="字节数"
+				showname_en="bytes count"/>
+			<variable name="directory_name" varend="size" showname_cn="目录名"
+				showname_en="Directory name">
+				<expr oper="+">
+					<expr oper="/">
+						<expr oper="@">
+							<fieldref name="fixedtmp"/>
+							<number value="65280"/>
+							<!-- FF00 -->
+						</expr>
+						<number value="256"/>
+					</expr>
+					<expr oper="*">
+						<expr oper="@">
+							<fieldref name="fixedtmp"/>
+							<number value="255"/>
+						</expr>
+						<number value="256"/>
+					</expr>
+				</expr>
+			</variable>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable showname_en="SMB Data" showname_cn="SMB 数据"
+						name="smb_data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<block name="smb_cmd_create_dir_response" showname_cn="创建目录(响应)"
+			showname_en="Create directory(response)">
+			<if>
+				<expr oper="ge">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" size="byte" showname_cn="双字节数"
+						showname_en="Word count"/>
+					<variable name="word_parameters_temp" varend="size"
+						showname_cn="双字节参数" showname_en="Word parameters">
+						<expr oper="*">
+							<fieldref name="word_count"/>
+							<number value="2"/>
+						</expr>
+					</variable>
+					<fixed name="fixedtmp" size="short" showname_cn=""
+						showname_en="" temp="yes"/>
+					<!--bytes_count 数据主机序
+					-->
+					<fixed name="bytes_count" size="short" showname_cn="字节数"
+						showname_en="bytes count"/>
+					<if>
+						<expr oper="gt">
+							<fieldref name="bytes_count"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<variable name="bytes_paratmers" varend="size"
+								showname_cn="字节参数" showname_en="Byte parameters">
+								<expr oper="+">
+									<expr oper="/">
+										<expr oper="@">
+											<fieldref name="fixedtmp"/>
+											<number value="65280"/>
+											<!-- FF00 -->
+										</expr>
+										<number value="256"/>
+									</expr>
+									<expr oper="*">
+										<expr oper="@">
+											<fieldref name="fixedtmp"/>
+											<number value="255"/>
+										</expr>
+										<number value="256"/>
+									</expr>
+								</expr>
+							</variable>
+						</then>
+					</if>
+				</then>
+			</if>
+			
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable showname_en="SMB Data" showname_cn="SMB 数据"
+						name="smb_data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<!-- smb_cmd_delete_dir-->
+		<block name="smb_cmd_delete_dir_request" showname_cn="删除目录(请求)"
+			showname_en="Delete directory(request)">
+			<fixed name="word_count" size="byte" showname_cn="双字节数"
+				showname_en="Word count"/>
+			<fixed name="fixedtmp" size="short" showname_cn="" showname_en=""
+				temp="yes"/>
+			<fixed name="bytes_count" size="short" showname_cn="字节数"
+				showname_en="bytes count"/>
+			<variable name="directory_name" showname_cn="目录名称"
+				showname_en="Directory name" varend="size">
+				<expr oper="+">
+					<expr oper="/">
+						<expr oper="@">
+							<fieldref name="fixedtmp"/>
+							<number value="65280"/>
+							<!-- FF00 -->
+						</expr>
+						<number value="256"/>
+					</expr>
+					<expr oper="*">
+						<expr oper="@">
+							<fieldref name="fixedtmp"/>
+							<number value="255"/>
+						</expr>
+						<number value="256"/>
+					</expr>
+				</expr>
+			</variable>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable showname_en="SMB Data" showname_cn="SMB 数据"
+						name="smb_data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<block name="smb_cmd_delete_dir_response" showname_cn="删除目录(响应)"
+			showname_en="Delete directory(response)">
+			<if>
+				<expr oper="ge">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" size="byte" showname_cn="双字节数"
+						showname_en="Word count"/>
+					<fixed name="bytes_count" size="short" showname_cn="字节数"
+						showname_en="bytes count"/>
+				</then>
+			</if>
+			
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable showname_en="SMB Data" showname_cn="SMB 数据"
+						name="smb_data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<!-- smb_cmd_delete_file-->
+		<block name="smb_cmd_delete_file_request" showname_cn="删除文件(请求)"
+			showname_en="Delete file(request)">
+			<fixed name="word_count" size="byte" showname_cn="双字节数"
+				showname_en="Word count"/>
+			<masked showfmt="bin" name="file_attrib" size="short"
+				showname_cn="文件属性标志" showname_en="File attributesn flags">
+				<bit showfmt="bin" name="mode_flag" mask="0080" showname_cn="模式标记"
+					showname_en="Mode flag" showmap="mode_flag_map"/>
+				<bit showfmt="bin" name="share_mode" mask="0040" showname_cn="共享模式"
+					showname_en="Share mode" showmap="share_mode_map"/>
+				<bit showfmt="bin" name="search_arch" mask="0020"
+					showname_cn="文件查找属性4" showname_en="文件查找属性4(en)"
+					showmap="search_arch_map"/>
+				<bit showfmt="bin" name="search_dir" mask="0010"
+					showname_cn="文件查找属性3" showname_en="文件查找属性3(en)"
+					showmap="search_dir_map"/>
+				
+				<bit showfmt="bin" name="search_system" mask="0004"
+					showname_cn="文件查找属性2" showname_en="文件查找属性2(en)"
+					showmap="search_system_map"/>
+				<bit showfmt="bin" name="search_hidden" mask="0002"
+					showname_cn="文件查找属性1" showname_en="文件查找属性1(cn)"
+					showmap="search_hidden_map"/>
+				<bit showfmt="bin" name="search_readonly" mask="0001"
+					showname_cn="文件查找属性0" showname_en="文件查找属性0(en)"
+					showmap="search_readonly_map"/>
+				<bit showfmt="bin" name="share" mask="8000" showname_cn="共享文件"
+					showname_en="Share file" showmap="share_map"/>
+				
+				<bit showfmt="bin" name="file_archived" mask="2000"
+					showname_cn="文件存档" showname_en="File archived"/>
+				<bit showfmt="bin" name="directory" mask="1000" showname_cn="目录"
+					showname_en="Directory"/>
+				<bit showfmt="bin" name="volume" mask="0800" showname_cn="分区"
+					showname_en="Volume"/>
+				<bit showfmt="bin" name="system_file" mask="0400" showname_cn="系统文件"
+					showname_en="System file" showmap="system_file_map"/>
+				<bit showfmt="bin" name="hiden_file" mask="0200" showname_cn="隐藏文件"
+					showname_en="Hidden file" showmap="hidden_file_map"/>
+				<bit showfmt="bin" name="read_only" mask="0100" showname_cn="只读文件"
+					showname_en="Read only" showmap="read_only_map"/>
+			</masked>
+			
+			<fixed name="fixedtmp" size="short" showname_cn="" showname_en=""
+				temp="yes"/>
+			
+			<fixed name="bytes_count" size="short" showname_cn="字节数"
+				showname_en="bytes count"/>
+			<fixed name="buffer_fmt" showname_cn="缓冲区类型"
+				showname_en="Buffer format"/>
+			<variable name="file_name" varend="size" showname_cn="文件名称"
+				showname_en="File name" showfmt="ascii">
+				<expr oper="-">
+					<expr oper="+">
+						<expr oper="+">
+							<expr oper="/">
+								<expr oper="@">
+									<fieldref name="fixedtmp"/>
+									<number value="65280"/>
+									<!-- FF00 -->
+								</expr>
+								<number value="256"/>
+							</expr>
+							<expr oper="*">
+								<expr oper="@">
+									<fieldref name="fixedtmp"/>
+									<number value="255"/>
+								</expr>
+								<number value="256"/>
+							</expr>
+						</expr>
+						<number value="1"/>
+					</expr>
+					<number value="1"/>
+				</expr>
+			</variable>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable showname_en="SMB Data" showname_cn="SMB 数据"
+						name="smb_data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<block name="smb_cmd_delete_file_response" showname_cn="删除文件(响应)"
+			showname_en="Delete file(response)">
+			<if>
+				<expr oper="ge">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" size="byte" showname_cn="双字节数"
+						showname_en="Word count"/>
+					<fixed name="bytes_count" size="short" showname_cn="字节数"
+						showname_en="byte count"/>
+				</then>
+			</if>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable showname_en="SMB Data" showname_cn="SMB 数据"
+						name="smb_data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<!-- smb_cmd_flush -->
+		<block name="smb_cmd_flush_request" showname_cn="刷新文件(请求)"
+			showname_en="Flush file(request)">
+			<fixed name="word_count" size="byte" showname_cn="双字节数"
+				showname_en="Word count"/>
+			<fixed name="file_handle" size="short" showname_cn="文件句柄"
+				showname_en="File handle"/>
+			<fixed name="bytes_count" size="short" showname_cn="字节数"
+				showname_en="byte count"/>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable showname_en="SMB Data" showname_cn="SMB 数据"
+						name="smb_data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<block name="smb_cmd_flush_response" showname_cn="刷新文件(响应)"
+			showname_en="Flush file(response)">
+			<if>
+				<expr oper="ge">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" size="byte" showname_cn="双字节数"
+						showname_en="Word count"/>
+					<fixed name="bytes_count" size="short" showname_cn="字节数"
+						showname_en="byte count"/>
+				</then>
+			</if>
+			
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable showname_en="SMB Data" showname_cn="SMB 数据"
+						name="smb_data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<!-- smb_cmd_locking_andX -->
+		<block name="smb_cmd_locking_andX_request" showname_cn="锁AndX(请求)"
+			showname_en="LockAndX(request)">
+			<fixed name="word_count" showname_cn="双字数" showname_en="Word count"/>
+			<fixed name="andXcmd" showname_cn="AndX 命令" showname_en="AndX Command"
+				showmap="andx_cmd_map"/>
+			<fixed name="reserved_0" showname_cn="保留(MBZ)"
+				showname_en="Reserved(MBZ)"/>
+			<fixed name="andXoffset" size="short" showname_cn="AndX偏移"
+				showname_en="AndX offset" showmap="andxoffset_map"/>
+			<fixed name="file_handle" size="short" showname_cn="文件句柄"
+				showname_en="File handle"/>
+			<masked showfmt="bin" name="lock_mode" size="short" showname_cn="锁定类型"
+				showname_en="Lock type">
+				<bit showfmt="bin" name="read_only_lock" mask="0100"
+					showname_cn="只读锁" showname_en="Read only lock"
+					showmap="read_only_lock_map"/>
+				<bit showfmt="bin" name="oplock" mask="0200" showname_cn="锁打开通告"
+					showname_en="Oplock break notification"
+					showmap="oplock_map"/>
+				<bit showfmt="bin" name="change_lock_type" mask="0400"
+					showname_cn="改变锁类型" showname_en="Change lock type"
+					showmap="change_lock_type"/>
+				<bit showfmt="bin" name="cancel_outstanding_request" mask="0800"
+					showname_cn="取消请求" showname_en="Cancel outstanding request"
+					showmap="cancel_request_map"/>
+				<bit showfmt="bin" name="large_file_lock" mask="1000"
+					showname_cn="大文件锁格式" showname_en="Large file locking format"
+					showmap="large_file_lock_map"/>
+			</masked>
+			<fixed name="lock_time_out" size="word" showname_cn="锁定时限"
+				showname_en="Lock time out"/>
+			<fixed name="unlock_struct_num" size="short" showname_cn="解锁数量"
+				showname_en="Unlock struct numbers"/>
+			<fixed name="lock_struct_num" size="short" showname_cn="锁定数量"
+				showname_en="Lock struct numbers"/>
+			<fixed name="byte_count" size="short" showname_cn="字节数"
+				showname_en="Byte count"/>
+			<if>
+				<expr oper="eq">
+					<fieldref name="large_file_lock"/>
+					<number value="1"/>
+				</expr>
+				<then>
+					<loop name="unlocking_andX_range_large_file_loop"
+						type="times2repeat" showname_cn="解锁的大文件范围"
+						showname_en="unlocking range of large file">
+						<expr oper="+">
+							<expr oper="/">
+								<expr oper="@">
+									<fieldref name="unlock_struct_num"/>
+									<number value="65280"/>
+								</expr>
+								<number value="256"/>
+							</expr>
+							<expr oper="*">
+								<expr oper="@">
+									<fieldref name="unlock_struct_num"/>
+									<number value="255"/>
+								</expr>
+								<number value="256"/>
+							</expr>
+						</expr>
+						<includeblk name="blk_locking_andX_range_large_file"/>
+					</loop>
+				</then>
+				<else>
+					<loop name="unlocking_andX_range_file_loop"
+						type="times2repeat" showname_cn="解锁文件范围"
+						showname_en="Unlocking range of file">
+						<expr oper="+">
+							<expr oper="/">
+								<expr oper="@">
+									<fieldref name="unlock_struct_num"/>
+									<number value="65280"/>
+								</expr>
+								<number value="256"/>
+							</expr>
+							<expr oper="*">
+								<expr oper="@">
+									<fieldref name="unlock_struct_num"/>
+									<number value="255"/>
+								</expr>
+								<number value="256"/>
+							</expr>
+						</expr>
+						
+						<includeblk name="blk_locking_andX_range"/>
+					</loop>
+				</else>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="large_file_lock"/>
+					<number value="1"/>
+				</expr>
+				<then>
+					<loop name="locking_andX_range_large_file_loop"
+						type="times2repeat" showname_cn="锁定的大文件范围"
+						showname_en="Locking range of large file">
+						<expr oper="+">
+							<expr oper="/">
+								<expr oper="@">
+									<fieldref name="lock_struct_num"/>
+									<number value="65280"/>
+								</expr>
+								<number value="256"/>
+							</expr>
+							<expr oper="*">
+								<expr oper="@">
+									<fieldref name="lock_struct_num"/>
+									<number value="255"/>
+								</expr>
+								<number value="256"/>
+							</expr>
+						</expr>
+						
+						<includeblk name="blk_locking_andX_range_large_file"/>
+					</loop>
+				</then>
+				<else>
+					
+					<loop name="locking_andX_range_file_loop" type="times2repeat"
+						showname_cn="锁定文件范围" showname_en="Locing range of file">
+						<expr oper="+">
+							<expr oper="/">
+								<expr oper="@">
+									<fieldref name="lock_struct_num"/>
+									<number value="65280"/>
+								</expr>
+								<number value="256"/>
+							</expr>
+							<expr oper="*">
+								<expr oper="@">
+									<fieldref name="lock_struct_num"/>
+									<number value="255"/>
+								</expr>
+								<number value="256"/>
+							</expr>
+						</expr>
+						
+						<includeblk name="blk_locking_andX_range"/>
+					</loop>
+				</else>
+			</if>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable showname_en="SMB Data" showname_cn="SMB 数据"
+						name="smb_data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<!--下面的响应译文为根据decode编码码 和cifs文献做出!-->
+		<block name="smb_cmd_locking_andX_response" showname_cn="锁andX(响应)"
+			showname_en="Locking and X(response)">
+			<if>
+				<expr oper="ge">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" showname_cn="双字节数"
+						showname_en="Word count"/>
+					
+					<fixed name="andXcmd" showname_cn="AndX命令"
+						showname_en="AndX command" showmap="andx_cmd_map"/>
+					<fixed name="andXreserved" showname_cn="保留(MBZ)"
+						showname_en="Reserved(MBZ)"/>
+					<fixed name="andXoffset" size="short"
+						showname_cn="AndX命令Word count偏移"
+						showname_en="Offset to next command WordCount"/>
+					<fixed name="byte_count" size="short" showname_cn="字节数"
+						showname_en="Byte count"/>
+				</then>
+			</if>
+			
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable showname_en="SMB Data" showname_cn="SMB 数据"
+						name="smb_data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<block name="blk_locking_andX_range">
+			<fixed name="pid" size="short" showname_cn="进程ID"
+				showname_en="Process ID"/>
+			<fixed name="offset" size="word" showname_cn="偏移" showname_en="Offset"/>
+			<fixed name="length" size="word" showname_cn="长度" showname_en="Length"/>
+		</block>
+		
+		<block name="blk_locking_andX_range_large_file">
+			<fixed name="pid" size="short" showname_cn="进程ID"
+				showname_en="Process ID"/>
+			<fixed name="pad" size="short" showname_cn="填充" showname_en="Pad"/>
+			<fixed name="offsethi" size="word" showname_cn="偏移(高)"
+				showname_en="Offset(high)"/>
+			<fixed name="offsetlo" size="word" showname_cn="偏移(低)"
+				showname_en="Offset(low)"/>
+			<fixed name="lengthhi" size="word" showname_cn="长度(高)"
+				showname_en="Length(hight)"/>
+			<fixed name="lengthlo" size="word" showname_cn="长度(低)"
+				showname_en="Length(low)"/>
+		</block>
+		
+		<!--logoff andx-->
+		<block name="smb_cmd_logoff_andx_request" showname_cn="用户登出andX(请求)"
+			showname_en="Logoff andX(request)">
+			<fixed name="word_count" showname_cn="双字型参数数量"
+				showname_en="Word count"/>
+			<fixed name="andx_command" showname_cn="AndX command"
+				showname_en="AndX command" showmap="andx_cmd_map"/>
+			<fixed name="andx_reserved" showname_cn="AndX保留(MBZ)"
+				showname_en="AndX reserved(MBZ)"/>
+			<fixed name="andx_offset" size="short" showname_cn="AndX命令偏移"
+				showname_en="AndX offset"/>
+			<fixed name="byte_count" size="short" showname_cn="字节型参数数量"
+				showname_en="Byte count"/>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable showname_en="SMB Data" showname_cn="SMB 数据"
+						name="smb_data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<block name="smb_cmd_logoff_andx_response" showname_cn="用户登出andX(响应)"
+			showname_en="Logoff andX(response)">
+			<fixed name="word_count" showname_cn="双字型参数数量"
+				showname_en="Word count"/>
+			<fixed name="andx_command" showname_cn="AndX command"
+				showname_en="AndX command" showmap="andx_cmd_map"/>
+			<fixed name="andx_reserved" showname_cn="AndX保留(MBZ)"
+				showname_en="AndX reserved(MBZ)"/>
+			<fixed name="andx_offset" size="short" showname_cn="AndX命令偏移"
+				showname_en="AndX offset"/>
+			<fixed name="byte_count" size="short" showname_cn="字节型参数数量"
+				showname_en="Byte count"/>
+			
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable showname_en="SMB Data" showname_cn="SMB 数据"
+						name="smb_data" varend="size">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<!--     transaction        -->
+		<block name="smb_cmd_transaction_request" showname_cn="事务(请求)"
+			showname_en="Transaction(request)">
+			<fixed name="word_count" showname_cn="双字节数" showname_en="Word count"/>
+			<fixed name="total_param_count" size="short" showname_cn="发送参数的总字节数"
+				showname_en="Total parameter bytes being sent"/>
+			<fixed name="total_data_count" size="short" showname_cn="发送数据的总字节数"
+				showname_en="Total data bytes being sent"/>
+			<fixed name="max_param_count" size="short" showname_cn="参数段返回的最长字节数"
+				showname_en="Max number of parameter bytes to return"/>
+			<fixed name="max_data_count" size="short" showname_cn="数据段返回的最长字节数"
+				showname_en="Max number of data bytes to return"/>
+			<fixed name="max_setup_count" showname_cn="初始化返回的最长双字数"
+				showname_en="Max number of setup words to return"/>
+			<fixed name="reserved" showname_cn="保留(MBZ)"
+				showname_en="Reserved(MBZ)"/>
+			<masked showfmt="bin" name="flags" size="short" showname_cn="标志"
+				showname_en="Flags">
+				<bit showfmt="bin" name="tid_flag" mask="0100" showname_cn="TID"
+					showname_en="TID" showmap="tid_flag_map"/>
+				<bit showfmt="bin" name="transaction_way" mask="0200"
+					showname_cn="事务通信方式" showname_en="Transaction way"
+					showmap="transaction_way_map"/>
+			</masked>
+			<fixed name="time_out" size="word" showname_cn="最长超时时间"
+				showname_en="Timeout to completion"/>
+			<fixed name="reserved2" size="short" showname_cn="保留(MBZ)"
+				showname_en="Reserved(MBZ)"/>
+			<fixed name="param_count" size="short" showname_cn="参数段缓冲区的长度"
+				showname_en="Number of parameter bytes in this buffer"/>
+			<fixed name="param_offset" size="short" showname_cn="首部到参数段的偏移量"
+				showname_en="Offset from header to parameter bytes"/>
+			<fixed name="data_count" size="short" showname_cn="数据段缓冲区的长度"
+				showname_en="Number of data bytes in this buffer"/>
+			<fixed name="data_offset" size="short" showname_cn="首部到数据段的偏移量"
+				showname_en="Offset from header to data bytes"/>
+			<fixed name="setup_words_count" showname_cn="初始化词长度"
+				showname_en="Setup word count"/>
+			<fixed name="reserved3" showname_cn="保留(MBZ)"
+				showname_en="Reserved(MBZ)"/>
+			<if>
+				<expr oper="gt">
+					<fieldref name="setup_words_count"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="setup" varend="size" showname_cn="初始化词"
+						showname_en="Setup words">
+						<expr oper="*">
+							<fieldref name="setup_words_count"/>
+							<number value="2"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+			<fixed name="byte_count" size="short" showname_cn="字节型参数数量"
+				showname_en="Byte count"/>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="data_bytes" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<block name="smb_cmd_transaction_response" showname_cn="事务(响应)"
+			showname_en="Transaction(response)">
+			<if>
+				<expr oper="ge">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" showname_cn="双字节数"
+						showname_en="Word count"/>
+					<fixed name="max_param_count" size="short"
+						showname_cn="参数段返回的最长字节数"
+						showname_en="Max number of parameter bytes to return"/>
+					<fixed name="max_data_count" size="short"
+						showname_cn="数据段返回的最长字节数"
+						showname_en="Max number of data bytes to return"/>
+					<fixed name="reserved" size="short" showname_cn="保留(MBZ)"
+						showname_en="Reserved(MBZ)"/>
+					<fixed name="param_count" size="short" showname_cn="参数段缓冲区的长度"
+						showname_en="Number of parameter bytes in this buffer"/>
+					<fixed name="param_offset" size="short"
+						showname_cn="首部到参数段的偏移量"
+						showname_en="Offset from header to parameter bytes"/>
+					<fixed name="param_byte_disp" size="short" showname_cn="参数置换"
+						showname_en="Parameter byte displacement"/>
+					<fixed name="data_count" size="short" showname_cn="数据段缓冲区的长度"
+						showname_en="Number of data bytes in this buffer"/>
+					<fixed name="data_offset" size="short" showname_cn="首部到数据段的偏移量"
+						showname_en="Offset from header to data bytes"/>
+					<fixed name="data_byte_disp" size="short" showname_cn="数据置换"
+						showname_en="Data byte displacement"/>
+					<fixed name="setup_words_count" showname_cn="初始化词长度"
+						showname_en="Setup word count"/>
+					<fixed name="reserved3" showname_cn="保留(MBZ)"
+						showname_en="Reserved(MBZ)"/>
+					<if>
+						<expr oper="gt">
+							<fieldref name="setup_words_count"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<variable name="setup" varend="size" showname_cn="初始化词"
+								showname_en="Setup words">
+								<expr oper="*">
+									<fieldref name="setup_words_count"/>
+									<number value="2"/>
+								</expr>
+							</variable>
+						</then>
+					</if>
+					<fixed name="byte_count" size="short" showname_cn="字节型参数数量"
+						showname_en="Byte count"/>
+				</then>
+			</if>
+			
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="data_bytes" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<!-- GET FILE ATTRIBUTES -->
+		<block name="smb_cmd_get_file_attributes_request">
+			<fixed name="word_count" showname_cn="双字数" showname_en="Word count"/>
+			<fixed name="byte_count" size="short" showname_cn="字节数"
+				showname_en="Byte count"/>
+			<!-- 前面有个字节含义不明!!!!!-->
+			<variable name="filename" varend="size" showname_cn="文件名"
+				showname_en="File name">
+				<expr oper="+">
+					<expr oper="/">
+						<expr oper="@">
+							<fieldref name="byte_count"/>
+							<number value="65280"/>
+						</expr>
+						<number value="256"/>
+					</expr>
+					<expr oper="*">
+						<expr oper="@">
+							<fieldref name="byte_count"/>
+							<number value="255"/>
+						</expr>
+						<number value="256"/>
+					</expr>
+				</expr>
+			</variable>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<block name="smb_cmd_get_file_attributes_response">
+			
+			<if>
+				<expr oper="ge">
+					<innervarref type="_codedlen"/>
+					<number value="23"/>
+				</expr>
+				<then>
+					<fixed name="word_count" showname_cn="双字数"
+						showname_en="Word count"/>
+					<masked showfmt="bin" name="file_attrib" size="short"
+						showname_cn="文件属性标志"
+						showname_en="File attributesn flags">
+						<bit showfmt="bin" name="mode_flag" mask="0080"
+							showname_cn="模式标记" showname_en="Mode flag"
+							showmap="mode_flag_map"/>
+						<bit showfmt="bin" name="share_mode" mask="0040"
+							showname_cn="共享模式" showname_en="Share mode"
+							showmap="share_mode_map"/>
+						<bit showfmt="bin" name="search_arch" mask="0020"
+							showname_cn="文件查找属性4" showname_en="文件查找属性4(en)"
+							showmap="search_arch_map"/>
+						<bit showfmt="bin" name="search_dir" mask="0010"
+							showname_cn="文件查找属性3" showname_en="文件查找属性3(en)"
+							showmap="search_dir_map"/>
+						
+						<bit showfmt="bin" name="search_system" mask="0004"
+							showname_cn="文件查找属性2" showname_en="文件查找属性2(en)"
+							showmap="search_system_map"/>
+						<bit showfmt="bin" name="search_hidden" mask="0002"
+							showname_cn="文件查找属性1" showname_en="文件查找属性1(cn)"
+							showmap="search_hidden_map"/>
+						<bit showfmt="bin" name="search_readonly" mask="0001"
+							showname_cn="文件查找属性0" showname_en="文件查找属性0(en)"
+							showmap="search_readonly_map"/>
+						<bit showfmt="bin" name="share" mask="8000"
+							showname_cn="共享文件" showname_en="Share file"
+							showmap="share_map"/>
+						
+						<bit showfmt="bin" name="file_archived" mask="2000"
+							showname_cn="文件存档" showname_en="File archived"
+							showmap="file_arch_map"/>
+						<bit showfmt="bin" name="directory" mask="1000"
+							showname_cn="目录" showname_en="Directory"
+							showmap="directory_map"/>
+						<bit showfmt="bin" name="volume" mask="0800"
+							showname_cn="分区" showname_en="Volume"
+							showmap="volume_map"/>
+						<bit showfmt="bin" name="system_file" mask="0400"
+							showname_cn="系统文件" showname_en="System file"
+							showmap="system_file_map"/>
+						<bit showfmt="bin" name="hiden_file" mask="0200"
+							showname_cn="隐藏文件" showname_en="Hidden file"
+							showmap="hidden_file_map"/>
+						<bit showfmt="bin" name="read_only" mask="0100"
+							showname_cn="只读文件" showname_en="Read only"
+							showmap="read_only_map"/>
+					</masked>
+					<fixed name="file_time" size="word" showname_cn="文件时间"
+						showname_en="File time"/>
+					<fixed name="file_size" size="word" showname_cn="文件大小"
+						showname_en="File size"/>
+					<fixed name="reserved" size="short" vector="5"
+						showname_cn="保留(MBZ)" showname_en="Reserved(MBZ)"/>
+					<fixed name="byte_count" size="short" showname_cn="字节数"
+						showname_en="Byte count"/>
+				</then>
+			</if>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB数据"
+						showname_en="SMB Data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<!-- NEGOTIATE PROTOCAL (CMD)-->
+		<block name="smb_cmd_negotiate_request">
+			<fixed name="word_count" showname_cn="双字节数" showname_en="Word count"/>
+			<fixed name="byte_count" size="short" showname_cn="字节数"
+				showname_en="Byte count"/>
+			<!--	<variable name="dialects" showname_cn="提供方言表" showname_en="" varend="size" comment_cn="由 0x02+ascii字符串+0x00 组成的如干个单元组成">
+			<expr oper="=">
+			<innervarref type="_codedlen"/>
+			</expr>
+			</variable>
+			下面的loop代码在仿真端运行有问题.-->
+			<loop type="while" name="dialects" showname_cn="提供方言表"
+				showname_en="Offered dialects chart">
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<fixed name="buffer_fmt" showname_cn="缓冲区类型"
+					showname_en="Buffer format" comment_cn="必须为十六进制02"/>
+				<variable name="dialect_name" varend="sentinel" termflag="00"
+					showname_cn="提供方言" showname_en="Offered dialects"
+					showfmt="ascii"/>
+			</loop>
+		</block>
+		<!--	<block name="negotiate_dialects_list">
+		<loop type="while" name="dialects" showname_cn="提供方言表"
+		showname_en="Offered dialects chart">
+		<expr oper="1"/>
+		<fixed name="buffer_fmt" showname_cn="缓冲区类型"
+		showname_en="Buffer format" comment_cn="必须为十六进制02"/>
+		<variable name="dialect_name" varend="sentinel" termflag="00"
+		showname_cn="提供方言" showname_en="Offered dialects"
+		showfmt="ascii"/>
+		<if>
+		<expr oper="le">
+		<innervarref type="_codedlen"/>
+		<number value="0"/>
+		</expr>
+		<then>
+		<loopctrl type="break"/>
+		</then>
+		</if>
+		</loop>
+		</block>-->
+		
+		<block name="smb_cmd_negotiate_response">
+			<if>
+				<expr oper="ge">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" showname_cn="双字节数"
+						showname_en="Word count"/><!--default, not services-->
+					<fixed name="dialect_index" size="short" showname_cn="选择的方言索引"
+						showname_en="Selected Dialect index"/>
+					<if>
+						<expr oper="eq"><!--NT LM 0.12 support-->
+							<fieldref name="word_count"/>
+							<number value="17"/>
+						</expr>
+						<then>
+							<masked showfmt="bin" name="securtity_mode"
+								showname_cn="安全模式" showname_en="Security mode">
+								<bit showfmt="bin" name="user_level" mask="01"
+									showname_cn="共享模式" showname_en="Share mode"
+									showmap="negotiate_security_level_map"/>
+								<bit showfmt="bin" name="challenge_support"
+									mask="02" showname_cn="挑战响应权鉴"
+									showname_en="Challenge response authentication"
+									showmap="negotiate_security_challenge_map"/>
+								<bit showfmt="bin" name="msg_ath_ptl" mask="04"
+									showname_cn="协议信息权鉴"
+									showname_en="Message authentication protocal"
+									showmap="negotiate_security_msg_ath_proto_map"/>
+								<bit showfmt="bin" name="security_sign" mask="08"
+									showname_cn="安全签名"
+									showname_en="Security signature"
+									showmap="negotiate_security_singnatures_map"/>
+							</masked>
+							<fixed name="max_mpx_count" size="short"
+								showname_cn="最大未决mpx请求数"
+								showname_en="Max pending mpx requests"/>
+							<fixed name="max_number_vcs" size="short"
+								showname_cn="最大虚拟数"
+								showname_en="Max virtual circuits"/>
+							<fixed name="max_buf_size" size="word"
+								showname_cn="最大缓冲区大小"
+								showname_en="Max buffer size"/>
+							<fixed name="max_raw_size" size="word"
+								showname_cn="最大原始数据大小"
+								showname_en="Max raw size"/>
+							<fixed name="session_key" size="word"
+								showname_cn="会话密钥" showname_en="Session key"/>
+							<masked showfmt="bin" name="lsw" size="short"
+								showname_cn="Capabilities (LSW)"
+								showname_en="Capabilities (LSW)">
+								<bit showfmt="bin" name="lr_wu_support" mask="0001"
+									showname_cn="锁定读写解锁"
+									showname_en="Lock&amp;Read Write&amp;Unlock"
+									showmap="negotiate_lsw_lr_wu_support"/>
+								<bit showfmt="bin" name="nt_find_support"
+									mask="0002" showname_cn="NT查找"
+									showname_en="NT find"
+									showmap="negotiate_lsw_nt_support_map"/>
+								<bit showfmt="bin" name="srv_dfs_support"
+									mask="0010" showname_cn="服务器分布式文件系统(DFS)"
+									showname_en="Server DFS"
+									showmap="negotiate_lsw_srv_dfs_support_map"/>
+								<bit showfmt="bin" name="large_rx_support"
+									mask="0040" showname_cn="读AndX"
+									showname_en="Read And X"
+									showmap="negotiate_lsw_large_rx_support_map"/>
+								<bit showfmt="bin" name="rw_blk_raw" mask="0100"
+									showname_cn="块读写"
+									showname_en="Block read&amp;write"
+									showmap="negotiate_lsw_rw_blk_raw_map"/>
+								<bit showfmt="bin" name="rw_blk_mult" mask="0200"
+									showname_cn="多重块读写"
+									showname_en="Block multiplex read&amp;write"
+									showmap="negotiate_lsw_rw_blk_mult_map"/>
+								<bit showfmt="bin" name="unicode_support"
+									mask="0400" showname_cn="Unicode"
+									showname_en="Unicode"
+									showmap="negotiate_lsw_unicode_support_map"/>
+								<bit showfmt="bin" name="large_file_64offset"
+									mask="0800" showname_cn="大文件64位偏移"
+									showname_en="Large file 64 bit offset"
+									showmap="negotiate_large_file_map"/>
+								<bit showfmt="bin" name="nt_0_12_smbs" mask="1000"
+									showname_cn="NT 0.12 SMBS"
+									showname_en="NT 0.12 SMBS"
+									showmap="negotiate_lsw_nt_0_12_smbs_map"/>
+								<bit showfmt="bin" name="remote_apis_via_rpc"
+									mask="2000" showname_cn="远程APIS RPC"
+									showname_en="Remote APIS via RPC"
+									showmap="negotiate_lsw_remote_apis_via_rpc_map"/>
+								<bit showfmt="bin" name="nt_status" mask="4000"
+									showname_cn="NT状态字"
+									showname_en="NT status word"
+									showmap="negotiate_lsw_nt_status_map"/>
+								<bit showfmt="bin" name="l2_op" mask="8000"
+									showname_cn="二级锁"
+									showname_en="Level II oplock"
+									showmap="negotiate_lsw_l2_op_map"/>
+							</masked>
+							<masked showfmt="bin" name="msw" size="short"
+								showname_cn="Capabilities (MSW)"
+								showname_en="Capabilities (MSW)">
+								<bit showfmt="bin" name="blk_rw" mask="0020"
+									showname_cn="大块读写"
+									showname_en="Bulk read and write"
+									showmap="negotiate_msw_blk_rw_map"/>
+								<bit showfmt="bin" name="compress_data" mask="0040"
+									showname_cn="压缩数据传输"
+									showname_en="Compressed data transfer"
+									showmap="negotiate_msw_compress_data_map"/>
+								<bit showfmt="bin" name="ext_security" mask="0080"
+									showname_cn="扩展安全验证"
+									showname_en="Extended security validation"
+									showmap="negotiate_msw_ext_security"/>
+							</masked>
+							<fixed name="uct" size="word" vector="2"
+								showname_cn="UCT" showname_en="UCT"/>
+							<fixed name="minute_from_uct" size="short"
+								showname_cn="Minute from UCT"
+								showname_en="Minute from UCT"/>
+							<fixed name="encryption_key_len" showname_cn="密钥长度"
+								showname_en="Encryption key length"/>
+							<fixed name="byte_count" size="short" showname_cn="字节数"
+								showname_en="Byte count"/>
+							<if>
+								<expr oper="gt">
+									<fieldref name="encryption_key_len"/>
+									<number value="0"/>
+								</expr>
+								<then>
+									<variable name="encryption_key" varend="size"
+										showname_cn="密匙"
+										showname_en="Encryption key">
+										<expr oper="=">
+											<fieldref name="encryption_key_len"/>
+										</expr>
+									</variable>
+								</then>
+							</if>
+							<variable name="server_domain_name" varend="size"
+								showname_cn="服务器的主域"
+								showname_en="Server's primary domain">
+								<expr oper="-">
+									<expr oper="+">
+										<expr oper="/">
+											<expr oper="@">
+												<fieldref name="byte_count"/>
+												<number value="65280"/>
+												<!-- FF00 -->
+											</expr>
+											<number value="256"/>
+										</expr>
+										<expr oper="*">
+											<expr oper="@">
+												<fieldref name="byte_count"/>
+												<number value="255"/>
+											</expr>
+											<number value="256"/>
+										</expr>
+									</expr>
+									<fieldref name="encryption_key_len"/>
+								</expr>
+							</variable>
+							
+							<!--前端有个字节含义未知.纳入server_domain_name-->
+						</then>
+						<else>
+							<if><!--LANMAN2.1 support 没有测试数据,以下内容仅根据cifs参考加入.-->
+								<expr oper="eq">
+									<fieldref name="word_count"/>
+									<number value="13"/>
+								</expr>
+								<then>
+									<masked showfmt="bin" name="securtity_mode"
+										showname_cn="安全模式"
+										showname_en="Security mode">
+										<bit showfmt="bin" name="user_level"
+											mask="01" showname_cn="共享模式"
+											showname_en="Share mode"
+											showmap="negotiate_security_level_map"/>
+										<bit showfmt="bin"
+											name="challenge_support" mask="02"
+											showname_cn="挑战响应权鉴"
+											showname_en="Challenge response authentication"
+											showmap="negotiate_security_challenge_map"/>
+										
+									</masked>
+									<fixed name="max_buf_size" size="word"
+										showname_cn="最大缓冲区大小"
+										showname_en="Max buffer size"/>
+									<fixed name="max_mpx_count" size="short"
+										showname_cn="最大未决mpx请求数"
+										showname_en="Max pending mpx requests"/>
+									<fixed name="max_number_vcs" size="short"
+										showname_cn="最大虚拟数"
+										showname_en="Max virtual circuits"/>
+									<masked showfmt="bin" name="raw_mode"
+										size="short" showname_cn="原始模式"
+										showname_en="Raw modes">
+										<bit showfmt="bin" name="r_raw_spt"
+											mask="0100" showname_cn="原始读"
+											showname_en="Read raw"
+											showmap="negotiate_raw_r_map"/>
+										<bit showfmt="bin" name="w_raw_spt"
+											mask="0200" showname_cn="原始写"
+											showname_en="Write raw"
+											showmap="negotiate_raw_w_map"/>
+									</masked>
+									<fixed name="uct" size="word" vector="2"
+										showname_cn="UCT" showname_en="UCT"/>
+									<fixed name="minute_from_uct" size="short"
+										showname_cn="Minute from UCT"
+										showname_en="Minute from UCT"/>
+									<fixed name="encryption_key_len" size="short"
+										showname_cn="密匙长度"
+										showname_en="Encryption key length"/>
+									<fixed name="reserved" size="short"
+										showname_cn="保留(MBZ)"
+										showname_en="Reserved(MBZ)"/>
+									
+									<fixed name="byte_count" size="short"
+										showname_cn="字节数"
+										showname_en="Byte count"/>
+									<if>
+										<expr oper="gt">
+											<fieldref name="encryption_key_len"/>
+											<number value="0"/>
+										</expr>
+										<then>
+											<variable name="encryption_key"
+												varend="size" showname_cn="密匙"
+												showname_en="Encryption key">
+												<expr oper="+">
+													<expr oper="/">
+														<expr oper="@">
+															<fieldref
+																name="encryption_key_len"/>
+															<number
+																value="65280"/>
+														</expr>
+														<number value="256"/>
+													</expr>
+													<expr oper="*">
+														<expr oper="@">
+															<fieldref
+																name="encryption_key_len"/>
+															<number value="255"/>
+														</expr>
+														<number value="256"/>
+													</expr>
+												</expr>
+											</variable>
+										</then>
+									</if>
+									<variable name="server_domain_name"
+										varend="size" showname_cn="服务端主域"
+										showname_en="Server's primary domain">
+										<expr oper="-">
+											<expr oper="+">
+												<expr oper="/">
+													<expr oper="@">
+														<fieldref
+															name="byte_count"/>
+														<number value="65280"/>
+													</expr>
+													<number value="256"/>
+												</expr>
+												<expr oper="*">
+													<expr oper="@">
+														<fieldref
+															name="byte_count"/>
+														<number value="255"/>
+													</expr>
+													<number value="256"/>
+												</expr>
+											</expr>
+											<expr oper="+">
+												<expr oper="/">
+													<expr oper="@">
+														<fieldref
+															name="encryption_key_len"/>
+														<number value="65280"/>
+													</expr>
+													<number value="256"/>
+												</expr>
+												<expr oper="*">
+													<expr oper="@">
+														<fieldref
+															name="encryption_key_len"/>
+														<number value="255"/>
+													</expr>
+													<number value="256"/>
+												</expr>
+											</expr>
+										</expr>
+									</variable>
+								</then>
+								<else>
+									<fixed name="byte_count" size="short"
+										showname_cn="字节数"
+										showname_en="Byte count"/>
+								</else>
+							</if>
+						</else>
+					</if>
+				</then>
+			</if>
+			
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<!--NT CANCEL-->
+		<block name="smb_cmd_nt_cancel">
+			<if>
+				<expr oper="ge">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" showname_cn="双字节数"
+						showname_en="Word count"/>
+					<checkfield name="chk_word_count">
+						<expr oper="eq">
+							<fieldref name="word_count"/>
+							<number value="0"/>
+						</expr>
+					</checkfield>
+					<fixed name="byte_count" size="short" showname_cn="字节数"
+						showname_en="Byte count"/>
+					<checkfield name="chk_byte_count">
+						<expr oper="eq">
+							<fieldref name="byte_count"/>
+							<number value="0"/>
+						</expr>
+					</checkfield>
+				</then>
+			</if>
+			
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<!--CREATE AND X-->
+		
+		<block name="smb_cmd_nt_create_andx_request">
+			<fixed name="word_count" showname_cn="双字数" showname_en="Word count"/>
+			<fixed name="andx_cmd" showname_cn="And X 命令"
+				showname_en="And X command" showmap="andx_cmd_map"/>
+			<fixed name="andx_reserved" showname_cn="保留(MBZ)"
+				showname_en="Reserved"/>
+			<fixed name="andx_offset" size="short" showname_cn="AndX偏移量"
+				showname_en="Offset from AndX"/>
+			<fixed name="reserved" showname_cn="保留(MBZ)" showname_en="Reserved"/>
+			<fixed name="name_length" size="short" showname_cn="名字长度"
+				showname_en="Name length"/>
+			<masked showfmt="bin" name="flag" size="word" showname_cn="标志"
+				showname_en="Flag">
+				<!--下面3组showname 个人添加-->
+				<bit showfmt="bin" name="oplock_req" mask="02000000"
+					showname_cn="单随机锁" showname_en="single oplock"
+					showmap="nt_create_andx_oplock_req_map"/>
+				<bit showfmt="bin" name="batch_oplock" mask="04000000"
+					showname_cn="批随机缩" showname_en="batch oplock"
+					showmap="nt_create_andx_batch_oplock_map"/>
+				<bit showfmt="bin" name="targ_open_dir" mask="08000000"
+					showname_cn="目标" showname_en="Targe"
+					showmap="nt_create_andx_target_oper_dir_map"/>
+			</masked>
+			<fixed name="root_dir_fid" size="word" showname_cn="根目录FID"
+				showname_en="Root directory FID"/>
+			<masked showfmt="bin" name="desired_access" size="word"
+				showname_cn="期望权限" showname_en="DesiredAccess">
+				<bit showfmt="bin" name="write_owner" mask="00000800"
+					showname_cn="WriteOwner" showname_en="WriteOwner"
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="write_dac" mask="00000400"
+					showname_cn="WriteDac" showname_en="WriteDac"
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="read_ctrl" mask="00000200"
+					showname_cn="ReadControl" showname_en="ReadControl"
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="delete" mask="00000100"
+					showname_cn="Delete" showname_en="Delete"
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="write_attr" mask="00010000"
+					showname_cn="WriteAttributes" showname_en="WriteAttributes"
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="read_attr" mask="80000000"
+					showname_cn="ReadAttributes" showname_en="ReadAttributes"
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="exe_tra_dir" mask="20000000"
+					showname_cn="Execute/TraverseDir"
+					showname_en="Execute/TraverseDir" showmap="effect_map"/>
+				<bit showfmt="bin" name="write_ea" mask="10000000"
+					showname_cn="WriteEa" showname_en="WriteEa"
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="read_ea" mask="08000000"
+					showname_cn="ReadEa" showname_en="ReadEa"
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="app_data" mask="04000000"
+					showname_cn="AppendData" showname_en="AppendData"
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="write_data" mask="02000000"
+					showname_cn="WriteData" showname_en="WriteData"
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="read_data_list_dir" mask="01000000"
+					showname_cn="ReadData/ListDir" showname_en="ReadData/ListDir"
+					showmap="effect_map"/>
+			</masked>
+			<!--下面的allocation size 在原文档中文 File Setup size-->
+			<fixed name="allcation_size" size="word" vector="2" showname_cn="文件初始大小"
+				showname_en="Allocation size"/>
+			<masked showfmt="bin" name="file_attrib" size="word" showname_cn="文件属性"
+				showname_en="File attributes">
+				<!-- 该字段含义待商议 -->
+				<bit showfmt="bin" name="mode_flag" mask="80000000"
+					showname_cn="模式标记" showname_en="Mode flag"
+					showmap="mode_flag_map"/>
+				<!--该字段名称待商议-->
+				<bit showfmt="bin" name="device" mask="40000000" showname_cn="设备"
+					showname_en="Device" showmap="dev_map"/>
+				<bit showfmt="bin" name="file_archived" mask="20000000"
+					showname_cn="文件存档" showname_en="File archived"
+					showmap="file_archived_map"/>
+				<bit showfmt="bin" name="directory" mask="10000000" showname_cn="目录"
+					showname_en="Directory" showmap="directory_map"/>
+				<bit name="volume" mask="08000000" showname_cn="分区"
+					showname_en="Volume" showmap="volume_map"/>
+				<bit name="system_file" mask="04000000" showname_cn="系统文件"
+					showname_en="System file" showmap="system_file_map"/>
+				<bit name="hiden_file" mask="02000000" showname_cn="隐藏文件"
+					showname_en="Hidden file" showmap="hidden_file_map"/>
+				<bit showfmt="bin" name="read_only" mask="01000000"
+					showname_cn="只读文件" showname_en="Read only"
+					showmap="read_only_map"/>
+			</masked>
+			<masked showfmt="bin" name="share_access" size="word" showname_cn="共享权限"
+				showname_en="Share access">
+				<bit showfmt="bin" name="share_r" mask="01000000" showname_cn="共享读"
+					showname_en="FILE_SHARE_READ"
+					showmap="nt_create_andx_share_r_map"/>
+				<bit showfmt="bin" name="share_w" mask="02000000" showname_cn="共享写"
+					showname_en="FILE_SHARE_WRITE"
+					showmap="nt_create_andx_share_w_map"/>
+				<bit showfmt="bin" name="share_del" mask="04000000"
+					showname_cn="共享删除" showname_en="FILE_SHARE_DELETE"
+					showmap="nt_create_andx_share_del_map"/>
+			</masked>
+			<fixed name="nt_disposition" size="word" showname_cn="NT系统部署字段"
+				showname_en="NT disposition"
+				showmap="nt_create_andx_nt_disposition_map"/>
+			<masked showfmt="bin" name="options" size="word" showname_cn="选项字段"
+				showname_en="Options">
+				<bit showfmt="bin" name="close_del" mask="00100000"
+					showname_cn="关闭后删除" showname_en="Delete on close"
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="rand_rw" mask="00080000" showname_cn="随机读写"
+					showname_en="Random access" showmap="effect_map"/>
+				<bit showfmt="bin" name="fmt_8_3" mask="00040000"
+					showname_cn="仅支持8.3格式" showname_en="8.3 format only"
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="not_ea" mask="00020000" showname_cn="不支持EA"
+					showname_en="No EA knowledge" showmap="effect_map"/>
+				<bit showfmt="bin" name="not_dir" mask="40000000"
+					showname_cn="非目录文件" showname_en="Sequential only"
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="only_seq" mask="04000000" showname_cn="仅连续"
+					showname_en="Write through" showmap="effect_map"/>
+				<bit showfmt="bin" name="write_though" mask="02000000"
+					showname_cn="贯穿写" showname_en="Directory file"
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="file_dir" mask="01000000"
+					showname_cn="目录文件" showname_en="Directory file"/>
+			</masked>
+			<fixed name="impersonation_level" size="word" showname_cn="扮演级别"
+				showname_en="Impersonation level"
+				showmap="ceate_andx_impersonation_level_map"/>
+			<!-- 下面的标志位原意不清楚.使用cifs中原有标记-->
+			<masked showfmt="bin" name="security_flags" showname_cn="安全标志"
+				showname_en="Security flags">
+				<bit showfmt="bin" name="security_track" mask="01"
+					showname_cn="SECURITY_CONTEXT_TRACKING"
+					showname_en="SECURITY_CONTEXT_TRACKING"/>
+				<bit showfmt="bin" name="security_effect" mask="02"
+					showname_cn="SECURITY_EFFECTIVE_ONLY"
+					showname_en="SECURITY_EFFECTIVE_ONLY"/>
+			</masked>
+			<fixed name="fixedtmp" size="short" showname_cn="" showname_en=""
+				temp="yes"/>
+			<fixed name="byte_count" size="short" showname_cn="字节数"
+				showname_en="Byte count"/>
+			<variable name="file_name" varend="size" showname_cn="文件名"
+				showname_en="File name">
+				<expr oper="+">
+					<expr oper="/">
+						<expr oper="@">
+							<fieldref name="fixedtmp"/>
+							<number value="65280"/>
+							<!-- FF00 -->
+						</expr>
+						<number value="256"/>
+					</expr>
+					<expr oper="*">
+						<expr oper="@">
+							<fieldref name="fixedtmp"/>
+							<number value="255"/>
+						</expr>
+						<number value="256"/>
+					</expr>
+				</expr>
+			</variable>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<block name="smb_cmd_nt_create_andx_response">
+			<if>
+				<expr oper="ge">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" showname_cn="双字节数"
+						showname_en="Word count"/>
+					<fixed name="andx_cmd" showname_cn="And X 命令"
+						showname_en="And X command" showmap="andx_cmd_map"/>
+					<fixed name="andx_reserved" showname_cn="保留(MBZ)"
+						showname_en="Reserved"/>
+					<fixed name="andx_offset" size="short" showname_cn="AndX偏移量"
+						showname_en="Offset from ANDX"/>
+					<fixed name="oplock_level" showname_cn="Oplock等级"
+						showname_en="Oplock level"/>
+					<fixed name="file_id" size="short" showname_cn="文件句柄"
+						showname_en="File ID"/>
+					<fixed name="nt_disposition" size="word" showname_cn="NT系统部署字段"
+						showname_en="NT disposition"
+						showmap="nt_create_andx_nt_disposition_map"/>
+					<fixed name="create_time" size="word" vector="2"
+						showname_cn="创建时间" showname_en="Create time"/>
+					<fixed name="last_access_time" size="word" vector="2"
+						showname_cn="最后访问时间" showname_en="Last access time"/>
+					<fixed name="last_write_time" size="word" vector="2"
+						showname_cn="最后写时间" showname_en="Last write time"/>
+					<fixed name="last_change_time" size="word" vector="2"
+						showname_cn="最后修改时间" showname_en="Last change time"/>
+					
+					<masked showfmt="bin" name="file_attrib" size="word"
+						showname_cn="文件属性标记" showname_en="File attributes">
+						<bit showfmt="bin" name="mode_flag" mask="80000000"
+							showname_cn="模式标记" showname_en="Mode flag"
+							showmap="mode_flag_map"/>
+						<!--该字段名称待商议-->
+						<bit showfmt="bin" name="device" mask="40000000"
+							showname_cn="设备" showname_en="Device"
+							showmap="dev_map"/>
+						<bit showfmt="bin" name="file_archived" mask="20000000"
+							showname_cn="文件存档" showname_en="File archived"
+							showmap="file_archived_map"/>
+						<bit showfmt="bin" name="directory" mask="10000000"
+							showname_cn="目录" showname_en="Directory"
+							showmap="directory_map"/>
+						<bit showfmt="bin" name="volume" mask="08000000"
+							showname_cn="分区" showname_en="Volume"
+							showmap="volume_map"/>
+						<bit showfmt="bin" name="system_file" mask="04000000"
+							showname_cn="系统文件" showname_en="System file"
+							showmap="system_file_map"/>
+						<bit showfmt="bin" name="hiden_file" mask="02000000"
+							showname_cn="隐藏文件" showname_en="Hidden file"
+							showmap="hidden_file_map"/>
+						<bit showfmt="bin" name="read_only" mask="01000000"
+							showname_cn="只读文件" showname_en="Read only"
+							showmap="read_only_map"/>
+					</masked>
+					<fixed name="allocation_size" size="word" vector="2"
+						showname_cn="大小" showname_en="Alloction size"/>
+					<fixed name="end_file_offset" size="word" vector="2"
+						showname_cn="文件结束的偏移量" showname_en="End of file offset"/>
+					<fixed name="file_type" size="short" showname_cn="文件类型"
+						showname_en="File type"
+						showmap="create_andx_file_type_map"/>
+					<if>
+						<expr oper="||">
+							<expr oper="eq">
+								<fieldref name="file_type"/>
+								<number value="256"/>
+							</expr>
+							<expr oper="eq">
+								<fieldref name="file_type"/>
+								<number value="512"/>
+							</expr>
+						</expr>
+						<then>
+							<fixed name="pipe_num" size="byte" showname_cn="管道数"
+								showname_en="Pipe instancing count"/>
+							<fixed name="pipe_state" size="byte"
+								showname_cn="IPC状态位"
+								showname_en="IPC state bits"/>
+						</then>
+					</if>
+				</then>
+			</if>
+			<!--在这之后到 bytecount之间的数据无法对应. 纳入smb data中-->
+			<variable name="smb_data" varend="size" showname_cn="SMB 数据"
+				showname_en="SMB data">
+				<expr oper="=">
+					<innervarref type="_codedlen"/>
+				</expr>
+			</variable>
+		</block>
+		
+		<block name="smb_cmd_tree_disconnect">
+			<if>
+				<expr oper="ge">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" showname_cn="双字节数"
+						showname_en="Word count"/>
+					<checkfield name="chk_word_count">
+						<expr oper="eq">
+							<fieldref name="word_count"/>
+							<number value="0"/>
+						</expr>
+					</checkfield>
+					<fixed name="byte_count" size="short" showname_cn="字节数"
+						showname_en="Byte count"/>
+					<checkfield name="chk_byte_count">
+						<expr oper="eq">
+							<fieldref name="byte_count"/>
+							<number value="0"/>
+						</expr>
+					</checkfield>
+				</then>
+			</if>
+			
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<!-- CLOSE AND TREE DISCONNECT --><!-- 无参照数据...未测试 -->
+		<block name="smb_cmd_close_and_tree_disconnect_request">
+			<fixed name="word_count" showname_cn="双字节数" showname_en="Word count"/>
+			<checkfield name="chk_word_count">
+				<expr oper="eq">
+					<fieldref name="word_count"/>
+					<number value="3"/>
+				</expr>
+			</checkfield>
+			<fixed name="fid" size="short" showname_cn="文件ID"
+				showname_en="File ID"/>
+			<fixed name="last_write_time" size="word" showname_cn="文件最后写时间"
+				showname_en="Last write time"/>
+			<fixed name="byte_count" showname_cn="字节数" showname_en="Byte count"/>
+			<checkfield name="chk_byte_count">
+				<expr oper="eq">
+					<fieldref name="byte_count"/>
+					<number value="0"/>
+				</expr>
+			</checkfield>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<block name="smb_cmd_close_and_tree_disconnect_response">
+			<if>
+				<expr oper="ge">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" showname_cn="双字节数"
+						showname_en="Word count"/>
+					<checkfield name="chk_word_count">
+						<expr oper="eq">
+							<fieldref name="word_count"/>
+							<number value="0"/>
+						</expr>
+					</checkfield>
+					<fixed name="byte_count" showname_cn="字节数"
+						showname_en="Byte count"/>
+					<checkfield name="chk_byte_count">
+						<expr oper="eq">
+							<fieldref name="byte_count"/>
+							<number value="0"/>
+						</expr>
+					</checkfield>
+				</then>
+			</if>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<!-- TREE CONNECT AND X-->
+		<block name="smb_cmd_tree_connect_andx_request">
+			<fixed name="word_count" showname_cn="双字节数" showname_en="Word count"/>
+			<checkfield name="chk_word_count">
+				<expr oper="eq">
+					<fieldref name="word_count"/>
+					<number value="4"/>
+				</expr>
+			</checkfield>
+			<fixed name="andx_command" showname_cn="AndX命令"
+				showname_en="AndX command" showmap="andx_cmd_map"/>
+			<fixed name="andx_reserved" showname_cn="保留(MBZ)"
+				showname_en="Reserved"/>
+			<fixed name="andx_offset" size="short" showname_cn="andx命令偏移"
+				showname_en="AndX offset"/>
+			<masked showfmt="bin" name="flags" size="short" showname_cn="详细信息"
+				showname_en="Additional information">
+				<bit showfmt="bin" name="disconnect_tid" mask="0100"
+					showname_cn="分离TID" showname_en="Disconnect TID"
+					showmap="effect_map"/>
+			</masked>
+			<fixed name="fixedtmp0" size="short" showname_cn="" showname_en=""
+				temp="yes"/>
+			<fixed name="pwd_len" size="short" showname_cn="密码长度"
+				showname_en="Password length"/>
+			<fixed name="fixedtmp" size="short" showname_cn="" showname_en=""
+				temp="yes"/>
+			<fixed name="byte_count" size="short" showname_cn="字节数"
+				showname_en="Byte count"/>
+			<variable name="pwd" varend="size" showname_cn="密码"
+				showname_en="Password">
+				<expr oper="+">
+					<expr oper="/">
+						<expr oper="@">
+							<fieldref name="fixedtmp0"/>
+							<number value="65280"/>
+							<!-- FF00 -->
+						</expr>
+						<number value="256"/>
+					</expr>
+					<expr oper="*">
+						<expr oper="@">
+							<fieldref name="fixedtmp0"/>
+							<number value="255"/>
+						</expr>
+						<number value="256"/>
+					</expr>
+				</expr>
+			</variable>
+			<!--由于下面的path和service可以使用unicode所以将其做到一起.-->
+			<variable name="path_and_service" varend="size" showname_cn="路径&amp;服务"
+				showname_en="Path&amp;Service">
+				<expr oper="-">
+					<expr oper="+">
+						<expr oper="/">
+							<expr oper="@">
+								<fieldref name="fixedtmp"/>
+								<number value="65280"/>
+								<!-- FF00 -->
+							</expr>
+							<number value="256"/>
+						</expr>
+						<expr oper="*">
+							<expr oper="@">
+								<fieldref name="fixedtmp"/>
+								<number value="255"/>
+							</expr>
+							<number value="256"/>
+						</expr>
+					</expr>
+					<expr oper="+">
+						<expr oper="/">
+							<expr oper="@">
+								<fieldref name="fixedtmp0"/>
+								<number value="65280"/>
+								<!-- FF00 -->
+							</expr>
+							<number value="256"/>
+						</expr>
+						<expr oper="*">
+							<expr oper="@">
+								<fieldref name="fixedtmp0"/>
+								<number value="255"/>
+							</expr>
+							<number value="256"/>
+						</expr>
+					</expr>
+				</expr>
+			</variable>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<block name="smb_cmd_tree_connect_andx_response">
+			<if>
+				<expr oper="eq">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" showname_cn="双字节数"
+						showname_en="Word count"/>
+					<fixed name="andx_cmd" showname_cn="AndX命令"
+						showname_en="AndX comand" showmap="andx_cmd_map"/>
+					<fixed name="andx_reserved" showname_cn="保留(MBZ)"
+						showname_en="Reserved"/>
+					<fixed name="andx_offset" size="short" showname_cn="AndX 偏移"
+						showname_en="AndX offset"/>
+				</then>
+			</if>
+			
+			<!--			<!-#-下面的10个字节含义未知-#->
+			<fixed name="unknown" size="short" vector="5" showname_cn="unknown" showname_en="unknown"/>
+			
+			
+			
+			
+			
+			
+			<fixed name="byte_count" size="short" showname_cn="字节数" showname_en="Byte count"/>-->
+			<variable name="smb_data" varend="size" showname_cn="SMB数据"
+				showname_en="SMB data">
+				<expr oper="=">
+					<innervarref type="_codedlen"/>
+				</expr>
+			</variable>
+		</block>
+		
+		<!-- NT Tranact--><!--无参考文档.采用sniffer及硬编码格式编写,未对function进行扩展.(上层协议)-->
+		<block name="smb_cmd_nt_transact_request">
+			<fixed name="word_count" showname_cn="双字节数" showname_en="Word count"/>
+			<fixed name="max_setup_count" showname_cn="最大设置字数量"
+				showname_en="Max setup count"/>
+			<fixed name="flag" size="short" showname_cn="标志" showname_en="Flags"/>
+			<fixed name="total_param_count" size="word" showname_cn="总参数数量"
+				showname_en="Total parameter counnt"/>
+			<fixed name="total_data_count" size="word" showname_cn="总数据数量"
+				showname_en="Total data count"/>
+			<fixed name="max_parameter_count" size="word" showname_cn="最大参数个数"
+				showname_en="Max parameter count"/>
+			<fixed name="max_data_count" size="word" showname_cn="最大数据个数"
+				showname_en="Max data count"/>
+			<fixed name="param_count" size="word" showname_cn="参数数量"
+				showname_en="Parameters count"/>
+			<fixed name="param_offset" size="word" showname_cn="参数偏移"
+				showname_en="Parameter offset"/>
+			<fixed name="data_count" size="word" showname_cn="数据数量"
+				showname_en="Data count"/>
+			<fixed name="data_offset" size="word" showname_cn="数据偏移"
+				showname_en="Data offset"/>
+			<fixed name="setup_count" showname_cn="设置量" showname_en="Setup count"/>
+			<fixed name="function" size="short" showname_cn="功能"
+				showname_en="Function" showmap="nt_transact_fun_map"/>
+			<variable name="setup_word" varend="size" showname_cn="设置字"
+				showname_en="Setup word">
+				<expr oper="*">
+					<fieldref name="setup_count"/>
+					<number value="2"/>
+				</expr>
+			</variable>
+			<fixed name="byte_count" size="short" showname_cn="字节数"
+				showname_en="Byte count"/>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<block name="smb_cmd_nt_transact_response">
+			<if>
+				<expr oper="eq">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" showname_cn="双字节数"
+						showname_en="Word count"/>
+					<fixed name="reserved11" size="byte" vector="3"
+						showname_cn="保留(MBZ)" showname_en="Reserved(MBZ)"/>
+					<fixed name="total_param_count" size="word" showname_cn="总参数数量"
+						showname_en="Total parameter counnt"/>
+					<fixed name="total_data_count" size="word" showname_cn="总数据数量"
+						showname_en="Total data count"/>
+					<fixed name="param_count" size="word" showname_cn="参数数量"
+						showname_en="Parameters count"/>
+					<fixed name="param_offset" size="word" showname_cn="参数偏移"
+						showname_en="Parameter offset"/>
+					<fixed name="param_displacement" size="word" showname_cn="参数置换"
+						showname_en="Parameter displacement"/>
+					<fixed name="data_count" size="word" showname_cn="数据数量"
+						showname_en="Data count"/>
+					<fixed name="data_offset" size="word" showname_cn="数据偏移"
+						showname_en="Data offset"/>
+					<fixed name="data_displacement" size="word" showname_cn="数据置换"
+						showname_en="Datadisplacement"/>
+					<fixed name="setup_count" showname_cn="设置字数量"
+						showname_en="Setup count"/>
+					<if>
+						<expr oper="gt">
+							<fieldref name="setup_count"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<variable name="setup_word" varend="size"
+								showname_cn="设置字" showname_en="Setup words">
+								<expr oper="*">
+									<fieldref name="setup_count"/>
+									<number value="2"/>
+								</expr>
+							</variable>
+						</then>
+					</if>
+					<fixed name="byte_count" size="short" showname_cn="字节数"
+						showname_en="byte count"/>
+				</then>
+			</if>
+			
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<!---->
+		<block name="smb_cmd_open_andx_request">
+			<fixed name="word_count" showname_cn="双字节数" showname_en="Word count"/>
+			<fixed name="andx_cmd" showname_cn="AndX 命令" showname_en="AndX command"
+				showmap="andx_cmd_map"/>
+			<fixed name="andx_reserved" showname_cn="保留(MBZ)"
+				showname_en="Reserved"/>
+			<fixed name="andx_offset" size="short" showname_cn="AndX 命令偏移"
+				showname_en="AndX offset"/>
+			<masked showfmt="bin" name="open_flags" size="short" showname_cn="打开标记"
+				showname_en="Open flags">
+				<bit showfmt="bin" name="return_addition_info" mask="0100"
+					showname_cn="返回详细信息"
+					showname_en="Return addition information."
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="single_user" mask="0200"
+					showname_cn="设定用户锁"
+					showname_en="Set single user total file lock."
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="notify" mask="0400"
+					showname_cn="试图进行任何修改时通告"
+					showname_en="Notify Consumer on attempt to modify file."
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="total_len_ea" mask="0800"
+					showname_cn="为文件返回EA总长度"
+					showname_en="Return total length of EA's for file"
+					showmap="effect_map"/>
+			</masked>
+			<masked showfmt="bin" name="file_open_mode" size="short"
+				showname_cn="文件打开模式" showname_en="File open mode">
+				<bit showfmt="bin" name="write_through" mask="0004"
+					showname_cn="写贯穿模式" showname_en="Write through mode"
+					showmap="effect_map"/>
+				<bit showfmt="bin" name="cache_data" mask="0001"
+					showname_cn="在文件中缓存数据" showname_en="Cache data in this file"
+					showmap="effect_map"/>
+				<!--<bit showfmt="bin" name="" mask="7000" showname_cn="" showname_en=""/>				
+				
+				
+				
+				<bit showfmt="bin" name="" mask="0700" showname_cn="" showname_en=""/> 此处两个3位掩码暂时不译-->
+			</masked>
+			<!--下面的两个属性可以做成includeblk但名称受到限制-->
+			<masked showfmt="bin" name="search_attr" size="short"
+				showname_cn="文件查找属性" showname_en="Search attributes">
+				<bit showfmt="bin" name="mode_flag" mask="0080" showname_cn="模式标记"
+					showname_en="Mode flag" showmap="mode_flag_map"/>
+				<bit showfmt="bin" name="share_mode" mask="0040" showname_cn="共享模式"
+					showname_en="Share mode" showmap="share_mode_map"/>
+				<bit showfmt="bin" name="search_arch" mask="0020"
+					showname_cn="文件查找属性4" showname_en="文件查找属性4(en)"
+					showmap="search_arch_map"/>
+				<bit showfmt="bin" name="search_dir" mask="0010"
+					showname_cn="文件查找属性3" showname_en="文件查找属性3(en)"
+					showmap="search_dir_map"/>
+				<bit showfmt="bin" name="search_system" mask="0004"
+					showname_cn="文件查找属性2" showname_en="文件查找属性2(en)"
+					showmap="search_system_map"/>
+				<bit showfmt="bin" name="search_hidden" mask="0002"
+					showname_cn="文件查找属性1" showname_en="文件查找属性1(cn)"
+					showmap="search_hidden_map"/>
+				<bit showfmt="bin" name="search_readonly" mask="0001"
+					showname_cn="文件查找属性0" showname_en="文件查找属性0(en)"
+					showmap="search_readonly_map"/>
+				<bit showfmt="bin" name="share" mask="8000" showname_cn="共享文件"
+					showname_en="Share file" showmap="share_map"/>
+				<bit showfmt="bin" name="file_archived" mask="2000"
+					showname_cn="文件存档" showname_en="File archived"/>
+				<bit showfmt="bin" name="directory" mask="1000" showname_cn="目录"
+					showname_en="Directory"/>
+				<bit showfmt="bin" name="volume" mask="0800" showname_cn="分区"
+					showname_en="Volume"/>
+				<bit showfmt="bin" name="system_file" mask="0400" showname_cn="系统文件"
+					showname_en="System file" showmap="system_file_map"/>
+				<bit showfmt="bin" name="hiden_file" mask="0200" showname_cn="隐藏文件"
+					showname_en="Hidden file" showmap="hidden_file_map"/>
+				<bit showfmt="bin" name="read_only" mask="0100" showname_cn="只读文件"
+					showname_en="Read only" showmap="read_only_map"/>
+			</masked>
+			<masked showfmt="bin" name="attr_flag" size="short" showname_cn="文件属性标志"
+				showname_en="File attributesn flags">
+				<bit showfmt="bin" name="mode_flag" mask="0080" showname_cn="模式标记"
+					showname_en="Mode flag" showmap="mode_flag_map"/>
+				<bit showfmt="bin" name="share_mode" mask="0040" showname_cn="共享模式"
+					showname_en="Share mode" showmap="share_mode_map"/>
+				<bit showfmt="bin" name="search_arch" mask="0020"
+					showname_cn="文件查找属性4" showname_en="文件查找属性4(en)"
+					showmap="search_arch_map"/>
+				<bit showfmt="bin" name="search_dir" mask="0010"
+					showname_cn="文件查找属性3" showname_en="文件查找属性3(en)"
+					showmap="search_dir_map"/>
+				<bit showfmt="bin" name="search_system" mask="0004"
+					showname_cn="文件查找属性2" showname_en="文件查找属性2(en)"
+					showmap="search_system_map"/>
+				<bit showfmt="bin" name="search_hidden" mask="0002"
+					showname_cn="文件查找属性1" showname_en="文件查找属性1(cn)"
+					showmap="search_hidden_map"/>
+				<bit showfmt="bin" name="search_readonly" mask="0001"
+					showname_cn="文件查找属性0" showname_en="文件查找属性0(en)"
+					showmap="search_readonly_map"/>
+				<bit showfmt="bin" name="share" mask="8000" showname_cn="共享文件"
+					showname_en="Share file" showmap="share_map"/>
+				<bit showfmt="bin" name="file_archived" mask="2000"
+					showname_cn="文件存档" showname_en="File archived"/>
+				<bit showfmt="bin" name="directory" mask="1000" showname_cn="目录"
+					showname_en="Directory"/>
+				<bit showfmt="bin" name="volume" mask="0800" showname_cn="分区"
+					showname_en="Volume"/>
+				<bit showfmt="bin" name="system_file" mask="0400" showname_cn="系统文件"
+					showname_en="System file" showmap="system_file_map"/>
+				<bit showfmt="bin" name="hiden_file" mask="0200" showname_cn="隐藏文件"
+					showname_en="Hidden file" showmap="hidden_file_map"/>
+				<bit showfmt="bin" name="read_only" mask="0100" showname_cn="只读文件"
+					showname_en="Read only" showmap="read_only_map"/>
+			</masked>
+			
+			<fixed name="create_date" size="word" showname_cn="创建日期"
+				showname_en="Create date"/>
+			<masked showfmt="bin" name="open_fun" size="short" showname_cn="打开操作标志"
+				showname_en="Open function">
+				<bit showfmt="bin" name="if_file_no_exist_do_what" mask="1000"
+					showname_cn="文件不存在" showname_en="File doesn't exist"
+					showmap="open_andx_if_file_not_exists_do_what_map"/>
+				<bit showfmt="bin" name="if_file_exist_do_what" mask="0300"
+					showname_cn="文件存在" showname_en="File exists"
+					showmap="open_andx_if_file_exists_do_what_map"/>
+			</masked>
+			<fixed name="byte_to_reserved_on_create/truncate" size="word"
+				showname_cn="创建或清空时要保留的字节数"
+				showname_en="Byte to reserved on create/truncate"/>
+			<fixed name="time_out" size="word" showname_cn="超时"
+				showname_en="Time out"/>
+			<fixed name="reserved" size="word" showname_cn="保留(MBZ)"
+				showname_en="Reserved(MBZ)"/>
+			<fixed name="byte_count" size="short" showname_cn="字节数"
+				showname_en="Byte count"/>
+			<if>
+				<expr oper="ge">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<block name="smb_cmd_open_andx_response">
+			<if>
+				<expr oper="eq">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" showname_cn="双字参数"
+						showname_en="Word count"/>
+					<fixed name="andx_cmd" showname_cn="AndX 命令"
+						showname_en="AndX command" showmap="andx_cmd_map"/>
+					<fixed name="andx_reserved" showname_cn="保留(MBZ)"
+						showname_en="Reserved(MBZ)"/>
+					<fixed name="andx_offset" size="short" showname_cn="AndX命令偏移"
+						showname_en="AndX offset"/>
+					<fixed name="file_handle" size="short" showname_cn="文件句柄"
+						showname_en="File handle"/>
+					<masked showfmt="bin" name="attr_flags" size="short"
+						showname_cn="属性标记" showname_en="Attribute flags">
+						<bit showfmt="bin" name="mode_flag" mask="0080"
+							showname_cn="模式标记" showname_en="Mode flag"
+							showmap="mode_flag_map"/>
+						<bit showfmt="bin" name="share_mode" mask="0040"
+							showname_cn="共享模式" showname_en="Share mode"
+							showmap="share_mode_map"/>
+						<bit showfmt="bin" name="search_arch" mask="0020"
+							showname_cn="文件查找属性4" showname_en="文件查找属性4(en)"
+							showmap="search_arch_map"/>
+						<bit showfmt="bin" name="search_dir" mask="0010"
+							showname_cn="文件查找属性3" showname_en="文件查找属性3(en)"
+							showmap="search_dir_map"/>
+						<bit showfmt="bin" name="search_system" mask="0004"
+							showname_cn="文件查找属性2" showname_en="文件查找属性2(en)"
+							showmap="search_system_map"/>
+						<bit showfmt="bin" name="search_hidden" mask="0002"
+							showname_cn="文件查找属性1" showname_en="文件查找属性1(cn)"
+							showmap="search_hidden_map"/>
+						<bit showfmt="bin" name="search_readonly" mask="0001"
+							showname_cn="文件查找属性0" showname_en="文件查找属性0(en)"
+							showmap="search_readonly_map"/>
+						<bit showfmt="bin" name="share" mask="8000"
+							showname_cn="共享文件" showname_en="Share file"
+							showmap="share_map"/>
+						<bit showfmt="bin" name="file_archived" mask="2000"
+							showname_cn="文件存档" showname_en="File archived"/>
+						<bit showfmt="bin" name="directory" mask="1000"
+							showname_cn="目录" showname_en="Directory"/>
+						<bit showfmt="bin" name="volume" mask="0800"
+							showname_cn="分区" showname_en="Volume"/>
+						<bit showfmt="bin" name="system_file" mask="0400"
+							showname_cn="系统文件" showname_en="System file"
+							showmap="system_file_map"/>
+						<bit showfmt="bin" name="hiden_file" mask="0200"
+							showname_cn="隐藏文件" showname_en="Hidden file"
+							showmap="hidden_file_map"/>
+						<bit showfmt="bin" name="read_only" mask="0100"
+							showname_cn="只读文件" showname_en="Read only"
+							showmap="read_only_map"/>
+					</masked>
+					<fixed name="last_modify_time" size="word" showname_cn=""
+						showname_en=""/>
+					<fixed name="cur_file_size" size="word" showname_cn="当前文件大小"
+						showname_en="Current file size"/>
+					<masked showfmt="bin" name="file_open_mode" size="short"
+						showname_cn="" showname_en="">
+						<bit showfmt="bin" name="write_through" mask="0004"
+							showname_cn="写贯穿模式" showname_en="Write through mode"
+							showmap="effect_map"/>
+						<bit showfmt="bin" name="cache_data" mask="0001"
+							showname_cn="在文件中缓存数据"
+							showname_en="Cache data in this file"
+							showmap="effect_map"/>
+						<!--<bit showfmt="bin" name="" mask="7000" showname_cn="" showname_en=""/>
+						
+						
+						
+						
+						
+						
+						<bit showfmt="bin" name="" mask="0700" showname_cn="" showname_en=""/> 此处两个3位掩码暂时不译-->
+					</masked>
+					<fixed name="file_type" size="short" showname_cn="文件类型"
+						showname_en="File type"/>
+					<!--下面的两个字节数据含义未知.....!!-->
+					<fixed name="unknown" size="short" showname_cn=""
+						showname_en=""/>
+					<masked showfmt="bin" name="action_taken" size="short"
+						showname_cn="动作" showname_en="Action taken">
+						<bit showfmt="bin" name="file_exists_do_what" mask="0300"
+							showname_cn="文件存在" showname_en="File exists"
+							showmap="open_andx_file_exists_do_what_map"/>
+						<bit showfmt="bin" name="file_not_exists_do_what"
+							mask="0080" showname_cn="文件不存在"
+							showname_en="File doesn't exists"
+							showmap="open_andx_file_not_exists_do_what_map"/>
+					</masked>
+					<fixed name="srv_unique_fid" size="word" showname_cn="服务器唯一ID"
+						showname_en="Server unique file id"/>
+					<fixed name="reserved" size="short" showname_cn="保留(MBZ)"
+						showname_en="Reserved(MBZ)"/>
+					<fixed name="byte_count" size="short" showname_cn="字节数"
+						showname_en="Byte count"/>
+				</then>
+			</if>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<!-- READ ANDX -->
+		<block name="smb_cmd_read_andx_request">
+			<fixed name="word_count" showname_cn="双字节参数" showname_en="Word count"/>
+			<fixed name="andx_cmd" showname_cn="AndX命令" showname_en="Andx command"
+				showmap="andx_cmd_map"/>
+			<fixed name="andx_reserved" showname_cn="保留(MBZ)"
+				showname_en="Reserved(MBZ)"/>
+			<fixed name="andx_offset" size="short" showname_cn="AndX命令偏移"
+				showname_en="AndX offset"/>
+			<fixed name="fid" size="short" showname_cn="文件ID"
+				showname_en="File ID"/>
+			<fixed name="offset" size="word" showname_cn="读取指针在文件中的偏移"
+				showname_en="Offset in file to begin read."/>
+			<fixed name="max_count" size="short" showname_cn="读取返回最大字节数"
+				showname_en="Max number of bytes to return."/>
+			<fixed name="min_count" size="short" showname_cn="返回的最小字节"
+				showname_en="Min bytes to return."/>
+			<fixed name="time_out" size="word" showname_cn="超时时限"
+				showname_en="Time out."/>
+			<fixed name="count_left" size="short" showname_cn="左计数"
+				showname_en="Count left."/>
+			<fixed name="start_offset" size="word" showname_cn="起始偏移"
+				showname_en="Start offset(MSL)"/>
+			<fixed name="byte_count" size="short" showname_cn="字节数"
+				showname_en="Byte count"/>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<block name="smb_cmd_read_andx_response">
+			<if>
+				<expr oper="eq">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" showname_cn="双字节数"
+						showname_en="Word count"/>
+					<fixed name="andx_cmd" showname_cn="AndX 命令"
+						showname_en="Andx command" showmap="andx_cmd_map"/>
+					<fixed name="andx_reserved" showname_cn="保留(MBZ)"
+						showname_en="Reserved(MBZ)"/>
+					<fixed name="andx_offset" size="short" showname_cn="AndX 偏移"
+						showname_en="Andx offset"/>
+					<fixed name="byte_remaining" size="short" showname_cn="剩余字节"
+						showname_en="Byte remaining(pipe/dev only)"/>
+					<fixed name="reserved" size="word" showname_cn="保留(MBZ)"
+						showname_en="Reserved(MBZ)"/>
+					<fixed name="num_of_data_bytes" size="short"
+						showname_cn="数据字节数" showname_en="Number of data bytes"/>
+					<fixed name="offset_to_data_bytes" size="short"
+						showname_cn="数据的偏移量" showname_en="Offset to data bytes"/>
+					<fixed name="reserved_0" size="short" vector="5"
+						showname_cn="保留(MBZ)" showname_en="Reserved(MBZ)"/>
+					<fixed name="fixedtmp" size="short" showname_cn=""
+						showname_en="" temp="yes"/>
+					<fixed name="byte_count" size="short" showname_cn="字节数"
+						showname_en="Byte count"/>
+					<!--有一个字节的数据(应该是填充位)纳入data_bytes-->
+					<variable name="data_bytes" varend="size" showname_cn="数据比特"
+						showname_en="Data bytes">
+						<expr oper="+">
+							<expr oper="/">
+								<expr oper="@">
+									<fieldref name="fixedtmp"/>
+									<number value="65280"/>
+									<!-- FF00 -->
+								</expr>
+								<number value="256"/>
+							</expr>
+							<expr oper="*">
+								<expr oper="@">
+									<fieldref name="fixedtmp"/>
+									<number value="255"/>
+								</expr>
+								<number value="256"/>
+							</expr>
+						</expr>
+					</variable>
+				</then>
+			</if>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<!-- RENAME  -->
+		<block name="smb_cmd_rename_request">
+			<fixed name="word_count" showname_cn="双字节数" showname_en="Word count"/>
+			<masked showfmt="bin" name="attr_flags" size="short" showname_cn="属性标记"
+				showname_en="Attribute flags">
+				<bit showfmt="bin" name="mode_flag" mask="0080" showname_cn="模式标记"
+					showname_en="Mode flag" showmap="mode_flag_map"/>
+				<bit showfmt="bin" name="share_mode" mask="0040" showname_cn="共享模式"
+					showname_en="Share mode" showmap="share_mode_map"/>
+				<bit showfmt="bin" name="search_arch" mask="0020"
+					showname_cn="文件查找属性4" showname_en="文件查找属性4(en)"
+					showmap="search_arch_map"/>
+				<bit showfmt="bin" name="search_dir" mask="0010"
+					showname_cn="文件查找属性3" showname_en="文件查找属性3(en)"
+					showmap="search_dir_map"/>
+				<bit showfmt="bin" name="search_system" mask="0004"
+					showname_cn="文件查找属性2" showname_en="文件查找属性2(en)"
+					showmap="search_system_map"/>
+				<bit showfmt="bin" name="search_hidden" mask="0002"
+					showname_cn="文件查找属性1" showname_en="文件查找属性1(cn)"
+					showmap="search_hidden_map"/>
+				<bit showfmt="bin" name="search_readonly" mask="0001"
+					showname_cn="文件查找属性0" showname_en="文件查找属性0(en)"
+					showmap="search_readonly_map"/>
+				<bit showfmt="bin" name="share" mask="8000" showname_cn="共享文件"
+					showname_en="Share file" showmap="share_map"/>
+				<bit showfmt="bin" name="file_archived" mask="2000"
+					showname_cn="文件存档" showname_en="File archived"/>
+				<bit showfmt="bin" name="directory" mask="1000" showname_cn="目录"
+					showname_en="Directory"/>
+				<bit showfmt="bin" name="volume" mask="0800" showname_cn="分区"
+					showname_en="Volume"/>
+				<bit showfmt="bin" name="system_file" mask="0400" showname_cn="系统文件"
+					showname_en="System file" showmap="system_file_map"/>
+				<bit showfmt="bin" name="hiden_file" mask="0200" showname_cn="隐藏文件"
+					showname_en="Hidden file" showmap="hidden_file_map"/>
+				<bit showfmt="bin" name="read_only" mask="0100" showname_cn="只读文件"
+					showname_en="Read only" showmap="read_only_map"/>
+			</masked>
+			<fixed name="fixedtmp" size="short" showname_cn="" showname_en=""
+				temp="yes"/>
+			<fixed name="byte_count" size="short" showname_cn="字节数"
+				showname_en="Bytes count"/>
+			<!-- 由于文件名存在 ascii 和 unicode的编码问题 将两个文件名参数合并到一起输出 -->
+			<variable name="old_and_new_filename" varend="size"
+				showname_cn="原文件名和新文件名"
+				showname_en="Old file name and new file name" showfmt="ascii">
+				<expr oper="+">
+					<expr oper="/">
+						<expr oper="@">
+							<fieldref name="fixedtmp"/>
+							<number value="65280"/>
+							<!-- FF00 -->
+						</expr>
+						<number value="256"/>
+					</expr>
+					<expr oper="*">
+						<expr oper="@">
+							<fieldref name="fixedtmp"/>
+							<number value="255"/>
+						</expr>
+						<number value="256"/>
+					</expr>
+				</expr>
+			</variable>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<block name="smb_cmd_rename_response">
+			<if>
+				<expr oper="eq">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" showname_cn="双字节数"
+						showname_en="Word count"/>
+					<checkfield name="chk_word_count">
+						<expr oper="eq">
+							<fieldref name="word_count"/>
+							<number value="0"/>
+						</expr>
+					</checkfield>
+					<fixed name="byte_count" showname_cn="字节数"
+						showname_en="Byte count"/>
+					<checkfield name="chk_byte_count">
+						<expr oper="eq">
+							<fieldref name="byte_count"/>
+							<number value="0"/>
+						</expr>
+					</checkfield>
+					<if>
+						<expr oper="gt">
+							<innervarref type="_codedlen"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<variable name="smb_data" varend="size"
+								showname_cn="SMB 数据" showname_en="SMB data">
+								<expr oper="=">
+									<innervarref type="_codedlen"/>
+								</expr>
+							</variable>
+						</then>
+					</if>
+				</then>
+			</if>
+		</block>
+		<!-- WRITE ANDX -->
+		<block name="smb_cmd_write_andx_request">
+			<fixed name="word_count" showname_cn="双字节参数" showname_en="Word count"/>
+			<fixed name="andx_cmd" showname_cn="AndX命令" showname_en="Andx command"
+				showmap="andx_cmd_map"/>
+			<fixed name="andx_reserved" showname_cn="保留(MBZ)"
+				showname_en="Reserved(MBZ)"/>
+			<fixed name="andx_offset" size="short" showname_cn="AndX命令偏移"
+				showname_en="AndX offset"/>
+			<fixed name="fid" size="short" showname_cn="文件ID"
+				showname_en="File ID"/>
+			<fixed name="start_at_file_offset" size="word" showname_cn="写指针在文件中的偏移"
+				showname_en="Offset in file to begin write."/>
+			<fixed name="time_out" size="word" showname_cn="超时时限"
+				showname_en="Time out" showmap="write_andx_time_out_map"/>
+			<masked showfmt="bin" name="write_mode" size="short" showname_cn="写模式"
+				showname_en="Word mode">
+				<bit showfmt="bin" name="start_msg" mask="0800" showname_cn="写模式选项0"
+					showname_en="写模式选项0" showmap="write_andx_write_mode_0800"/>
+				<bit showfmt="bin" name="use_write_raw_named_pipe" mask="0400"
+					showname_cn="写模式选项1" showname_en="写模式选项1"
+					showmap="write_andx_write_mode_0400"/>
+				<bit showfmt="bin" name="return_smb_remaining" mask="0200"
+					showname_cn="写模式选项2" showname_en="写模式选项2"
+					showmap="write_andx_write_mode_0200"/>
+				<bit showfmt="bin" name="comp_write_bef_ret" mask="0100"
+					showname_cn="写模式选项3" showname_en="写模式选项3"
+					showmap="write_andx_write_mode_0100"/>
+			</masked>
+			<fixed name="count_left" size="short" showname_cn="左计数"
+				showname_en="Count left."/>
+			<fixed name="reserved" size="short" showname_cn="保留(MBZ)"
+				showname_en="Reserved(MBZ)"/>
+			<fixed name="byte_in_this_buf" size="short" showname_cn="缓冲区中的字节数"
+				showname_en="Bytes in this buffer"/>
+			<fixed name="relative_offset_of_data" size="short"
+				showname_cn="数据的相对偏移" showname_en="Relative offset of data"/>
+			<fixed name="start_offset" size="word" showname_cn="起始偏移(MSL)"
+				showname_en="Start offset(MSL)"/>
+			<fixed name="byte_count" size="short" showname_cn="字节数"
+				showname_en="Byte count"/>
+			<!-- smb_data 中的前一个字节含义不清除. -->
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<block name="smb_cmd_write_andx_response">
+			<if>
+				<expr oper="eq">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" showname_cn="双字节数"
+						showname_en="Word count"/>
+					<fixed name="andx_cmd" showname_cn="AndX命令"
+						showname_en="AndX command" showmap="andx_cmd_map"/>
+					<fixed name="andx_reserved" showname_cn="保留(MBZ)"
+						showname_en="Reserved(MBZ)"/>
+					<fixed name="andx_offset" size="short" showname_cn="AndX命令偏移"
+						showname_en="AndX offset"/>
+					<fixed name="count" size="short" showname_cn="写入字节数"
+						showname_en="Number of bytes written"/>
+					<fixed name="remaining" size="short" showname_cn="SMB 保留"
+						showname_en="SMB reserved"/>
+					<fixed name="Reserved" size="word" showname_cn="保留"
+						showname_en="Reserved"/>
+					<fixed name="byte_count" size="short" showname_cn="字节数"
+						showname_en="Byte count"/>
+				</then>
+			</if>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<!-- SETUP ACCOUNT ANDX  -->
+		<block name="smb_cmd_setup_account_andx_request">
+			<fixed name="word_count" showname_cn="双字节数" showname_en="Word count"/>
+			<fixed name="andx_cmd" showname_cn="AndX 命令" showname_en="AndX command"
+				showmap="andx_cmd_map"/>
+			<fixed name="andx_reserved" showname_cn="保留(MBZ)"
+				showname_en="Reserved(MBZ)"/>
+			<fixed name="andx_offset" size="short" showname_cn="AndX命令偏移"
+				showname_en="AndX offset"/>
+			<fixed name="max_buf_size" size="short" showname_cn="最大缓冲区大小"
+				showname_en="Max buffer size"/>
+			<fixed name="max_mux_pending_req" size="short" showname_cn="最大未决mpx请求数"
+				showname_en=""/>
+			<fixed name="num_of_vcs" size="short"
+				showname_cn="Number of VC's(0=only)"
+				showname_en="Number of VC's(0=only)"/>
+			<fixed name="session_key" size="word" showname_cn="会话密匙"
+				showname_en="Session key"/>
+			<fixed name="fixedtmp" size="short" showname_cn="" showname_en=""
+				temp="yes"/>
+			<fixed name="security_blob_len" size="short"
+				showname_cn="Security blob length"
+				showname_en="Security blob length"/>
+			<fixed name="reserved" size="word" showname_cn="保留(MBZ)"
+				showname_en="Reserved(MBZ)"/>
+			<masked showfmt="bin" name="lsw" size="short"
+				showname_cn="Capabilities (LSW)"
+				showname_en="Capabilities (LSW)">
+				<bit showfmt="bin" name="lr_wu_support" mask="0001"
+					showname_cn="锁定读写解锁"
+					showname_en="Lock&amp;Read Write&amp;Unlock"
+					showmap="negotiate_lsw_lr_wu_support"/>
+				<bit showfmt="bin" name="nt_find_support" mask="0002"
+					showname_cn="NT查找" showname_en="NT find"
+					showmap="negotiate_lsw_nt_support_map"/>
+				<bit showfmt="bin" name="srv_dfs_support" mask="0010"
+					showname_cn="服务器分布式文件系统(DFS)" showname_en="Server DFS"
+					showmap="negotiate_lsw_srv_dfs_support_map"/>
+				<bit showfmt="bin" name="large_rx_support" mask="0040"
+					showname_cn="读AndX" showname_en="Read And X"
+					showmap="negotiate_lsw_large_rx_support_map"/>
+				<bit showfmt="bin" name="rw_blk_raw" mask="0100" showname_cn="块读写"
+					showname_en="Block read&amp;write"
+					showmap="negotiate_lsw_rw_blk_raw_map"/>
+				<bit showfmt="bin" name="rw_blk_mult" mask="0200"
+					showname_cn="多重块读写"
+					showname_en="Block multiplex read&amp;write"
+					showmap="negotiate_lsw_rw_blk_mult_map"/>
+				<bit showfmt="bin" name="unicode_support" mask="0400"
+					showname_cn="Unicode" showname_en="Unicode"
+					showmap="negotiate_lsw_unicode_support_map"/>
+				<bit showfmt="bin" name="large_file_64offset" mask="0800"
+					showname_cn="大文件64位偏移" showname_en="Large file 64 bit offset"
+					showmap="negotiate_large_file_map"/>
+				<bit showfmt="bin" name="nt_0_12_smbs" mask="1000"
+					showname_cn="NT 0.12 SMBS" showname_en="NT 0.12 SMBS"
+					showmap="negotiate_lsw_nt_0_12_smbs_map"/>
+				<bit showfmt="bin" name="remote_apis_via_rpc" mask="2000"
+					showname_cn="远程APIS RPC" showname_en="Remote APIS via RPC"
+					showmap="negotiate_lsw_remote_apis_via_rpc_map"/>
+				<bit showfmt="bin" name="nt_status" mask="4000" showname_cn="NT状态字"
+					showname_en="NT status word"
+					showmap="negotiate_lsw_nt_status_map"/>
+				<bit showfmt="bin" name="l2_op" mask="8000" showname_cn="二级锁"
+					showname_en="Level II oplock"
+					showmap="negotiate_lsw_l2_op_map"/>
+			</masked>
+			<masked showfmt="bin" name="msw" size="short"
+				showname_cn="Capabilities (MSW)"
+				showname_en="Capabilities (MSW)">
+				<bit showfmt="bin" name="blk_rw" mask="0020" showname_cn="大块读写"
+					showname_en="Bulk read and write"
+					showmap="negotiate_msw_blk_rw_map"/>
+				<bit showfmt="bin" name="compress_data" mask="0040"
+					showname_cn="压缩数据传输" showname_en="Compressed data transfer"
+					showmap="negotiate_msw_compress_data_map"/>
+				<bit showfmt="bin" name="ext_security" mask="0080"
+					showname_cn="扩展安全验证"
+					showname_en="Extended security validation"
+					showmap="negotiate_msw_ext_security"/>
+			</masked>
+			<fixed name="fixedtmp0" size="short" showname_cn="" showname_en=""
+				temp="yes"/>
+			<fixed name="byte_count" size="short" showname_cn="字节数"
+				showname_en="Byte count"/>
+			<variable name="security_blob" varend="size"
+				showname_cn="Security blob" showname_en="Security blob">
+				<expr oper="+">
+					<expr oper="/">
+						<expr oper="@">
+							<fieldref name="fixedtmp"/>
+							<number value="65280"/>
+							<!-- FF00 -->
+						</expr>
+						<number value="256"/>
+					</expr>
+					<expr oper="*">
+						<expr oper="@">
+							<fieldref name="fixedtmp"/>
+							<number value="255"/>
+						</expr>
+						<number value="256"/>
+					</expr>
+				</expr>
+			</variable>
+			<!--将下面的数据合并 unicode ascii编码问题-->
+			<variable name="client_native_os_and_lanman" varend="size"
+				showname_cn="客户端系统和LANMAN"
+				showname_en="Client's native OS and LANMAN">
+				<expr oper="-">
+					<expr oper="+">
+						<expr oper="/">
+							<expr oper="@">
+								<fieldref name="fixedtmp0"/>
+								<number value="65280"/>
+								<!-- FF00 -->
+							</expr>
+							<number value="256"/>
+						</expr>
+						<expr oper="*">
+							<expr oper="@">
+								<fieldref name="fixedtmp0"/>
+								<number value="255"/>
+							</expr>
+							<number value="256"/>
+						</expr>
+					</expr>
+					<expr oper="+">
+						<expr oper="/">
+							<expr oper="@">
+								<fieldref name="fixedtmp"/>
+								<number value="65280"/>
+								<!-- FF00 -->
+							</expr>
+							<number value="256"/>
+						</expr>
+						<expr oper="*">
+							<expr oper="@">
+								<fieldref name="fixedtmp"/>
+								<number value="255"/>
+							</expr>
+							<number value="256"/>
+						</expr>
+					</expr>
+				</expr>
+			</variable>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<block name="smb_cmb_setup_account_andx_response">
+			<if>
+				<expr oper="eq">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" showname_cn="双字节参数"
+						showname_en="Word count"/>
+					<fixed name="andx_cmd" showname_cn="AndX 命令"
+						showname_en="AndX command" showmap="andx_cmd_map"/>
+					<fixed name="andx_reserved" showname_cn="保留(MBZ)"
+						showname_en="Reserved(MBZ)"/>
+					<fixed name="andx_offset" size="short" showname_cn="AndX偏移"
+						showname_en="AndX offset"/>
+					<masked showfmt="bin" name="request_mode" size="short"
+						showname_cn="请求模式" showname_en="Request mode">
+						<bit showfmt="bin" name="log_mode" mask="0800"
+							showname_cn="登录方式" showname_en="Login mode"
+							showmap="setup_account_andx_login_mode_map"/>
+					</masked>
+					<fixed name="fixedtmp" size="short" showname_cn=""
+						showname_en="" temp="yes"/>
+					<fixed name="security_blog_len" size="short"
+						showname_cn="Security blog length"
+						showname_en="Security blog length"/>
+					<fixed name="fixedtmp0" size="short" showname_cn=""
+						showname_en="" temp="yes"/>
+					<fixed name="byte_count" size="short" showname_cn="字节数"
+						showname_en="Byte count"/>
+					<variable name="security_blob" varend="size"
+						showname_cn="Security blob" showname_en="Security blob">
+						<expr oper="+">
+							<expr oper="/">
+								<expr oper="@">
+									<fieldref name="fixedtmp"/>
+									<number value="65280"/>
+									<!-- FF00 -->
+								</expr>
+								<number value="256"/>
+							</expr>
+							<expr oper="*">
+								<expr oper="@">
+									<fieldref name="fixedtmp"/>
+									<number value="255"/>
+								</expr>
+								<number value="256"/>
+							</expr>
+						</expr>
+					</variable>
+					<!--将下面的数据合并 unicode ascii编码问题-->
+					<variable name="client_native_os_and_lanman" varend="size"
+						showname_cn="客户端系统和LANMAN"
+						showname_en="Client's native OS and LANMAN">
+						<expr oper="-">
+							<expr oper="+">
+								<expr oper="/">
+									<expr oper="@">
+										<fieldref name="fixedtmp0"/>
+										<number value="65280"/>
+										<!-- FF00 -->
+									</expr>
+									<number value="256"/>
+								</expr>
+								<expr oper="*">
+									<expr oper="@">
+										<fieldref name="fixedtmp0"/>
+										<number value="255"/>
+									</expr>
+									<number value="256"/>
+								</expr>
+							</expr>
+							<expr oper="+">
+								<expr oper="/">
+									<expr oper="@">
+										<fieldref name="fixedtmp"/>
+										<number value="65280"/>
+										<!-- FF00 -->
+									</expr>
+									<number value="256"/>
+								</expr>
+								<expr oper="*">
+									<expr oper="@">
+										<fieldref name="fixedtmp"/>
+										<number value="255"/>
+									</expr>
+									<number value="256"/>
+								</expr>
+							</expr>
+						</expr>
+					</variable>
+				</then>
+			</if>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		<!-- TRANSACTION 2 -->
+		<block name="smb_cmd_transaction_2_request">
+			<fixed name="word_count" showname_cn="双字节数" showname_en="Word count"/>
+			<fixed name="total_param_count" size="short" showname_cn="发送参数的总字节数"
+				showname_en="Total parameter bytes being sent"/>
+			<fixed name="total_data_count" size="short" showname_cn="发送数据的总字节数"
+				showname_en="Total data bytes being sent"/>
+			<fixed name="max_param_count" size="short" showname_cn="参数段返回的最长字节数"
+				showname_en="Max number of parameter bytes to return"/>
+			<fixed name="max_data_count" size="short" showname_cn="数据段返回的最长字节数"
+				showname_en="Max number of data bytes to return"/>
+			<fixed name="max_setup_count" showname_cn="初始化返回的最长双字数"
+				showname_en="Max number of setup words to return"/>
+			<fixed name="reserved" showname_cn="保留(MBZ)"
+				showname_en="Reserved(MBZ)"/>
+			<masked showfmt="bin" name="flags" size="short" showname_cn="标志"
+				showname_en="Flags">
+				<bit showfmt="bin" name="tid_flag" mask="0100" showname_cn="TID"
+					showname_en="TID" showmap="tid_flag_map"/>
+				<bit showfmt="bin" name="transaction_way" mask="0200"
+					showname_cn="事务通信方式" showname_en="Transaction way"
+					showmap="transaction_way_map"/>
+			</masked>
+			<fixed name="time_out" size="word" showname_cn="最长超时时间"
+				showname_en="Timeout to completion"/>
+			<fixed name="reserved2" size="short" showname_cn="保留(MBZ)"
+				showname_en="Reserved(MBZ)"/>
+			<fixed name="param_count" size="short" showname_cn="参数段缓冲区的长度"
+				showname_en="Number of parameter bytes in this buffer"/>
+			<fixed name="param_offset" size="short" showname_cn="首部到参数段的偏移量"
+				showname_en="Offset from header to parameter bytes"/>
+			<fixed name="data_count" size="short" showname_cn="数据段缓冲区的长度"
+				showname_en="Number of data bytes in this buffer"/>
+			<fixed name="data_offset" size="short" showname_cn="首部到数据段的偏移量"
+				showname_en="Offset from header to data bytes"/>
+			<fixed name="setup_words_count" showname_cn="初始化词长度"
+				showname_en="Setup word count"/>
+			<fixed name="reserved3" showname_cn="保留(MBZ)"
+				showname_en="Reserved(MBZ)"/>
+			<if>
+				<expr oper="eq">
+					<fieldref name="setup_words_count"/>
+					<number value="1"/>
+				</expr>
+				<then>
+					<fixed name="trans2_fun" size="short" showname_cn="tans2 调用"
+						showname_en="Trans2 function"
+						showmap="transaction_2_tran2_fun_map"/>
+				</then>
+			</if>
+			<fixed name="byte_count" size="short" showname_cn="字节型参数数量"
+				showname_en="Byte count"/>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="data_bytes" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<block name="smb_cmb_transaction_2_response">
+			<if>
+				<expr oper="eq">
+					<fieldref name="status"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<fixed name="word_count" showname_cn="双字节参数"
+						showname_en="Word count"/>
+					<fixed name="total_num_of_ret_param" size="short"
+						showname_cn="发送参数的总字节数"
+						showname_en="Total number of returned parameter bytes"/>
+					<fixed name="total_num_of_ret_data" size="short"
+						showname_cn="发送数据的总字节数"
+						showname_en="Total number of returned data bytes"/>
+					<fixed name="reserved" size="short" showname_cn="保留(MBZ)"
+						showname_en="Reserved(MBZ)"/>
+					<fixed name="num_param_in_this_buffer" size="short"
+						showname_cn="参数段缓冲区的长度"
+						showname_en="Number of parameter bytes in this buffer"/>
+					<fixed name="offset_from_header_to_param" size="short"
+						showname_cn="首部到参数段的偏移量"
+						showname_en="Offset from header to parameter byte"/>
+					<fixed name="param_displacement" size="short"
+						showname_cn="参数的置换位"
+						showname_en="Parameter byte displacement"/>
+					<fixed name="num_of_data" size="short" showname_cn="数据段缓冲区的长度"
+						showname_en="Number of data bytes in this buffer"/>
+					<fixed name="offset_from_header_to_data" size="short"
+						showname_cn="首部到数据段的偏移量"
+						showname_en="Offset from header to data bytes"/>
+					<fixed name="data_displacement" size="short"
+						showname_cn="数据的置换位"
+						showname_en="Data byte displacement"/>
+					<fixed name="setup_word_count" showname_cn="初始化词长度"
+						showname_en="Setup word count"/>
+					<if>
+						<expr oper="eq">
+							<fieldref name="setup_word_count"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<fixed name="reserved0" showname_cn="保留(MBZ)"
+								showname_en="Reserved(MBZ)"/>
+						</then>
+						<else>
+							<variable name="setup_word" varend="size"
+								showname_cn="初始化词" showname_en="Setup words">
+								<expr oper="*">
+									<fieldref name="setup_word_count"/>
+									<number value="2"/>
+								</expr>
+							</variable>
+						</else>
+					</if>
+					<fixed name="byte_count" size="short" showname_cn="字节数"
+						showname_en="Byte count"/>
+				</then>
+			</if>
+			<if>
+				<expr oper="gt">
+					<innervarref type="_codedlen"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<variable name="smb_data" varend="size" showname_cn="SMB 数据"
+						showname_en="SMB data">
+						<expr oper="=">
+							<innervarref type="_codedlen"/>
+						</expr>
+					</variable>
+				</then>
+			</if>
+		</block>
+		
+		<!--TRANSACTION2 MAP-->
+		
+		
+		<!-- 以下case中的value 值分别为0x0000,0x0100,0x0200,0x0300,0x0400,0x0500,0x0600,0x0700,0x0800,0x0900,0x1000,0x1100,0x0a00,0x0b00,0x0c00,0x0d00,0x0e00 -->
+		<showmap name="transaction_2_tran2_fun_map">
+			<case value="0" show_cn="用扩展属性创建文件" show_en="Open"/>
+			<case value="256" show_cn="开始搜索文件" show_en="Find first(2)"/>
+			<case value="512" show_cn="恢复搜索文件" show_en="Find next(2)"/>
+			<case value="768" show_cn="获取文件系统信息"
+				show_en="Get file system information"/>
+			<case value="1024" show_cn="设置文件系统信息"
+				show_en="Set file system information"/>
+			<case value="1280" show_cn="获得一个文件或者路径的信息"
+				show_en="Get file/dir information"/>
+			<case value="1536" show_cn="设置一个文件或者路径的信息"
+				show_en="Set file/dir information"/>
+			<case value="1792" show_cn="获得句柄信息"
+				show_en="Get information by handle"/>
+			<case value="2048" show_cn="利用句柄设置信息"
+				show_en="Set information by handle"/>
+			<case value="2304" show_cn="不被 NT 服务器应用" show_en="FSCTL"/>
+			<case value="4096" show_cn="获得 DFS 提名" show_en="Get DFS referral"/>
+			<case value="4352" show_cn="不被 NT 服务器应用" show_en="IOCTL"/>
+			<case value="2560" show_cn="报告 DFS 信息"
+				show_en="Report DFS inconsistency"/>
+			<case value="2816" show_cn="不被 NT 服务器应用" show_en="Find notify first"/>
+			<case value="3072" show_cn="不被 NT 服务器应用" show_en="Find notify next"/>
+			<case value="3329" show_cn="用扩展属性创建路径" show_en="Create directory(EA)"/>
+			<case value="3584" show_cn="用扩展属性创建会话"
+				show_en="Session setup (Ext security)"/>
+			<case oper="1" show_cn="未知" show_en="Unknown"/>
+		</showmap>
+		<!--SETUP ACCOUNT ANDX MAP-->
+		<showmap name="setup_account_andx_login_mode_map">
+			<case value="1" show_cn="以客户方式登录"
+				show_en="Logged in as &quot;Guest's&quot;"/>
+			<case value="0" show_cn="不以客户方式登录"
+				show_en="Not logged in as &quot;Guest's&quot;"/>
+		</showmap>
+		<!-- WRITE ANDX MAP-->
+		<showmap name="write_andx_write_mode_0800">
+			<case value="0" show_cn="不是消息的开始"
+				show_en="Does not start of message(pipes only)"/>
+			<case value="1" show_cn="消息的开始"
+				show_en="Start of message(pipes only)"/>
+		</showmap>
+		<showmap name="write_andx_write_mode_0400">
+			<case value="0" show_cn="不使用写原始命名管道"
+				show_en="Does not use WriteRawNamePipe(pipes only)"/>
+			<case value="1" show_cn="使用写原始命名管道"
+				show_en="Use WriteRawNamePipe(pipes only)"/>
+		</showmap>
+		<showmap name="write_andx_write_mode_0200">
+			<case value="0" show_cn="不返回SMB保留"
+				show_en="Does not return smb_remaining(pipes/devices only)"/>
+			<case value="1" show_cn="返回SMB保留"
+				show_en="Return smb_remaining(pipes/devices only)"/>
+		</showmap>
+		<showmap name="write_andx_write_mode_0100">
+			<case value="0" show_cn="返回之前不完成写"
+				show_en="Does not Complete write before return"/>
+			<case value="1" show_cn="返回之前完成写"
+				show_en="Complete write before return"/>
+		</showmap>
+		<showmap name="write_andx_time_out_map">
+			<case value="-1" show_cn="不定等待时间" show_en="Indefinite wait"/>
+			<case value="0" show_cn="无延迟" show_en="No delay"/>
+		</showmap>
+		<!-- OPEN ANDX MAP-->
+		<showmap name="open_andx_if_file_not_exists_do_what_map">
+			<case value="0" show_cn="如果文件不存在,操作失败."
+				show_en="if file doesn't exist,fail."/>
+			<case value="1" show_cn="如果文件不存在,则创建它."
+				show_en="if file doesn't exist,create it."/>
+		</showmap>
+		<showmap name="open_andx_if_file_exists_do_what_map">
+			<case value="0" show_cn="如果文件存在,操作失败." show_en="If file exists,fail."/>
+			<case value="1" show_cn="如果文件存在,则打开它."
+				show_en="If file exists,open it."/>
+			<case value="2" show_cn="如果文件存在,则清空它."
+				show_en="If file exists,truncate it."/>
+			<case value="3" show_cn="如果文件存在,操作未知."
+				show_en="if file exists,unknown"/>
+			<case oper="1" show_cn="未定义" show_en="Undefined"/>
+		</showmap>
+		<showmap name="open_andx_file_exists_do_what_map">
+			<case value="0" show_cn="未知操作." show_en="Unknown."/>
+			<case value="1" show_cn="文件存在并被打开"
+				show_en="File exists and was opened."/>
+			<case value="2" show_cn="文件不存在,但已被创建."
+				show_en="File not existed but was created."/>
+			<case value="3" show_cn="文件存在并被清空."
+				show_en="File existed and truncated"/>
+			<case oper="1" show_cn="未定义" show_en="Undefined"/>
+			
+		</showmap>
+		<showmap name="open_andx_file_not_exists_do_what_map">
+			<case value="0" show_cn="文件被他人打开(或不被支持的模式)."
+				show_en="File opened by another user(or mode not supported."/>
+			<case value="1" show_cn="文件被当前用户打开."
+				show_en="File only opened by this user at present time."/>
+		</showmap>
+		<!--CREATE ANDX MAP-->
+		<showmap name="nt_create_andx_nt_disposition_map">
+			<case value="0" show_cn="文件存在并被挂起"
+				show_en="File existed and was superseded"/>
+			<case value="16777216" show_cn="文件存在并已被打开"
+				show_en="File existed and was opened"/>
+			<case value="33554432" show_cn="文件不存在但已被创建"
+				show_en="File doesn't exist and was created"/>
+			<case value="50331648" show_cn="文件存在并已被覆盖"
+				show_en="File existed and was overwritten"/>
+			<case value="67108864" show_cn="文件存在" show_en="File exists"/>
+			<case value="83886080" show_cn="文件不存在" show_en="File doesn't exists "/>
+			<case oper="1" show_cn="未知" show_en="Unknown"/>
+		</showmap>
+		<showmap name="nt_create_andx_oplock_req_map">
+			<!--<case value="0" show_cn="" show_en=""/>默认无内容硬编码中无信息-->
+			<case value="1" show_cn="请求使用一个随机锁" show_en="Request a lock"/>
+		</showmap>
+		<showmap name="nt_create_andx_batch_oplock_map">
+			<!--<case value="0" show_cn="" show_en=""/>默认无内容硬编码中无信息-->
+			<case value="1" show_cn="请求使用多个随机锁" show_en="Request more lock"/>
+		</showmap>
+		<showmap name="create_andx_file_type_map">
+			<case value="0" show_cn="磁盘文件" show_en="Disk file"/>
+			<case value="1" show_cn="命名管道(字节模式)" show_en="Name pipe (byte mode)"/>
+			<case value="2" show_cn="命名管道(消息模式)"
+				show_en="Name pipe (message mode)"/>
+			<case value="3" show_cn="LPT (打印机)设备" show_en="LPT1 (printer) device"/>
+			<case value="4" show_cn="COM (通信)设备"
+				show_en="COM (comunication) device"/>
+			<case oper="1" show_cn="未知" show_en="Unknown"/>
+		</showmap>
+		<showmap name="nt_create_andx_target_oper_dir_map">
+			<case value="0" show_cn="打开目标不必须是目录" show_en="Open the target is any"/>
+			<!--默认无内容硬编码中无信息-->
+			<case value="1" show_cn="打开目标必须是目录"
+				show_en="Open the target must be Directory"/>
+		</showmap>
+		<showmap name="nt_ceate_andx_impersonation_level_map">
+			<case value="0" show_cn="SECURITY ANONYMOUS"
+				show_en="SECURITY ANONYMOUS"/>
+			<case value="1" show_cn="SECURITY IDENTIFICATION"
+				show_en="SECURITY IDENTIFICATION"/>
+			<case value="2" show_cn="SECURITY IMPERSONATION"
+				show_en="SECURITY IMPERSONATION"/>
+			<case value="3" show_cn="SECURITY DELEGATION"
+				show_en="SECURITY DELEGATION"/>
+			<case oper="1" show_cn="未知" show_en="Unknown"/>
+		</showmap>
+		<showmap name="nt_create_andx_share_r_map">
+			<case value="0" show_cn="非共享可读" show_en="File not shared read"/>
+			<case value="1" show_cn="共享可读" show_en="File shared read"/>
+		</showmap>
+		<showmap name="nt_create_andx_share_w_map">
+			<case value="0" show_cn="非共享可写" show_en="File not shared write"/>
+			<case value="1" show_cn="共享可写" show_en="File shared write"/>
+		</showmap>
+		<showmap name="nt_create_andx_share_del_map">
+			<case value="0" show_cn="非共享可被删除" show_en="File not shared delete"/>
+			<case value="1" show_cn="共享可被删除" show_en="File shared delete"/>
+		</showmap>
+		<showmap name="effect_map">
+			<case value="0" show_cn="不可用" show_en="invalid"/>
+			<case value="1" show_cn="可用" show_en="valid"/>
+		</showmap>
+		
+		<!-- NEGOTIATE MAP-->
+		<showmap name="negotiate_security_level_map">
+			<case value="0" show_cn="共享" show_en="Share"/>
+			<case value="1" show_cn="用户" show_en="User"/>
+		</showmap>
+		<showmap name="negotiate_security_challenge_map">
+			<case value="0" show_cn="不支持反回应证明"
+				show_en="Does not support challenge response authentication"/>
+			<case value="1" show_cn="支持挑战回应证明"
+				show_en="Support challenge response authentication"/>
+		</showmap>
+		<showmap name="negotiate_security_msg_ath_proto_map">
+			<case value="0" show_cn="不再支持消息证明协议"
+				show_en="Does not support message authentication protocol"/>
+			<case value="1" show_cn="支持消息证明协议"
+				show_en="Support message authentication protocol"/>
+		</showmap>
+		<showmap name="negotiate_security_singnatures_map">
+			<case value="0" show_cn="不必需签名"
+				show_en="Security signatures required"/>
+			<case value="1" show_cn="必须签名" show_en="ecurity signatures required"/>
+		</showmap>
+		<showmap name="negotiate_lsw_lr_wu_support">
+			<case value="0" show_cn="不支持 锁&amp;读取 解锁&amp;写入"
+				show_en="Does not support Lock&amp;Read Unlock&amp;Write"/>
+			<case value="1" show_cn="支持 锁&amp;读取 解锁&amp;写入"
+				show_en="Supports Lock&amp;Read Unlock&amp;Write"/>
+		</showmap>
+		<showmap name="negotiate_lsw_srv_dfs_support_map">
+			<case value="0" show_cn="不支持服务器DFS"
+				show_en="Does not support server DFS"/>
+			<case value="1" show_cn="支持服务器DFS" show_en="Supports server DFS"/>
+		</showmap>
+		<showmap name="negotiate_lsw_nt_status_map">
+			<case value="0" show_cn="NT 32-bit 状态码不被验证"
+				show_en="NT 32-bit status codes not recognized"/>
+			<case value="1" show_cn="NT 32-bit 状态码验证"
+				show_en="NT 32-bit status codes recognized"/>
+		</showmap>
+		<showmap name="negotiate_lsw_l2_op_map">
+			<case value="0" show_cn="二级锁不支持"
+				show_en="Leved II oplocks not supported"/>
+			<case value="1" show_cn="二级锁的支持" show_en="Leved II oplocks supported"/>
+		</showmap>
+		<showmap name="negotiate_lsw_nt_support_map">
+			<case value="0" show_cn="不支持NT查找" show_en="Does not support NT find"/>
+			<case value="1" show_cn="支持NT查找" show_en="Supports NT find"/>
+		</showmap>
+		<showmap name="negotiate_lsw_remote_apis_via_rpc_map">
+			<case value="0" show_cn="远程APIs via RPC 不被支持"
+				show_en="Remote APIs via RPC not supported"/>
+			<case value="1" show_cn="远程APIs via RPC 支持"
+				show_en="Remote APIs via RPC supported"/>
+		</showmap>
+		<showmap name="negotiate_lsw_nt_0_12_smbs_map">
+			<case value="0" show_cn="NT 0.12 SMBs 不被支持"
+				show_en="NT 0.12 SMBs not supported"/>
+			<case value="1" show_cn="NT 0.12 SMBs 支持"
+				show_en="NT 0.12 SMBs supported"/>
+		</showmap>
+		<showmap name="negotiate_large_file_map">
+			<case value="0" show_cn="大文件不支持" show_en="Large files not supported"/>
+			<case value="1" show_cn="大文件和64比特文件偏移支持"
+				show_en="Large files and 64 bit file offsets supported"/>
+		</showmap>
+		<showmap name="negotiate_lsw_unicode_support_map">
+			<case value="0" show_cn="Unicode字符串不验证"
+				show_en="Unicode strings not recognized"/>
+			<case value="1" show_cn="Unicode字符验证"
+				show_en="Unicode strings recognized"/>
+		</showmap>
+		<showmap name="negotiate_lsw_rw_blk_mult_map">
+			<case value="0" show_cn="不支持多重读/写块" show_en="0"/>
+			<case value="1" show_cn="支持多重读/写块"
+				show_en="Read/Write block multiplexed supported"/>
+		</showmap>
+		<showmap name="negotiate_lsw_rw_blk_raw_map">
+			<case value="0" show_cn="不支持块读/写"
+				show_en="Read/Write block raw not supported"/>
+			<case value="1" show_cn="支持块读/写"
+				show_en="Read/Write block raw supported"/>
+		</showmap>
+		<showmap name="negotiate_lsw_large_rx_support_map">
+			<case value="0" show_cn="不支持读请求"
+				show_en="Does not support large Read&amp;X requests"/>
+			<case value="1" show_cn="支持读取请求"
+				show_en="Supports large Read&amp;X requests"/>
+		</showmap>
+		<showmap name="negotiate_msw_blk_rw_map">
+			<case value="0" show_cn="不支持大块读写"
+				show_en="Does not support bulk read and write"/>
+			<case value="1" show_cn="支持大块读写"
+				show_en="Supports bulk read and write"/>
+		</showmap>
+		<showmap name="negotiate_msw_compress_data_map">
+			<case value="0" show_cn="不支持压缩的数据传输"
+				show_en="Does not support compressed data transfer"/>
+			<case value="1" show_cn="支持压缩数据传输"
+				show_en="Supports compressed data transfer"/>
+		</showmap>
+		<showmap name="negotiate_msw_ext_security">
+			<case value="0" show_cn="不支持扩展安全的确认"
+				show_en="Does not support extended security validation"/>
+			<case value="1" show_cn="支持扩展安全确认"
+				show_en="Supports extended security validation"/>
+		</showmap>
+		<showmap name="negotiate_raw_w_map">
+			<case value="0" show_cn="不支持原始写" show_en="Not support raw write"/>
+			<case value="1" show_cn="支持原始写" show_en="Support raw write"/>
+		</showmap>
+		<showmap name="negotiate_raw_r_map">
+			<case value="0" show_cn="不支持原始读" show_en="Not support raw read"/>
+			<case value="1" show_cn="支持原始读" show_en="Support raw read"/>
+		</showmap>
+		<!--SMB_CONTROL_BLOCK MAP-->
+		<showmap name="cmd_map">
+			<case value="04" show_cn="关闭文件" show_en="Close file"/>
+			<case value="43" show_cn="Ping 服务器(echo)"
+				show_en="Ping the Server(echo)"/>
+			<case value="06" show_cn="删除文件" show_en="Delete file"/>
+			<case value="05" show_cn="刷新文件" show_en="Flush file"/>
+			<case value="1" show_cn="删除目录" show_en="Delete directory"/>
+			<case value="0" show_cn="创建目录" show_en="Create directory"/>
+			<case value="116" show_cn="用户登出andX" show_en="Logoff andX"/>
+			<case value="8" show_cn="获取文件属性" show_en="Get file attributes"/>
+			<case value="36" show_cn="锁AndX" show_en="Locking AndX"/>
+			<case value="37" show_cn="事务" show_en="Transaction"/>
+			<case value="114" show_cn="协商协议" show_en="Negotiate Protocal"/>
+			<case value="162" show_cn="NT创建andX" show_en="NT create andX"/>
+			<case value="160" show_cn="NT 事务" show_en="NT transact"/>
+			<case value="45" show_cn="打开andX" show_en="Open andX"/>
+			<case value="46" show_cn="读andX" show_en="Read andX"/>
+			<case value="7" show_cn="从命名" show_en="Rename"/>
+			<case value="50" show_cn="事务(2)" show_en="Transaction(2)"/>
+			<case value="47" show_cn="写andX" show_en="Write andX"/>
+			<case value="113" show_cn="树断开" show_en="Tree disconnect"/>
+			<case value="115" show_cn="设置账户andX" show_en="Setup account andX"/>
+			<case value="117" show_cn="树连接andX" show_en="Tree connect andX"/>
+			<case oper="1" show_cn="未知" show_en="Unknown"/>
+		</showmap>
+		<showmap name="client_cmd_map">
+			<case value="1" show_cn="服务端响应命令" show_en="Server response"/>
+			<case value="0" show_cn="客户端请求命令" show_en="Client command"/>
+		</showmap>
+		<showmap name="unicode_map">
+			<case value="1" show_cn="字符类型是UNICODE"
+				show_en="String type is UNICODE"/>
+			<case value="0" show_cn="字符类型是ASCII" show_en="String type is ASCII"/>
+		</showmap>
+		<showmap name="locking_map">
+			<case value="0" show_cn="不上随即锁"
+				show_en="Does not opportunistic file locking"/>
+			<case value="1" show_cn="上随即锁" show_en="Opportunistic file locking"/>
+		</showmap>
+		<showmap name="pathname_fmt_map">
+			<case value="1" show_cn="文件路径名是正式格式"
+				show_en="Pathnames are already in canonicalized format"/>
+			<case value="0" show_cn="文件路径名非正式格式"
+				show_en="Pathnames are not in canonicalized format"/>
+		</showmap>
+		<showmap name="tread_map">
+			<case value="1" show_cn="路径名字是大小写无关"
+				show_en="Pathnames should be treated as caseless"/>
+			<case value="0" show_cn="路径名字大小写敏感"
+				show_en="Pathnames are case sensitive"/>
+		</showmap>
+		<showmap name="noask_map">
+			<case value="1" show_cn="发送NO/ACK时作响应"
+				show_en="Send No.Ack can be used as a response"/>
+			<case value="0" show_cn="发送NO/ACK时不能作响应"
+				show_en="Send No.Ack can not be used as a response"/>
+		</showmap>
+		<showmap name="locksupport_map">
+			<case value="1" show_cn="支持读写锁机制"
+				show_en="upports lock&amp;read, unlock&amp;write"/>
+			<case value="0" show_cn="不支持读写锁机制"
+				show_en="Does not supports lock&amp;read, unlock&amp;write"/>
+		</showmap>
+		<showmap name="authentication_map">
+			<case value="1" show_cn="使用消息鉴权" show_en="Use message authentication"/>
+			<case value="0" show_cn="不使用消息鉴权"
+				show_en="Does not use message authentication"/>
+		</showmap>
+		<showmap name="client_supports_ext_attr_map">
+			<case value="1" show_cn="客户端支持扩展属性"
+				show_en="Client supports extended attributes"/>
+			<case value="0" show_cn="客户端不支持扩展属性"
+				show_en="Client does not support extended auttributes"/>
+		</showmap>
+		<showmap name="client_long_file_supports_map">
+			<case value="1" show_cn="客户端支持长文件名"
+				show_en="Client supports long file names"/>
+			<case value="0" show_cn="客户端不支持长文件名"
+				show_en="Client does not support long file names"/>
+		</showmap>
+		<showmap name="nt_status_code_map">
+			<case value="1" show_cn="32Bit的NT风格的状态码"
+				show_en="32-bit NT status code"/>
+			<case value="0" show_cn="DOS风格的状态码" show_en="Dos style error code"/>
+		</showmap>
+		<showmap name="paging_io_map">
+			<case value="1" show_cn="支持PAGING IO" show_en="Paging IO supported"/>
+			<case value="0" show_cn="不支持PAGING IO"
+				show_en="No paging IO supported"/>
+		</showmap>
+		<showmap name="dfs_support_map">
+			<case value="1" show_cn="支持DFS(分布式文件系统)"
+				show_en="DFS resolves pathnames"/>
+			<case value="0" show_cn="不支持DFS" show_en="No DFS support"/>
+		</showmap>
+		<showmap name="extends_security_map">
+			<case value="1" show_cn="客户端熟知系统安全属性"
+				show_en="Client aware of extended security"/>
+			<case value="0" show_cn="客户端不知道系统安全属性"
+				show_en="Client not aware of extended security"/>
+		</showmap>
+		
+		<showmap name="smb_cmd_close_file_close_time_map">
+			<case value="-1" oper="eq" show_cn="不支持" show_en="None supplied"/>
+		</showmap>
+		
+		<showmap name="file_arch_map">
+			<case value="0" show_cn="存档文件" show_en="File archived"/>
+			<case value="1" show_cn="非存档文件"
+				show_en="File changed and not archived"/>
+		</showmap>
+		<!--delete_file_showmap-->
+		
+		<showmap name="file_archived_map">
+			<case value="0" show_cn="文件存档" show_en="File archived"/>
+			<case value="1" show_cn="文件被更改但未存档"
+				show_en="File changed and not archived"/>
+		</showmap>
+		<showmap name="directory_map">
+			<case value="0" show_cn="非目录" show_en="Not directory"/>
+			<case value="1" show_cn="目录" show_en="Directory"/>
+		</showmap>
+		<showmap name="volume_map">
+			<case value="0" show_cn="非卷标" show_en="Not volume label"/>
+			<case value="1" show_cn="卷标" show_en="Volume label"/>
+		</showmap>
+		<showmap name="system_file_map">
+			<case value="0" show_cn="非系统文件" show_en="Not system file"/>
+			<case value="1" show_cn="系统文件" show_en="System file"/>
+		</showmap>
+		<showmap name="hidden_file_map">
+			<case value="0" show_cn="非隐藏文件" show_en="Not Hidden file"/>
+			<case value="1" show_cn="隐藏文件" show_en="Hidden file"/>
+		</showmap>
+		<showmap name="read_only_map">
+			<case value="0" show_cn="非只读文件" show_en="Not read only"/>
+			<case value="1" show_cn="只读文件" show_en="Read only"/>
+		</showmap>
+		<showmap name="share_map">
+			<case value="0" show_cn="非共享" show_en="Not Shared"/>
+			<case value="1" show_cn="共享" show_en="Shared"/>
+		</showmap>
+		<showmap name="search_readonly_map">
+			<case value="0" show_cn="在查找中不包含只读文件"
+				show_en="Not include read only files in search"/>
+			<case value="1" show_cn="在查找中包含只读文件"
+				show_en="Include read only files in search"/>
+		</showmap>
+		<showmap name="search_hidden_map">
+			<case value="0" show_cn="在查找中不包含隐藏文件"
+				show_en="Not include hidden files in search"/>
+			<case value="1" show_cn="在查找中包含隐藏文件"
+				show_en="Include hidden files in search"/>
+		</showmap>
+		<showmap name="search_system_map">
+			<case value="0" show_cn="在查找中不包含系统文件"
+				show_en="Not include system files in search"/>
+			<case value="1" show_cn="在查找中包含系统文件"
+				show_en="Include system files in search"/>
+		</showmap>
+		<showmap name="search_dir_map">
+			<case value="0" show_cn="在查找中不包含目录"
+				show_en="Not include directories in search"/>
+			<case value="1" show_cn="在查找中包含目录"
+				show_en="Include directories in search"/>
+		</showmap>
+		<showmap name="search_arch_map">
+			<case value="0" show_cn="在查找中不包含存档文件"
+				show_en="Not include archive files in search"/>
+			<case value="1" show_cn="在查找中包含存档文件"
+				show_en="Include archive files in search"/>
+		</showmap>
+		<showmap name="share_mode_map">
+			<case value="0" show_cn="非共享模式" show_en="Mode not share"/>
+			<case value="1" show_cn="共享模式" show_en="Mode share"/>
+		</showmap>
+		<showmap name="mode_flag_map">
+			
+			<case value="0" show_cn="非标准(或未定义)"
+				show_en="Not normal(or not declared"/>
+			<case value="1" show_cn="标准" show_en="Normal"/>
+			<case oper="1" show_en="aa" show_cn="aa"/>
+		</showmap>
+		<showmap name="dev_map">
+			
+			<case value="0" show_cn="非控制" show_en="Not contorl"/>
+			<case value="1" show_cn="控制" show_en="Control"/>
+		</showmap>
+		<!-- locking and x map-->
+		<showmap name="read_only_lock_map">
+			<case value="0" show_cn="锁定时不允许访问" show_en="Not access while locked"/>
+			<case value="1" show_cn="锁定时允许读" show_en="Read ok while locked"/>
+		</showmap>
+		<showmap name="oplock_map">
+			<case value="0" show_cn="未使用" show_en="Unused"/>
+			<case value="1" show_cn="打开" show_en="open lock"/>
+		</showmap>
+		<showmap name="andx_cmd_map">
+			<!---->
+			<case value="255" show_cn="最后一链" show_en="End of chain"/>
+			<case value="2" show_cn="SMB COM OPEN" show_en="SMB COM OPEN"/>
+			<case value="3" show_cn="SMB COM CREATE" show_en="SMB COM CREATE"/>
+			<case value="6" show_cn="SMB COM DELETE" show_en="SMB COM DELETE"/>
+			<case value="8" show_cn="SMB COM QUERY INFORMATION"
+				show_en="SMB COM QUERY INFORMATION"/>
+			<case value="9" show_cn="SMB COM SET INFORMATION"
+				show_en="SMB COM SET INFORMATION"/>
+			<case value="15" show_cn="SMB COM CREATE NEW"
+				show_en="SMB COM CREATE NEW"/>
+			<case value="16" show_cn="SMB COM CHECK DIRECTORY"
+				show_en="SMB COM CHECK DIRECORY"/>
+			<case value="37" show_cn="SMB COM TRACTION"
+				show_en="SMB COM TRACTION"/>
+			<case value="41" show_cn="SMB COM COPY" show_en="SMB COM COPY"/>
+			<case value="45" show_cn="SMB COM OPEN ANDX"
+				show_en="SMB COM OPEN ANDX"/>
+			<case value="130" show_cn="SMB COM FIND" show_en="SMB COM FIND"/>
+			<case value="131" show_cn="SMB COM FIND UNIQUE"
+				show_en="SMB COM FIND UNIQUE"/>
+			<case value="192" show_cn="SMB COM OPEN PRINT INFORMATION"
+				show_en="SMB COM OPEN PRINT INFORMATION"/>
+			<case value="165" show_cn="SMB COM NT RENAME"
+				show_en="SMB COM NT RENAME"/>
+			<case value="195" show_cn="SMB COM GET PRINT QUEUE"
+				show_en="SMB COM GET PRINT QUEUE"/>
+			<case oper="1" show_cn="未知" show_en="Unknown"/>
+		</showmap>
+		<showmap name="change_lock_type">
+			<case value="0" show_cn="不可用" show_en="Unused"/>
+			<case value="1" show_cn="更改锁类型" show_en="Change lock type"/>
+		</showmap>
+		
+		<showmap name="cancel_request_map">
+			<case value="1" show_cn="取消" show_en="Cancel"/>
+		</showmap>
+		
+		<showmap name="large_file_lock_map">
+			<case value="0" show_cn="旧(32-bits)文件锁"
+				show_en="Old(32-bits)file locking"/>
+			<case value="1" show_cn="大(64-bits)文件锁"
+				show_en="Large (64-bits) file locking"/>
+		</showmap>
+		<showmap name="andxoffset_map">
+			<case value="-1" oper="ge" show_cn="下一个X命令的Word count偏移"
+				show_en="Offset to next command WordCount"/>
+		</showmap>
+		<!--transaction map-->
+		<showmap name="tid_flag_map">
+			<case value="0" show_cn="不保存TID" show_en="Disconnect TID"/>
+			<case value="1" show_cn="保存TID" show_en="Preserve TID"/>
+		</showmap>
+		<showmap name="transaction_way_map">
+			<case value="0" show_cn="双向传输" show_en="Two way transaction"/>
+			<case value="1" show_cn="单向传输" show_en="One way transaction"/>
+		</showmap>
+		<showmap name="nt_transact_fun_map"><!--应该进行命令扩充-->
+			<case value="0" show_cn="未知" show_en="Unknown"/>
+			<case value="256" show_en="Open/Create" show_cn="打开/创建"/>
+			<case value="512" show_cn="设备 IOCTL" show_en="Device IOCTL"/>
+			<case value="768" show_cn="设置安全描述" show_en="Set Security Descriptor"/>
+			<case value="1024" show_cn="开始目录查找" show_en="Start directory watch"/>
+			<case value="1280" show_cn="基于文件句柄从命名" show_en="Handle-based rename"/>
+			<case value="1536" show_cn="获取安全描述信息"
+				show_en="Get security descriptor info"/>
+			<case oper="1" show_cn="未知" show_en="Unknown"/>
+		</showmap>
+		<showsum>
+			<text content_cn="SMB 协议" content_en="SMB protocal"/>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="4"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-Close file(请求) "
+								content_en="-Close file(request)"/>
+						</then>
+						<else>
+							<text content_cn="-Close file(响应)"
+								content_en="-Close file(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="43"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-Ping 服务器(echo)(请求)"
+								content_en="-Ping the Server(echo)(request)"/>
+						</then>
+						<else>
+							<text content_cn="-Ping 服务器(echo)响应)"
+								content_en="-Ping the Server(echo)(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="0"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-创建目录(请求)"
+								content_en="-Create Directory(request)"/>
+						</then>
+						<else>
+							<text content_cn="-创建目录(响应)"
+								content_en="-Create Directory(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="1"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-删除目录(请求)"
+								content_en="-Delete Directory(request)"/>
+						</then>
+						<else>
+							<text content_cn="-删除目录(响应)"
+								content_en="-Delete Directory(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="6"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-删除文件(请求)"
+								content_en="SMB protocal-Delete file(request)"/>
+						</then>
+						<else>
+							<text content_cn="-删除文件(响应)"
+								content_en="SMB protocal-Delete file(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="05"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-刷新文件(请求)"
+								content_en="-Flush File(request)"/>
+						</then>
+						<else>
+							<text content_cn="-刷新文件(响应)"
+								content_en="-Flush File(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="36"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-锁andX(请求)"
+								content_en="-Locking andX(request)"/>
+						</then>
+						<else>
+							<text content_cn="-锁andX(响应)"
+								content_en="-Locking andX(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="116"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-用户登出andX(请求)"
+								content_en="-Logoff andX(request)"/>
+						</then>
+						<else>
+							<text content_cn="-用户登出andX(响应)"
+								content_en="-Logoff andX(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="37"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-事务(请求)"
+								content_en="-transaction(request)"/>
+						</then>
+						<else>
+							<text content_cn="-事务(响应)"
+								content_en="-transaction(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="8"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-获取文件属性(请求)"
+								content_en="-get file attributes(request)"/>
+						</then>
+						<else>
+							<text content_cn="-获取文件属性(响应)"
+								content_en="-get file attributes(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="114"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-协商协议(请求)"
+								content_en="-Negotiate protocol(request)"/>
+						</then>
+						<else>
+							<text content_cn="-协商协议(响应)"
+								content_en="-Negotiate protocol(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="164"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-NT取消" content_en="-NT Cancel"/>
+						</then>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="162"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-NT创建AndX(请求)"
+								content_en="-NT create andX(request)"/>
+						</then>
+						<else>
+							<text content_cn="-NT创建AndX(响应)"
+								content_en="-NT create andX(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="113"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-树断开(请求)"
+								content_en="-Tree Disconnect(request)"/>
+						</then>
+						<else>
+							<text content_cn="-树断开(响应)"
+								content_en="-Tree Disconnect(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="49"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-关闭文件并分离树(请求)"
+								content_en="-Close and tree disconnect(request)"/>
+						</then>
+						<else>
+							<text content_cn="-关闭文件并分离树(响应)"
+								content_en="-Close and tree disconnect(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="117"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-树连接AndX(请求)"
+								content_en="-Tree connect andX(request)"/>
+						</then>
+						<else>
+							<text content_cn="-树连接AndX(响应)"
+								content_en="-Tree connect andX(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="160"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-NT事务请求)"
+								content_en="-NT transact(request)"/>
+						</then>
+						<else>
+							<text content_cn="-NT事务(响应)"
+								content_en="-NT transact(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="45"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-打开AndX(请求)"
+								content_en="-Open andX(request)"/>
+						</then>
+						<else>
+							<text content_cn="-打开AndX(响应)"
+								content_en="-Open andX(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="46"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-读AndX(请求)"
+								content_en="-Read andX(request)"/>
+						</then>
+						<else>
+							<text content_cn="-读AndX(响应)"
+								content_en="-Read andX(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="07"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-从命名(请求)"
+								content_en="-Rename(request)"/>
+						</then>
+						<else>
+							<text content_cn="-从命名(响应)"
+								content_en="-Rename(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="47"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-写andX(请求)"
+								content_en="-Write andX(request)"/>
+						</then>
+						<else>
+							<text content_cn="-写andX(响应)"
+								content_en="-Write andX(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="115"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-设置账户andX(请求)"
+								content_en="-Setup account andX(request)"/>
+						</then>
+						<else>
+							<text content_cn="-设置账户andX(响应)"
+								content_en="-Setup account andX(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+			<if>
+				<expr oper="eq">
+					<fieldref name="command"/>
+					<number value="50"/>
+				</expr>
+				<then>
+					<if>
+						<expr oper="eq">
+							<fieldref name="client_command"/>
+							<number value="0"/>
+						</expr>
+						<then>
+							<text content_cn="-事务(2)(请求)"
+								content_en="-Transaction(2)(request)"/>
+						</then>
+						<else>
+							<text content_cn="-事务(2)(响应)"
+								content_en="-Transaction(2)(response)"/>
+						</else>
+					</if>
+				</then>
+			</if>
+		</showsum>
+		<defaultdata>
+			<protodata
+				data="ff 53 4d 42 72 00 00 00 00 18 53 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff fe 00 00 00 00 00 00 62 00 02 50 43 20 4e 45 54 57 4f 52 4b 20 50 52 4f 47 52 41 4d 20 31 2e 30 00 02 4c 41 4e 4d 41 4e 31 2e 30 00 02 57 69 6e 64 6f 77 73 20 66 6f 72 20 57 6f 72 6b 67 72 6f 75 70 73 20 33 2e 31 61 00 02 4c 4d 31 2e 32 58 30 30 32 00 02 4c 41 4e 4d 41 4e 32 2e 31 00 02 4e 54 20 4c 4d 20 30 2e 31 32 00"
+				length="133"/>
+			<fulldata
+				data="00 00 e8 40 38 11 00 e0 50 a6 0a b2 08 00 45 00 00 5d e0 fe 40 00 80 06 c1 41 ac 10 00 24 ac 10 00 16 0e c8 01 bd 16 59 08 ef 98 0d c0 e6 50 18 fe e7 f2 11 00 00 00 00 00 31 ff 53 4d 42 2b 00 00 00 00 18 43 c0 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff fe 00 00 fe ff 01 01 00 0c 00 4a 6c 4a 6d 49 68 43 6c 42 73 72 00"
+				length="107"/>
+		</defaultdata>
+	</proto>
+	
+</netpdl>

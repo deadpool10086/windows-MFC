@@ -1,0 +1,62 @@
+; -- NETSF_M.INF --
+;
+; Simulator Miniport INF file
+;
+; Copyright (c) 2006-2007, 吉林中软吉大信息技术有限公司
+;
+; ----------------------------------------------------------------------
+
+[Version]
+signature  = "$Windows NT$"
+Class      = Net
+ClassGUID  = {4D36E972-E325-11CE-BFC1-08002BE10318}
+Provider   = %JLcss%
+DriverVer  = 11/23/2007,5.0.0.2
+
+[ControlFlags]
+ExcludeFromSelect = Simulator_Miniport
+
+[DestinationDirs]
+DefaultDestDir=12
+; No files to copy 
+
+[Manufacturer]
+%Jlcss% = JLCSS
+
+[JLCSS]
+%Simulator_Desc% = Simulator.ndi, Simulator_Miniport
+
+[Simulator.ndi]
+Characteristics = 0x29 ;NCF_NOT_USER_REMOVABLE | NCF_VIRTUAL | NCF_HIDDEN
+CopyFiles = 
+
+[Simulator.ndi.Services]
+AddService = Simulator,0x2, Simulator.AddService
+
+
+[Simulator.AddService]
+ServiceType    = 1 ;SERVICE_KERNEL_DRIVER
+StartType      = 3 ;SERVICE_DEMAND_START
+ErrorControl   = 1 ;SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\SimulatorDriver.sys
+
+
+[Simulator.AddService.AddReg]
+; ----------------------------------------------------------------------
+; Add any miniport-specific parameters here.  These are params that your
+; filter device is going to use.
+;
+;HKR, Parameters, ParameterName,  0x10000, "MultiSz", "Parameter", "Value"
+;HKR, Parameters, ParameterName2, 0x10001, 4
+
+[Strings]
+Jlcss = "Jlcss"
+Simulator_Desc = "Simulator Miniport"
+
+[SourceDisksNames]
+;None 
+
+[SourceDisksFiles]
+;None
+
+

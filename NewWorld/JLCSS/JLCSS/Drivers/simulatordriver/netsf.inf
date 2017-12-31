@@ -1,0 +1,119 @@
+; -- NETSF.INF --
+;
+; Simulator driver INF file - this is the INF for the service (protocol)
+; part.
+;
+; Copyright (c) 2006-2007, 吉林中软吉大信息技术有限公司
+;
+; ----------------------------------------------------------------------
+
+[Version]
+Signature  = "$Windows NT$"
+Class      = NetService
+ClassGUID  = {4D36E974-E325-11CE-BFC1-08002BE10318}
+Provider   = %Jlcss%
+DriverVer  = 11/23/2007,5.0.0.2
+
+
+[Manufacturer]
+%Jlcss% = JLCSS
+
+[ControlFlags]
+
+;=========================================================================
+;
+;=========================================================================
+
+[JLCSS]
+%Simulator_Desc% = Simulator.ndi, jlcss_simulator
+
+
+
+[Simulator.ndi]
+AddReg          = Simulator.ndi.AddReg, Simulator.AddReg
+Characteristics = 0x4410 ;  NCF_FILTER | NCF_NDIS_PROTOCOL !--Filter Specific--!!
+CopyFiles       = SimulatorDriver.Sys
+CopyInf         = netsf_m.inf
+
+[Simulator.ndi.Remove]
+DelFiles = SimulatorDriver.Sys
+
+[Simulator.ndi.Services]
+AddService = Simulator,, Simulator.AddService
+
+[Simulator.AddService]
+DisplayName    = %SimulatorService_Desc%
+ServiceType    = 1 ;SERVICE_KERNEL_DRIVER
+StartType      = 3 ;SERVICE_DEMAND_START
+ErrorControl   = 1 ;SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\SimulatorDriver.sys
+LoadOrderGroup = PNP_TDI
+AddReg         = Simulator.AddService.AddReg
+
+
+[Simulator.AddService.AddReg]
+; ----------------------------------------------------------------------
+; Add any miniport-specific parameters here.  These are params that your
+; filter device is going to use.
+;
+;HKR, Parameters, ParameterName,  0x10000, "MultiSz", "Parameter", "Value"
+;HKR, Parameters, ParameterName2, 0x10001, 4
+
+
+; ----------------------------------------------------------------------
+; File copy
+;
+[SourceDisksNames]
+1=%DiskDescription%,"",,
+
+[SourceDisksFiles]
+SimulatorDriver.sys=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+SimulatorDriver.Sys   = 12   ; %windir%\System32\drivers
+
+[SimulatorDriver.Sys]
+SimulatorDriver.sys,,,2
+
+; ----------------------------------------------------------------------
+; Filter Install
+;
+
+[Simulator.ndi.AddReg]
+HKR, Ndi, HelpText, , %Simulator_HELP%
+
+; ----------------------------------------------------------------------
+; !!--Filter Specific--!!
+;
+; Note:
+; 1. Other components may also have UpperRange/LowerRange but for filters
+;    the value of both of them must be noupper/nolower
+; 2. The value FilterClass is required.
+; 3. The value Service is required
+; 4. FilterDeviceInfId is the InfId of the filter device (miniport) that will
+;    be installed for each filtered adapter.
+;    In this case this is Simulator_Miniport (refer to netsf_m.inf)
+;
+HKR, Ndi,            FilterClass,         , failover
+HKR, Ndi,            FilterDeviceInfId,   , Simulator_Miniport
+HKR, Ndi,            Service,             , Simulator
+HKR, Ndi\Interfaces, UpperRange,          , noupper
+HKR, Ndi\Interfaces, LowerRange,          , nolower
+HKR, Ndi\Interfaces, FilterMediaTypes,    , "ethernet, tokenring, fddi, wan"
+
+[Simulator.AddReg]
+; The following key is Required
+; The following key is Simulator specific
+HKR, Parameters, Param1, 0, 4
+
+; ----------------------------------------------------------------------
+[Strings]
+Jlcss = "Jlcss"
+DiskDescription = "Jlcss Simlutor Driver Disk"
+
+Simulator_Desc = "Simlutor Driver"
+Simulator_HELP = "Simlutor Driver"
+SimulatorService_Desc = "Simlutor Service"
+
+

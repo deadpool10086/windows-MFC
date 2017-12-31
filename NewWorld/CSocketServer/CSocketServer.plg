@@ -1,0 +1,38 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: CSocketServer - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\john\AppData\Local\Temp\RSPD5C0.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/CSocketServer.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Users\john\Desktop\NewWorld\CSocketServer\CSocketServerDlg.cpp"
+]
+Creating command line "cl.exe @C:\Users\john\AppData\Local\Temp\RSPD5C0.tmp" 
+Creating temporary file "C:\Users\john\AppData\Local\Temp\RSPD5C1.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/CSocketServer.pdb" /debug /machine:I386 /out:"Debug/CSocketServer.exe" /pdbtype:sept 
+.\Debug\CSocketServer.obj
+.\Debug\CSocketServerDlg.obj
+.\Debug\StdAfx.obj
+.\Debug\CSocketServer.res
+.\Debug\Msg.obj
+.\Debug\CSocket.obj
+.\Debug\LSocket.obj
+]
+Creating command line "link.exe @C:\Users\john\AppData\Local\Temp\RSPD5C1.tmp"
+<h3>Output Window</h3>
+Compiling...
+CSocketServerDlg.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+CSocketServer.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

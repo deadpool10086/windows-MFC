@@ -1,0 +1,30 @@
+<html> <head> <meta http-equiv="Content-Type" content="text/html; charset=gb2312" /> <title></title> <link href="inc/style.css" rel="stylesheet" type="text/css"> </head>  <body class=infobody> <table width="100%" height="100%" cellspacing="0">  <tr>  <td valign="top"> <table>   <tr>   <td height=25></td>   </tr>           <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="border-bottom:#1873b5 solid 1px">             <tr><td style="background-image:url(images/cinfo_left.GIF);display:none" width="5"></td>               <td width="86" height="28" style="padding-left:4px;padding-right:4px;background-image:url(images/cinfo_center.GIF);color:#3081bd;text-align:center;padding-bottom:0px;padding-top:4px;display:none"><nobr>aabb1aabb</nobr></td> <td style="background-image:url(images/cinfo_right.GIF);display:none" width="5"></td>               <td>&nbsp;</td>             </tr>           </table>           <table width="100%" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#FFFFFF" style="border:#1873b5 solid 1px;border-top:0px">             <tr>               <td bgcolor="#F5FAFA" style="padding-left:20;padding-right:20px" id="ptitle"><P>&nbsp;&nbsp;&nbsp; Microsoft的MFC提供的WinInet类是对Wininet API函数封装而来的，它为用户提供了更加方便的编程接口。MFC封装后的类主要有：<BR>&nbsp;&nbsp;&nbsp; ●&nbsp; CInternetSession类<BR>&nbsp;&nbsp;&nbsp; CInternetSession类创建并初始化一个或几个Internet会话。CInternetSession的主要成员函数有：</P>
+<P align=center>表6&nbsp; CInternetSession类</P>
+<P align=center><IMG src="../upload/1228281381062_pic.gif"></P>
+<P>&nbsp;&nbsp;&nbsp; ●&nbsp; CInternetConnect类<BR>&nbsp;&nbsp;&nbsp; CInternetConnect的主要成员函数有：</P>
+<P align=center>表7&nbsp; CInternetConnect类</P>
+<P align=center><IMG src="../upload/1228281390640_pic.gif"></P>
+<P>&nbsp;&nbsp;&nbsp; CInternetConnect类有三个派生类，它们分别是CFtpConnection类，CGopherconnection类和CHttpConnection类。<BR>&nbsp;&nbsp;&nbsp; CFtpConnection类的主要成员函数有：</P>
+<P align=center>表8&nbsp; CFtpConnection类的主要成员函数</P>
+<P align=center><IMG src="../upload/1228281400140_pic.gif"></P>
+<P>&nbsp;&nbsp;&nbsp; CGopherConnection类的主要成员函数有：</P>
+<P align=center>表9&nbsp; CGopherConnection类的主要成员函数</P>
+<P align=center><IMG src="../upload/1228281408703_pic.gif"></P>
+<P>&nbsp;&nbsp;&nbsp; CHttpConnection类的主要成员函数有：</P>
+<P align=center>表10&nbsp; CHttpConnection类的主要成员函数</P>
+<P align=center><IMG src="../upload/1228281416906_pic.gif"></P>
+<P>&nbsp;&nbsp;&nbsp; ●&nbsp; CInternetFile类<BR>&nbsp;&nbsp;&nbsp; CInternetFile类的主要成员函数有：</P>
+<P align=center>表11&nbsp; CInternetFile类的主要成员函数</P>
+<P align=center><IMG src="../upload/1228281426218_pic.gif"></P>
+<P>&nbsp;&nbsp;&nbsp; CInternetFile类有两个主要的派生类，它们是：CGopherFile类和CHttpFile类。其中，CHttpFile类的主要成员有：</P>
+<P align=center>表12&nbsp; CHttpFile类的主要成员</P>
+<P align=center><IMG src="../upload/1228281436015_pic.gif"></P>
+<P>&nbsp;&nbsp;&nbsp; ●&nbsp; CFileFind类<BR>&nbsp;&nbsp;&nbsp; CFileFind类的主要成员函数有：</P>
+<P align=center>表13&nbsp; CFileFind类的主要成员函数</P>
+<P align=center><IMG src="../upload/1228281462562_pic.gif"></P>
+<P>&nbsp;&nbsp;&nbsp; CFileFind类有两个主要的派生类，它们是：CFtpFileFind类和CGopherFileFind类。其中，CFtpFileFind类的主要成员有：</P>
+<P align=center>表14&nbsp; CFtpFileFind类的主要成员</P>
+<P align=center><IMG src="../upload/1228281474546_pic.gif"></P>
+<P>&nbsp;&nbsp;&nbsp; CGopherFileFind类的主要成员有：</P>
+<P align=center>表15&nbsp; CGopherFileFind类的主要成员</P>
+<P align=center><IMG src="../upload/1228281483140_pic.gif"></P></td>             </tr>           </table>  </td> </tr> </table> </body> </html> <script> if(window.HTMLElement) {     HTMLElement.prototype.__defineSetter__("outerHTML",function(sHTML){         var r=this.ownerDocument.createRange();         r.setStartBefore(this);         var df=r.createContextualFragment(sHTML);         this.parentNode.replaceChild(df,this);         return sHTML;         });      HTMLElement.prototype.__defineGetter__("outerHTML",function(){      var attr;         var attrs=this.attributes;         var str="<"+this.tagName.toLowerCase();         for(var i=0;i<attrs.length;i++){             attr=attrs[i];             if(attr.specified)                 str+=" "+attr.name+'="'+attr.value+'"';             }         if(!this.canHaveChildren)             return str+">";         return str+">"+this.innerHTML+"</"+this.tagName.toLowerCase()+">";         });           HTMLElement.prototype.__defineGetter__("canHaveChildren",function(){   switch(this.tagName.toLowerCase()){             case "area":             case "base":          case "basefont":             case "col":             case "frame":             case "hr":             case "img":             case "br":             case "input":             case "isindex":             case "link":             case "meta":             case "param":             return false;         }         return true;       }); }  function showMe(i) {  	objHtml=document.all["s"+i].innerHTML; 	date=new Date(); 	if(navigator.userAgent.indexOf("MSIE")>0) 		window.status="cmdOpen,"+date.getTime()+","+(objHtml.substring(objHtml.lastIndexOf("\"",objHtml.indexOf(".swf\""))+1,objHtml.indexOf(".swf\"")+4)); 	else 		top.document.title="cmdOpen,"+date.getTime()+","+(objHtml.substring(objHtml.lastIndexOf("\"",objHtml.indexOf(".swf\""))+1,objHtml.indexOf(".swf\"")+4)); 	}  	if(navigator.userAgent.indexOf("MSIE")>0) 	var objects=document.all.tags("OBJECT"); 	else 	var objects=document.getElementsByTagName("OBJECT"); 	for(i=0;i<objects.length;i++) { objects[i].style.width="100%"; objects[i].outerHTML="<a href=# onclick=\"showMe("+i+")\">动画演示</a><span id=s"+i+" style=\"display:none\">"+objects[i].outerHTML+"</span>"; } var iHtml=document.body.innerHTML;  </script> 

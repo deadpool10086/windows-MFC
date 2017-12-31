@@ -1,0 +1,1567 @@
+<?xml version="1.0" encoding="GBK"?>
+<body name="计算机网络实验教学系统"  link="files/index.htm" img="image/a.gif"  ostype="0" >
+<level1 name="IPv4网络协议" link="files/1801x.htm" img="image/z.gif" ostype="0">
+<level2 name="IPv4协议实验" link="files/1237x.htm" img="image/z.gif" ostype="0">
+<level3 name="实验1  IEEE802标准和以太网" link="files/1238.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tab name="实验基础"  link="files/1239.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1240.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1241.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1242.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验2  地址解析协议(ARP)" link="files/1279.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1281.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1282.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1283.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1284.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验3  网际协议(IP)" link="files/1280.htm" img="image/z.gif" ostype="0">
+<tool name="MTU工具" link="StartCmd.exe .\tools\MTUTool.lnk" img="image/MTU工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1296.htm"   img="image/z.gif" ostype="0" >
+<tool name="MTU工具" link="StartCmd.exe .\tools\MTUTool.lnk" img="image/MTU工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1297.htm"   img="image/z.gif" ostype="0" >
+<tool name="MTU工具" link="StartCmd.exe .\tools\MTUTool.lnk" img="image/MTU工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1298.htm"   img="image/z.gif" ostype="0" >
+<tool name="MTU工具" link="StartCmd.exe .\tools\MTUTool.lnk" img="image/MTU工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1299.htm"   img="image/z.gif" ostype="0" >
+<tool name="MTU工具" link="StartCmd.exe .\tools\MTUTool.lnk" img="image/MTU工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验4  Internet控制报文协议(ICMP)" link="files/1315.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1316.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1317.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1318.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1319.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验5  Internet组管理协议(IGMP)" link="files/1331.htm" img="image/z.gif" ostype="0">
+<tool name="组播工具v4" link="StartCmd.exe .\tools\Multicastv4.lnk" img="image\组播工具.GIF" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1332.htm"   img="image/z.gif" ostype="0" >
+<tool name="组播工具v4" link="StartCmd.exe .\tools\Multicastv4.lnk" img="image\组播工具.GIF" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1333.htm"   img="image/z.gif" ostype="0" >
+<tool name="组播工具v4" link="StartCmd.exe .\tools\Multicastv4.lnk" img="image\组播工具.GIF" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1334.htm"   img="image/z.gif" ostype="0" >
+<tool name="组播工具v4" link="StartCmd.exe .\tools\Multicastv4.lnk" img="image\组播工具.GIF" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1335.htm"   img="image/z.gif" ostype="0" >
+<tool name="组播工具v4" link="StartCmd.exe .\tools\Multicastv4.lnk" img="image\组播工具.GIF" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验6  用户数据报协议(UDP)" link="files/1359.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="UDP工具v4" link="StartCmd.exe .\tools\UDPToolv4.lnk" img="image/UDP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tab name="实验基础"  link="files/1360.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="UDP工具v4" link="StartCmd.exe .\tools\UDPToolv4.lnk" img="image/UDP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1361.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="UDP工具v4" link="StartCmd.exe .\tools\UDPToolv4.lnk" img="image/UDP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1362.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="UDP工具v4" link="StartCmd.exe .\tools\UDPToolv4.lnk" img="image/UDP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1363.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="UDP工具v4" link="StartCmd.exe .\tools\UDPToolv4.lnk" img="image/UDP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验7  传输控制协议(TCP)" link="files/1373.htm" img="image/z.gif" ostype="0">
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="启动TCP屏蔽v4" link="StartCmd.exe .\tools\FilterControlStart.lnk " img="image\启动TCP屏蔽.gif" ostype="1" />
+<tool name="停止TCP屏蔽v4" link="StartCmd.exe .\tools\FilterControlStop.lnk " img="image\停止TCP屏蔽.gif" ostype="1" />
+<tab name="实验基础"  link="files/1374.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="启动TCP屏蔽v4" link="StartCmd.exe .\tools\FilterControlStart.lnk " img="image\启动TCP屏蔽.gif" ostype="1" />
+<tool name="停止TCP屏蔽v4" link="StartCmd.exe .\tools\FilterControlStop.lnk " img="image\停止TCP屏蔽.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1375.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="启动TCP屏蔽v4" link="StartCmd.exe .\tools\FilterControlStart.lnk " img="image\启动TCP屏蔽.gif" ostype="1" />
+<tool name="停止TCP屏蔽v4" link="StartCmd.exe .\tools\FilterControlStop.lnk " img="image\停止TCP屏蔽.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1376.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="启动TCP屏蔽v4" link="StartCmd.exe .\tools\FilterControlStart.lnk " img="image\启动TCP屏蔽.gif" ostype="1" />
+<tool name="停止TCP屏蔽v4" link="StartCmd.exe .\tools\FilterControlStop.lnk " img="image\停止TCP屏蔽.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1377.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="启动TCP屏蔽v4" link="StartCmd.exe .\tools\FilterControlStart.lnk " img="image\启动TCP屏蔽.gif" ostype="1" />
+<tool name="停止TCP屏蔽v4" link="StartCmd.exe .\tools\FilterControlStop.lnk " img="image\停止TCP屏蔽.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验8  TCP协议的高级特性" link="files/1818.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tab name="实验基础"  link="files/1819.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1820.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1821.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验9  简单网络管理协议(SNMP)" link="files/1388.htm" img="image/z.gif" ostype="0">
+<tool name="SNMP工具" link="StartCmd.exe .\tools\SNMPTool.lnk" img="image/SNMP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tab name="实验基础"  link="files/1389.htm"   img="image/z.gif" ostype="0" >
+<tool name="SNMP工具" link="StartCmd.exe .\tools\SNMPTool.lnk" img="image/SNMP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1390.htm"   img="image/z.gif" ostype="0" >
+<tool name="SNMP工具" link="StartCmd.exe .\tools\SNMPTool.lnk" img="image/SNMP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1391.htm"   img="image/z.gif" ostype="0" >
+<tool name="SNMP工具" link="StartCmd.exe .\tools\SNMPTool.lnk" img="image/SNMP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1392.htm"   img="image/z.gif" ostype="0" >
+<tool name="SNMP工具" link="StartCmd.exe .\tools\SNMPTool.lnk" img="image/SNMP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验10 动态主机配置协议(DHCP)" link="files/1401.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1402.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1403.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1404.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1405.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验11 域名服务(DNS)" link="files/1358.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1412.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1413.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1414.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1415.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验12 网络地址转换(NAT)" link="files/1421.htm" img="image/z.gif" ostype="0">
+<tool name="UDP工具v4" link="StartCmd.exe .\tools\UDPToolv4.lnk" img="image/UDP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1426.htm"   img="image/z.gif" ostype="0" >
+<tool name="UDP工具v4" link="StartCmd.exe .\tools\UDPToolv4.lnk" img="image/UDP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1427.htm"   img="image/z.gif" ostype="0" >
+<tool name="UDP工具v4" link="StartCmd.exe .\tools\UDPToolv4.lnk" img="image/UDP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1428.htm"   img="image/z.gif" ostype="0" >
+<tool name="UDP工具v4" link="StartCmd.exe .\tools\UDPToolv4.lnk" img="image/UDP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1429.htm"   img="image/z.gif" ostype="0" >
+<tool name="UDP工具v4" link="StartCmd.exe .\tools\UDPToolv4.lnk" img="image/UDP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验13 超文本传输协议(HTTP)" link="files/1420.htm" img="image/z.gif" ostype="0">
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+<tab name="实验基础"  link="files/1423.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1424.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1439.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1440.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验14 远程登录与文件传送协议(TELNET与FTP)" link="files/1441.htm" img="image/z.gif" ostype="0">
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1448.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1449.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1475.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1476.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验15 电子邮件协议(SMTP、POP3和IMAP)" link="files/1509.htm" img="image/z.gif" ostype="0">
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="Outlook" link="StartCmd.exe msimn.exe" img="image\outlook.gif" ostype="1" />
+<tab name="实验基础"  link="files/1513.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="Outlook" link="StartCmd.exe msimn.exe" img="image\outlook.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1514.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="Outlook" link="StartCmd.exe msimn.exe" img="image\outlook.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1537.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="Outlook" link="StartCmd.exe msimn.exe" img="image\outlook.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1538.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="Outlook" link="StartCmd.exe msimn.exe" img="image\outlook.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验16 NetBIOS应用及SMB/CIFS协议" link="files/1512.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1528.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1529.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1545.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1547.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验17 路由信息协议(RIP)" link="files/1458.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1459.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1460.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1461.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1462.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验18 开放式最短路径优先协议(OSPF)Ⅰ" link="files/1479.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1482.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1483.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1484.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1485.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验19 开放式最短路径优先协议(OSPF)Ⅱ" link="files/1495.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1496.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1498.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1499.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1500.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验20 代理" link="files/1836.htm" img="image/z.gif" ostype="0">
+<tool name="CCProxy" link="startcmd.exe .\tools\CCProxy.lnk" img="image/CCProxy.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+<tab name="实验基础"  link="files/1900.htm"   img="image/z.gif" ostype="0" >
+<tool name="CCProxy" link="startcmd.exe .\tools\CCProxy.lnk" img="image/CCProxy.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1901.htm"   img="image/z.gif" ostype="0" >
+<tool name="CCProxy" link="startcmd.exe .\tools\CCProxy.lnk" img="image/CCProxy.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1905.htm"   img="image/z.gif" ostype="0" >
+<tool name="CCProxy" link="startcmd.exe .\tools\CCProxy.lnk" img="image/CCProxy.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/2501.htm"   img="image/z.gif" ostype="0" >
+<tool name="CCProxy" link="startcmd.exe .\tools\CCProxy.lnk" img="image/CCProxy.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验21 IPv4综合实验" link="files/1554.htm" img="image/z.gif" ostype="0">
+<tab name="实验基础"  link="files/1555.htm"   img="image/z.gif" ostype="0" >
+</tab>
+<tab name="实验需求"  link="files/1556.htm"   img="image/z.gif" ostype="0" >
+</tab>
+<tab name="实验步骤"  link="files/1557.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+</level2>
+<level2 name="私有协议通信" link="files/1767x.htm" img="image/z.gif" ostype="0">
+<level3 name="实验22 协议生成器与触发器" link="files/1768.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1771.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1772.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1773.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1774.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验23 模拟RARP协议" link="files/1769.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tab name="实验基础"  link="files/1775.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1776.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1777.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1778.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验24 自定义协议通信" link="files/1770.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tab name="实验基础"  link="files/1779.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1780.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1781.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1782.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+</tab>
+</level3>
+</level2>
+<level2 name="网络攻防与故障" link="files/2081x.htm" img="image/z.gif" ostype="0">
+<level3 name="实验25 ARP地址欺骗" link="files/2082.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2088.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/2089.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="背景描述"  link="files/2091.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2092.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/2094.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验26 ICMP重定向" link="files/2083.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2096.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/2097.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="背景描述"  link="files/2099.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2100.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/2102.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验27 TCP与UDP端口扫描" link="files/2084.htm" img="image/z.gif" ostype="0">
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2104.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/2105.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2108.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/2112.htm"   img="image/z.gif" ostype="0" >
+<tool name="TCP工具v4" link="StartCmd.exe .\tools\TCPToolv4.lnk" img="image/TCP工具.gif" ostype="1" />
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验28 路由欺骗" link="files/2085.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2114.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/2115.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2117.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/2119.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验29 冲突与网络广播风暴" link="files/2086.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2121.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/2122.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2125.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/2129.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验30 路由环与网络回路" link="files/2087.htm" img="image/z.gif" ostype="0">
+<tool name="组播工具v4" link="StartCmd.exe .\tools\Multicastv4.lnk" img="image\组播工具.GIF" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2132.htm"   img="image/z.gif" ostype="0" >
+<tool name="组播工具v4" link="StartCmd.exe .\tools\Multicastv4.lnk" img="image\组播工具.GIF" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/2133.htm"   img="image/z.gif" ostype="0" >
+<tool name="组播工具v4" link="StartCmd.exe .\tools\Multicastv4.lnk" img="image\组播工具.GIF" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2136.htm"   img="image/z.gif" ostype="0" >
+<tool name="组播工具v4" link="StartCmd.exe .\tools\Multicastv4.lnk" img="image\组播工具.GIF" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/2140.htm"   img="image/z.gif" ostype="0" >
+<tool name="组播工具v4" link="StartCmd.exe .\tools\Multicastv4.lnk" img="image\组播工具.GIF" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+</level2>
+<level2 name="附录" link="files/3452.htm" img="image/z.gif" ostype="0">
+<level3 name="附录A  网络结构" link="files/3453.htm" img="image/z.gif" ostype="0">
+</level3>
+<level3 name="附录B  Outlook Express的使用方法" link="files/3454.htm" img="image/z.gif" ostype="0">
+</level3>
+<level3 name="附录C  Windows 2003下SNMP服务的安装" link="files/3455.htm" img="image/z.gif" ostype="0">
+</level3>
+<level3 name="附录D  协议编辑器使用说明" link="files/3456.htm" img="image/z.gif" ostype="0">
+</level3>
+<level3 name="附录E  协议分析器使用说明" link="files/3457.htm" img="image/z.gif" ostype="0">
+</level3>
+<level3 name="附录F  工具使用说明" link="files/3458.htm" img="image/z.gif" ostype="0">
+</level3>
+</level2>
+</level1>
+<level1 name="IPv6网络协议" link="files/2147x.htm" img="image/z.gif" ostype="0">
+<level2 name="IPv6协议实验" link="files/1552x.htm" img="image/z.gif" ostype="0">
+<level3 name="实验1  初识IPv6" link="files/1559.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1572.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1573.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1574.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1575.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验2  IPv6报头" link="files/1560.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1593.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1595.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1596.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1597.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验3  ICMPv6" link="files/1561.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1621.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1622.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1623.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1624.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验4  IPv6多播" link="files/1562.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="组播工具v6" link="StartCmd.exe .\tools\Multicastv6.lnk" img="image\组播工具.GIF" ostype="1" />
+<tab name="实验基础"  link="files/1642.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="组播工具v6" link="StartCmd.exe .\tools\Multicastv6.lnk" img="image\组播工具.GIF" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1643.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="组播工具v6" link="StartCmd.exe .\tools\Multicastv6.lnk" img="image\组播工具.GIF" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1644.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="组播工具v6" link="StartCmd.exe .\tools\Multicastv6.lnk" img="image\组播工具.GIF" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1645.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="组播工具v6" link="StartCmd.exe .\tools\Multicastv6.lnk" img="image\组播工具.GIF" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验5  邻居发现协议" link="files/1563.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1700.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1701.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1702.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1703.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验6  IPv6路由" link="files/1564.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1696.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1697.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1698.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1699.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验7  IPv6与IPv4共存机制" link="files/1565.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1612.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1613.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1636.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1638.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验8  IPv6地址自动配置" link="files/1566.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="TCP工具v6" link="StartCmd.exe .\tools\TCPToolv6.lnk" img="image/TCP工具.gif" ostype="1" />
+<tab name="实验基础"  link="files/1651.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="TCP工具v6" link="StartCmd.exe .\tools\TCPToolv6.lnk" img="image/TCP工具.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1652.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="TCP工具v6" link="StartCmd.exe .\tools\TCPToolv6.lnk" img="image/TCP工具.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1658.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="TCP工具v6" link="StartCmd.exe .\tools\TCPToolv6.lnk" img="image/TCP工具.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1662.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="TCP工具v6" link="StartCmd.exe .\tools\TCPToolv6.lnk" img="image/TCP工具.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验9  IPv6 DNS" link="files/1567.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/1664.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1665.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1666.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1667.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="协议编辑器" link="StartCmd.exe .\tools\NetSimulator.lnk" img="image\协议编辑器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验10 IPv6应用层实验" link="files/1568.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+<tool name="TCP工具v6" link="StartCmd.exe .\tools\TCPToolv6.lnk" img="image/TCP工具.gif" ostype="1" />
+<tab name="实验基础"  link="files/1681.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+<tool name="TCP工具v6" link="StartCmd.exe .\tools\TCPToolv6.lnk" img="image/TCP工具.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1682.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+<tool name="TCP工具v6" link="StartCmd.exe .\tools\TCPToolv6.lnk" img="image/TCP工具.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1683.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+<tool name="TCP工具v6" link="StartCmd.exe .\tools\TCPToolv6.lnk" img="image/TCP工具.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1684.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+<tool name="TCP工具v6" link="StartCmd.exe .\tools\TCPToolv6.lnk" img="image/TCP工具.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验11 IPv6安全技术" link="files/1569.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+<tab name="实验基础"  link="files/1588.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+</tab>
+<tab name="实验原理"  link="files/1589.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/1603.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+</tab>
+<tab name="思考问题"  link="files/1610.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v6" link="StartCmd.exe .\tools\AddrBookv6.lnk" img="/image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="IE" link="StartCmd.exe iexplore" img="image\IE.gif" ostype="1" />
+</tab>
+</level3>
+<level3 name="实验12 IPv6程序设计" link="files/1892.htm" img="image/z.gif" ostype="0">
+<tab name="实验基础"  link="files/1893.htm"   img="image/z.gif" ostype="0" >
+</tab>
+<tab name="实验原理"  link="files/1894.htm"   img="image/z.gif" ostype="0" >
+</tab>
+<tab name="实验步骤"  link="files/1896.htm"   img="image/z.gif" ostype="0" >
+</tab>
+<tab name="思考问题"  link="files/1898.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="实验13 IPv6综合实验" link="files/1570.htm" img="image/z.gif" ostype="0">
+<tab name="实验基础"  link="files/1580.htm"   img="image/z.gif" ostype="0" >
+</tab>
+<tab name="实验需求"  link="files/1585.htm"   img="image/z.gif" ostype="0" >
+</tab>
+<tab name="实验步骤"  link="files/1582.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+</level2>
+<level2 name="附录" link="files/3459.htm" img="image/z.gif" ostype="0">
+<level3 name="附录A  网络结构" link="files/3460.htm" img="image/z.gif" ostype="0">
+</level3>
+<level3 name="附录B  Outlook Express的使用方法" link="files/3462.htm" img="image/z.gif" ostype="0">
+</level3>
+<level3 name="附录C  Windows 2003下SNMP服务的安装" link="files/3463.htm" img="image/z.gif" ostype="0">
+</level3>
+<level3 name="附录D  协议编辑器使用说明" link="files/3464.htm" img="image/z.gif" ostype="0">
+</level3>
+<level3 name="附录E  协议分析器使用说明" link="files/3465.htm" img="image/z.gif" ostype="0">
+</level3>
+<level3 name="附录F  工具使用说明" link="files/3466.htm" img="image/z.gif" ostype="0">
+</level3>
+</level2>
+</level1>
+<level1 name="网络程序设计" link="files/1751x.htm" img="image/z.gif" ostype="0">
+<level2 name="网络程序设计原理" link="files/1752x.htm" img="image/z.gif" ostype="0">
+<level3 name="客户/服务器模型" link="files/1757.htm" img="image/z.gif" ostype="0">
+<tab name="客户/服务器模型"  link="files/1758.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="进程与端口" link="files/1761.htm" img="image/z.gif" ostype="0">
+<tab name="进程与端口"  link="files/1762.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="并发" link="files/1907.htm" img="image/z.gif" ostype="0">
+<tab name="并发"  link="files/1925.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="Windows下的多线程编程简介" link="files/1908.htm" img="image/z.gif" ostype="0">
+<tab name="Windows下的多线程编程简介"  link="files/1927.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="Winsock简介" link="files/1909.htm" img="image/z.gif" ostype="0">
+<tab name="Winsock简介"  link="files/1932.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="面向消息的协议" link="files/1910.htm" img="image/z.gif" ostype="0">
+<tab name="面向消息的协议"  link="files/1934.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="面向流的协议" link="files/1911.htm" img="image/z.gif" ostype="0">
+<tab name="面向流的协议"  link="files/1936.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="基于UDP的Winsock编程" link="files/1912.htm" img="image/z.gif" ostype="0">
+<tab name="基于UDP的Winsock编程"  link="files/1938.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="基于TCP的Winsock编程" link="files/1913.htm" img="image/z.gif" ostype="0">
+<tab name="基于TCP的Winsock编程"  link="files/1940.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="sockaddr结构" link="files/1914.htm" img="image/z.gif" ostype="0">
+<tab name="sockaddr结构"  link="files/1942.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="原始套接字简介" link="files/1915.htm" img="image/z.gif" ostype="0">
+<tab name="原始套接字简介"  link="files/1944.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="Windows套接字模式" link="files/1916.htm" img="image/z.gif" ostype="0">
+<tab name="Windows套接字模式"  link="files/1946.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="Windows套接字I/O模型" link="files/1917.htm" img="image/z.gif" ostype="0">
+<tab name="Windows套接字I/O模型"  link="files/1948.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="IP助手函数" link="files/1918.htm" img="image/z.gif" ostype="0">
+<tab name="IP助手函数"  link="files/1955.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="WMI" link="files/1919.htm" img="image/z.gif" ostype="0">
+<tab name="WMI"  link="files/1957.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="WinInet简介" link="files/1920.htm" img="image/z.gif" ostype="0">
+<tab name="WinInet简介"  link="files/1959.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="MAPI" link="files/1921.htm" img="image/z.gif" ostype="0">
+<tab name="MAPI"  link="files/1961.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+<level3 name="相关函数" link="files/1922.htm" img="image/z.gif" ostype="0">
+<tab name="相关函数"  link="files/1964.htm"   img="image/z.gif" ostype="0" >
+</tab>
+</level3>
+</level2>
+<level2 name="网络程序设计实验" link="files/2633x.htm" img="image/z.gif" ostype="0">
+<level3 name="实验1  聊天工具" link="files/2519.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<level4 name="练习1  聊天工具" link="files/2520.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2521.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="案例描述"  link="files/2522.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="需求分析"  link="files/2523.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="总体设计"  link="files/2524.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2528.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level4>
+</level3>
+<level3 name="实验2  文件传输工具" link="files/2530.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<level4 name="练习1  文件传输工具" link="files/2531.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2532.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="案例描述"  link="files/2533.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="需求分析"  link="files/2534.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="总体设计"  link="files/2535.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2536.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level4>
+</level3>
+<level3 name="实验3  Ping工具" link="files/2538.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<level4 name="练习1  Ping工具" link="files/2539.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2540.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="案例描述"  link="files/2541.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="需求分析"  link="files/2542.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="总体设计"  link="files/2543.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2544.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level4>
+</level3>
+<level3 name="实验4  主机信息获取工具" link="files/2546.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<level4 name="练习1  利用套接字或WMI等方法获取主机基本信息" link="files/2547.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2548.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="案例描述"  link="files/2549.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="需求分析"  link="files/2550.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="总体设计"  link="files/2551.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2552.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level4>
+<level4 name="练习2  利用IP助手管理路由表" link="files/2554.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2578.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="案例描述"  link="files/2579.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="需求分析"  link="files/2580.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="总体设计"  link="files/2581.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2582.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level4>
+</level3>
+<level3 name="实验5  下载客户端" link="files/2555.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<level4 name="练习1  HTTP客户端下载工具" link="files/2556.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2557.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="案例描述"  link="files/2558.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="需求分析"  link="files/2559.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="总体设计"  link="files/2560.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2561.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level4>
+<level4 name="练习2  FTP客户端下载工具" link="files/2563.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2564.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="案例描述"  link="files/2565.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="需求分析"  link="files/2566.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="总体设计"  link="files/2567.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2568.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level4>
+</level3>
+<level3 name="实验6  邮件收发器" link="files/2570.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="Outlook" link="StartCmd.exe msimn.exe" img="image\outlook.gif" ostype="1" />
+<level4 name="练习1  邮件收发器" link="files/2571.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="Outlook" link="StartCmd.exe msimn.exe" img="image\outlook.gif" ostype="1" />
+<tab name="实验基础"  link="files/2572.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="Outlook" link="StartCmd.exe msimn.exe" img="image\outlook.gif" ostype="1" />
+</tab>
+<tab name="案例描述"  link="files/2573.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="Outlook" link="StartCmd.exe msimn.exe" img="image\outlook.gif" ostype="1" />
+</tab>
+<tab name="需求分析"  link="files/2574.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="Outlook" link="StartCmd.exe msimn.exe" img="image\outlook.gif" ostype="1" />
+</tab>
+<tab name="总体设计"  link="files/2575.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="Outlook" link="StartCmd.exe msimn.exe" img="image\outlook.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2576.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tool name="Outlook" link="StartCmd.exe msimn.exe" img="image\outlook.gif" ostype="1" />
+</tab>
+</level4>
+</level3>
+<level3 name="实验7  私有通信程序" link="files/2584.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<level4 name="练习1  私有通信程序" link="files/2585.htm" img="image/z.gif" ostype="0">
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2586.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="案例描述"  link="files/2587.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="需求分析"  link="files/2588.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="总体设计"  link="files/2589.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2590.htm"   img="image/z.gif" ostype="0" >
+<tool name="地址本工具v4" link="StartCmd.exe .\tools\AddrBookv4.lnk" img="image/地址本工具.gif" ostype="1" />
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level4>
+</level3>
+<level3 name="实验8  P2P应用程序设计" link="files/2592.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<level4 name="练习1  P2P应用程序设计" link="files/2593.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2594.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="案例描述"  link="files/2595.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="需求分析"  link="files/2596.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="总体设计"  link="files/2597.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2598.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level4>
+</level3>
+<level3 name="实验9  多用户服务器程序设计" link="files/2610.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<level4 name="练习1  多用户服务器程序设计" link="files/2611.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2612.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="案例描述"  link="files/2613.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="需求分析"  link="files/2614.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="总体设计"  link="files/2615.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2616.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level4>
+</level3>
+<level3 name="实验10 综合设计" link="files/2623.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<level4 name="练习1  综合设计" link="files/2624.htm" img="image/z.gif" ostype="0">
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+<tab name="实验基础"  link="files/2625.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="案例描述"  link="files/2626.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="需求分析"  link="files/2627.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+<tab name="实验步骤"  link="files/2628.htm"   img="image/z.gif" ostype="0" >
+<tool name="协议分析器" link="StartCmd.exe .\tools\NetAnalyser.lnk" img="image\协议分析器.gif" ostype="1" />
+<tool name="命令行" link="StartCmd.exe cmd  /k &quot;cd c:\&quot;" img="image\命令行.gif" ostype="1" />
+</tab>
+</level4>
+</level3>
+</level2>
+<level2 name="附录" link="files/2629.htm" img="image/z.gif" ostype="0">
+<level3 name="附录A  网络结构" link="files/3467.htm" img="image/z.gif" ostype="0">
+</level3>
+<level3 name="附录B  Outlook Express的使用方法" link="files/3468.htm" img="image/z.gif" ostype="0">
+</level3>
+<level3 name="附录C  协议分析器使用说明" link="files/3469.htm" img="image/z.gif" ostype="0">
+</level3>
+</level2>
+</level1>
+</body>

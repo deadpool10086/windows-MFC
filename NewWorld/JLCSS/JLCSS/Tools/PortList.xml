@@ -1,0 +1,599 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<PORTLIST>
+	<PORTINFO>
+		<PORT>7</PORT>
+		<TYPE>echo</TYPE>
+		<DESC>Echo</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>9</PORT>
+		<TYPE>discard</TYPE>
+		<DESC>Discard</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>11</PORT>
+		<TYPE>systat</TYPE>
+		<DESC>Active Users</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>13</PORT>
+		<TYPE>daytime</TYPE>
+		<DESC>Daytime (RFC 867)</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>17</PORT>
+		<TYPE>qotd</TYPE>
+		<DESC>Quote of the Day</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>18</PORT>
+		<TYPE>msp</TYPE>
+		<DESC>Message Send Protocol</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>20</PORT>
+		<TYPE>ftp-data</TYPE>
+		<DESC>File Transfer [Default Data]</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>21</PORT>
+		<TYPE>ftp</TYPE>
+		<DESC>File Transfer [Control]</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>22</PORT>
+		<TYPE>ssh</TYPE>
+		<DESC>SSH Remote Login Protocol</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>23</PORT>
+		<TYPE>telnet</TYPE>
+		<DESC>Telnet</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>25</PORT>
+		<TYPE>smtp</TYPE>
+		<DESC>Simple Mail Transfer</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>42</PORT>
+		<TYPE>nameserver</TYPE>
+		<DESC>Host Name Server</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>53</PORT>
+		<TYPE>domain</TYPE>
+		<DESC>Domain Name Server</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>67</PORT>
+		<TYPE>bootps</TYPE>
+		<DESC>Bootstrap Protocol Server</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>68</PORT>
+		<TYPE>bootpc</TYPE>
+		<DESC>Bootstrap Protocol Client</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>69</PORT>
+		<TYPE>tftp</TYPE>
+		<DESC>Trivial File Transfer</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>70</PORT>
+		<TYPE>gopher</TYPE>
+		<DESC>Gopher</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>78</PORT>
+		<TYPE>vettcp</TYPE>
+		<DESC>vettcp</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>79</PORT>
+		<TYPE>finger</TYPE>
+		<DESC>Finger</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>80</PORT>
+		<TYPE>www-http</TYPE>
+		<DESC>World Wide Web HTTP</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>88</PORT>
+		<TYPE>kerberos</TYPE>
+		<DESC>Kerberos</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>101</PORT>
+		<TYPE>hostname</TYPE>
+		<DESC>NIC Host Name Server</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>107</PORT>
+		<TYPE>rtelnet</TYPE>
+		<DESC>Remote Telnet Service</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>108</PORT>
+		<TYPE>snagas</TYPE>
+		<DESC>SNA Gateway Access Server</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>109</PORT>
+		<TYPE>pop2</TYPE>
+		<DESC>Post Office Protocol - Version 2</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>110</PORT>
+		<TYPE>pop3</TYPE>
+		<DESC>Post Office Protocol - Version 3</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>119</PORT>
+		<TYPE>nntp</TYPE>
+		<DESC>Network News Transfer Protocol</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>123</PORT>
+		<TYPE>ntp</TYPE>
+		<DESC>Network Time Protocol</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>135</PORT>
+		<TYPE>epmap</TYPE>
+		<DESC>DCE endpoint resolution</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>136</PORT>
+		<TYPE>profile</TYPE>
+		<DESC>PROFILE Naming System</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>137</PORT>
+		<TYPE>netbios-ns</TYPE>
+		<DESC>NETBIOS Name Service</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>138</PORT>
+		<TYPE>netbios-dgm</TYPE>
+		<DESC>NETBIOS Datagram Service</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>139</PORT>
+		<TYPE>netbios-ssn</TYPE>
+		<DESC>NETBIOS Session Service</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>143</PORT>
+		<TYPE>imap</TYPE>
+		<DESC>Internet Message Access Protocol</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>161</PORT>
+		<TYPE>snmp</TYPE>
+		<DESC>SNMP</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>162</PORT>
+		<TYPE>snmptrap</TYPE>
+		<DESC>SNMPTRAP</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>389</PORT>
+		<TYPE>ldap</TYPE>
+		<DESC>Lightweight Directory Access Protocol</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>443</PORT>
+		<TYPE>https</TYPE>
+		<DESC>http protocol over TLS/SSL</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>444</PORT>
+		<TYPE>snpp</TYPE>
+		<DESC>Simple Network Paging Protocol</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>445</PORT>
+		<TYPE>microsoft-ds</TYPE>
+		<DESC>Microsoft-DS</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>500</PORT>
+		<TYPE>IPSec</TYPE>
+		<DESC>IPSec</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>515</PORT>
+		<TYPE>printer</TYPE>
+		<DESC>spooler</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>546</PORT>
+		<TYPE>dhcpv6-client</TYPE>
+		<DESC>DHCPv6 Client</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>547</PORT>
+		<TYPE>dhcpv6-server</TYPE>
+		<DESC>DHCPv6 Server</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>554</PORT>
+		<TYPE>rtsp</TYPE>
+		<DESC>Real Time Stream Control Protocol</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>563</PORT>
+		<TYPE>nntps</TYPE>
+		<DESC>nntp protocol over TLS/SSL (was snntp)</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>593</PORT>
+		<TYPE>http-rpc-epmap</TYPE>
+		<DESC>HTTP RPC Ep Map</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>636</PORT>
+		<TYPE>ldaps</TYPE>
+		<DESC>ldap protocol over TLS/SSL (was sldap)</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>647</PORT>
+		<TYPE>dhcp-failover</TYPE>
+		<DESC>DHCP Failover</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>652</PORT>
+		<TYPE>hello-port</TYPE>
+		<DESC>HELLO_</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>662</PORT>
+		<TYPE>pftp</TYPE>
+		<DESC>PFTP</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>689</PORT>
+		<TYPE>nmap</TYPE>
+		<DESC>NMAP</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>691</PORT>
+		<TYPE>msexch-routing</TYPE>
+		<DESC>MS Exchange Routing</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>767</PORT>
+		<TYPE>phonebook</TYPE>
+		<DESC>phone</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>777</PORT>
+		<TYPE>multiling-http</TYPE>
+		<DESC>Multiling HTTP</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>989</PORT>
+		<TYPE>ftps-data</TYPE>
+		<DESC>ftp protocol, data, over TLS/SSL</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>990</PORT>
+		<TYPE>ftps</TYPE>
+		<DESC>ftp protocol, control, over TLS/SSL</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>991</PORT>
+		<TYPE>nas</TYPE>
+		<DESC>Netnews Administration System</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>992</PORT>
+		<TYPE>telnets</TYPE>
+		<DESC>telnet protocol over TLS/SSL</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>993</PORT>
+		<TYPE>imaps</TYPE>
+		<DESC>imap4 protocol over TLS/SSL</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>995</PORT>
+		<TYPE>pop3s</TYPE>
+		<DESC>pop3 protocol over TLS/SSL (was spop3)</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1025</PORT>
+		<TYPE>backdoor</TYPE>
+		<DESC>NetSpy, Maverick's Matrix 1.2 - 2.2, RemoteStorm</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1025</PORT>
+		<TYPE>icq</TYPE>
+		<DESC>ICQ</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1026</PORT>
+		<TYPE>icq</TYPE>
+		<DESC>ICQ</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1027</PORT>
+		<TYPE>icq</TYPE>
+		<DESC>ICQ</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1028</PORT>
+		<TYPE>icq</TYPE>
+		<DESC>ICQ</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1029</PORT>
+		<TYPE>icq</TYPE>
+		<DESC>ICQ</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1270</PORT>
+		<TYPE>opsman</TYPE>
+		<DESC>opsman</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1433</PORT>
+		<TYPE>ms-sql-s</TYPE>
+		<DESC>Microsoft-SQL-Server</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1434</PORT>
+		<TYPE>ms-sql-m</TYPE>
+		<DESC>Microsoft-SQL-Monitor</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1645</PORT>
+		<TYPE>datametrics</TYPE>
+		<DESC>datametrics</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1646</PORT>
+		<TYPE>sa-msg-port</TYPE>
+		<DESC>sa-msg-port</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1701</PORT>
+		<TYPE>l2tp</TYPE>
+		<DESC>l2tp</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1723</PORT>
+		<TYPE>pptp</TYPE>
+		<DESC>pptp</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1755</PORT>
+		<TYPE>ms-streaming</TYPE>
+		<DESC>ms-streaming</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1801</PORT>
+		<TYPE>msmq</TYPE>
+		<DESC>Microsoft Message Que</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1812</PORT>
+		<TYPE>radius</TYPE>
+		<DESC>RADIUS</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1813</PORT>
+		<TYPE>radius-acct</TYPE>
+		<DESC>RADIUS Accounting</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>1900</PORT>
+		<TYPE>ssdp</TYPE>
+		<DESC>SSDP</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>2101</PORT>
+		<TYPE>MSMQ-DC</TYPE>
+		<DESC>MSMQ-DC</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>2103</PORT>
+		<TYPE>MSMQ-RPC</TYPE>
+		<DESC>MSMQ-RPC</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>2105</PORT>
+		<TYPE>MSMQ-RPC</TYPE>
+		<DESC>MSMQ-RPC</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>2107</PORT>
+		<TYPE>MSMQ-Mgmt</TYPE>
+		<DESC>MSMQ-Mgmt</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>2393</PORT>
+		<TYPE>ms-olap1</TYPE>
+		<DESC>MS OLAP 1</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>2394</PORT>
+		<TYPE>ms-olap2</TYPE>
+		<DESC>MS OLAP 2</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>2460</PORT>
+		<TYPE>ms-theater</TYPE>
+		<DESC>ms-theater</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>2535</PORT>
+		<TYPE>madcap</TYPE>
+		<DESC>MADCAP</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>2701</PORT>
+		<TYPE>sms-rcinfo</TYPE>
+		<DESC>SMS RCINFO</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>2702</PORT>
+		<TYPE>sms-xfer</TYPE>
+		<DESC>SMS XFER</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>2703</PORT>
+		<TYPE>sms-chat</TYPE>
+		<DESC>SMS CHAT</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>2704</PORT>
+		<TYPE>sms-remctrl</TYPE>
+		<DESC>SMS REMCTRL</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>2725</PORT>
+		<TYPE>msolap-ptp2</TYPE>
+		<DESC>MSOLAP PTP3</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>2869</PORT>
+		<TYPE>icslap</TYPE>
+		<DESC>ICSLAP</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>3268</PORT>
+		<TYPE>msft-gc</TYPE>
+		<DESC>Microsoft Global Catalog</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>3269</PORT>
+		<TYPE>msft-gc-ssl</TYPE>
+		<DESC>Microsoft Global Catalog with LDAP/SSL</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>3343</PORT>
+		<TYPE>ms-cluster-net</TYPE>
+		<DESC>MS Cluster Net</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>3389</PORT>
+		<TYPE>ms-wbt-server</TYPE>
+		<DESC>MS WBT Server</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>4011</PORT>
+		<TYPE>altserviceboot</TYPE>
+		<DESC>Alternate Service Boot</DESC>
+	</PORTINFO>
+	
+	<PORTINFO>
+		<PORT>5000</PORT>
+		<TYPE>SSDP</TYPE>
+		<DESC>SSDP</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5004</PORT>
+		<TYPE>RTP</TYPE>
+		<DESC>RTP</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5005</PORT>
+		<TYPE>RTCP</TYPE>
+		<DESC>RTCP</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5060</PORT>
+		<TYPE>sip</TYPE>
+		<DESC>SIP</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5061</PORT>
+		<TYPE>sip-tls</TYPE>
+		<DESC>SIP-TLS</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5402</PORT>
+		<TYPE>mftp</TYPE>
+		<DESC>MFTP</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5415</PORT>
+		<TYPE>ns-server</TYPE>
+		<DESC>NS Server</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5416</PORT>
+		<TYPE>sns-gateway</TYPE>
+		<DESC>SNS Gateway</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5417</PORT>
+		<TYPE>sns-agent</TYPE>
+		<DESC>SNS Agent</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5599</PORT>
+		<TYPE>esinstall</TYPE>
+		<DESC>Enterprise Security Remote Install</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5600</PORT>
+		<TYPE>esmmanager</TYPE>
+		<DESC>Enterprise Security Manager</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5601</PORT>
+		<TYPE>esmagent</TYPE>
+		<DESC>Enterprise Security Agent</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5631</PORT>
+		<TYPE>pcanywheredata</TYPE>
+		<DESC>pcANYWHEREdata</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5632</PORT>
+		<TYPE>pcanywherestat</TYPE>
+		<DESC>pcANYWHEREstat</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5813</PORT>
+		<TYPE>icmpd</TYPE>
+		<DESC>ICMPD</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5987</PORT>
+		<TYPE>wbem-rmi</TYPE>
+		<DESC>WBEM RMI</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5988</PORT>
+		<TYPE>wbem-http</TYPE>
+		<DESC>WBEM HTTP</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>5989</PORT>
+		<TYPE>wbem-https</TYPE>
+		<DESC>WBEM HTTPS</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>6714</PORT>
+		<TYPE>ibprotocol</TYPE>
+		<DESC>Internet Backplane Protocol</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>8001</PORT>
+		<TYPE>vcom-tunnel</TYPE>
+		<DESC>VCOM Tunnel</DESC>
+	</PORTINFO>
+	<PORTINFO>
+		<PORT>8008</PORT>
+		<TYPE>http-alt</TYPE>
+		<DESC>HTTP Alternate</DESC>
+	</PORTINFO>
+</PORTLIST>

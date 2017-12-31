@@ -1,0 +1,45 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: TCPS - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\john\AppData\Local\Temp\RSPA1DF.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/TCPS.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Users\john\Desktop\NewWorld\TCPS\SockC.cpp"
+"C:\Users\john\Desktop\NewWorld\TCPS\Sockt.cpp"
+"C:\Users\john\Desktop\NewWorld\TCPS\TCPS.cpp"
+"C:\Users\john\Desktop\NewWorld\TCPS\TCPSDlg.cpp"
+]
+Creating command line "cl.exe @C:\Users\john\AppData\Local\Temp\RSPA1DF.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/TCPS.pdb" /debug /machine:I386 /out:"Debug/TCPS.exe" /pdbtype:sept  .\Debug\SockC.obj .\Debug\Sockt.obj .\Debug\StdAfx.obj .\Debug\TCPS.obj .\Debug\TCPSDlg.obj .\Debug\TCPS.res "
+<h3>Output Window</h3>
+Compiling...
+SockC.cpp
+c:\users\john\desktop\newworld\tcps\sockc.h(16) : error C2504: 'CSocket' : base class undefined
+Sockt.cpp
+c:\users\john\desktop\newworld\tcps\sockt.h(16) : error C2504: 'CSocket' : base class undefined
+TCPS.cpp
+c:\users\john\desktop\newworld\tcps\tcpsdlg.h(18) : error C2146: syntax error : missing ';' before identifier 'm_sock'
+c:\users\john\desktop\newworld\tcps\tcpsdlg.h(18) : error C2501: 'CSockt' : missing storage-class or type specifiers
+c:\users\john\desktop\newworld\tcps\tcpsdlg.h(18) : error C2501: 'm_sock' : missing storage-class or type specifiers
+TCPSDlg.cpp
+c:\users\john\desktop\newworld\tcps\tcpsdlg.h(18) : error C2146: syntax error : missing ';' before identifier 'm_sock'
+c:\users\john\desktop\newworld\tcps\tcpsdlg.h(18) : error C2501: 'CSockt' : missing storage-class or type specifiers
+c:\users\john\desktop\newworld\tcps\tcpsdlg.h(18) : error C2501: 'm_sock' : missing storage-class or type specifiers
+C:\Users\john\Desktop\NewWorld\TCPS\TCPSDlg.cpp(51) : error C2065: 'm_sock' : undeclared identifier
+C:\Users\john\Desktop\NewWorld\TCPS\TCPSDlg.cpp(51) : error C2228: left of '.Create' must have class/struct/union type
+C:\Users\john\Desktop\NewWorld\TCPS\TCPSDlg.cpp(53) : error C2065: 'GetLantError' : undeclared identifier
+Generating Code...
+Ö´ÐÐ cl.exe Ê±³ö´í.
+
+
+
+<h3>Results</h3>
+TCPS.exe - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

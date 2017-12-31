@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<constraint>
+  <nodes>
+    <netpdl>
+      <children sequence="true">
+        <group />
+        <proto />
+        <checkutils />
+      </children>
+      <attributes />
+    </netpdl>
+    <group>
+      <children sequence="true">
+        <startproto />
+        <validproto />
+        <validcheckfield />
+        <validfun />
+      </children>
+      <attributes>
+        <name use="required" />
+      </attributes>
+    </group>
+    <startproto>
+      <attributes>
+        <name use="required" />
+      </attributes>
+    </startproto>
+    <validproto>
+      <attributes>
+        <name use="required" />
+      </attributes>
+    </validproto>
+    <validcheckfield>
+      <attributes>
+        <name use="required" />
+      </attributes>
+    </validcheckfield>
+    <validfun>
+      <attributes>
+        <name use="required" />
+      </attributes>
+    </validfun>
+    <proto>
+      <children>
+        <preproto />
+        <fields />
+        <block />
+        <showmap />
+        <showsum />
+        <defaultdata />
+      </children>
+      <attributes>
+        <name use="required" />
+        <showname_en use="optional" />
+        <showname_cn use="optional" />
+        <company use="optional" />
+        <comment_en use="optional" />
+        <comment_cn use="optional" />
+      </attributes>
+    </proto>
+    <fields>
+      <children>
+        <fixed />
+        <variable />
+        <masked />
+        <includeblk />
+        <if />
+        <switch />
+        <loop />
+        <checkfield />
+        <presentif />
+        <detail />
+        <nextproto />
+      </children>
+    </fields>
+    <detail>
+      <children>
+        <expr />
+        <fixed />
+        <variable />
+        <masked />
+        <includeblk />
+        <if />
+        <switch />
+        <loop />
+        <checkfield>
+        </checkfield>
+        <presentif />
+      </children>
+      <attributes>
+        <length use="optional" type="dec">
+        </length>
+      </attributes>
+    </detail>
+    <fixed>
+      <attributes>
+        <name use="required" />
+        <size use="optional" default="byte">
+          <enumvalue value="byte">
+          </enumvalue>
+          <enumvalue value="short" />
+          <enumvalue value="word" />
+        </size>
+        <vector use="optional" default="1" type="ushort" />
+        <temp use="optional" default="no">
+          <enumvalue value="yes" />
+          <enumvalue value="no" />
+        </temp>
+        <showname_en use="required" />
+        <showname_cn use="required" />
+        <comment_en use="optional" />
+        <comment_cn use="optional" />
+        <showsep use="optional" />
+        <showgrp use="optional" type="ushort" />
+        <showfmt use="optional" default="hex">
+          <enumvalue value="dec">
+          </enumvalue>
+          <enumvalue value="bin">
+          </enumvalue>
+          <enumvalue value="hex">
+          </enumvalue>
+          <enumvalue value="ascii">
+          </enumvalue>
+        </showfmt>
+        <checksum use="optional" />
+        <showmap use="optional" />
+      </attributes>
+    </fixed>
+    <masked>
+      <children>
+        <bit />
+      </children>
+      <attributes>
+        <name use="required" />
+        <size use="optional" default="byte">
+          <enumvalue value="byte">
+          </enumvalue>
+          <enumvalue value="short" />
+          <enumvalue value="word" />
+        </size>
+        <temp use="optional" default="no">
+          <enumvalue value="yes" />
+          <enumvalue value="no" />
+        </temp>
+        <showname_en use="required" />
+        <showname_cn use="required" />
+        <comment_en use="optional" />
+        <comment_cn use="optional" />
+        <showsep use="optional" />
+        <showgrp use="optional" type="ushort" />
+        <showfmt use="optional" default="hex">
+          <enumvalue value="dec">
+          </enumvalue>
+          <enumvalue value="bin">
+          </enumvalue>
+          <enumvalue value="hex">
+          </enumvalue>
+          <enumvalue value="ascii">
+          </enumvalue>
+        </showfmt>
+        <checksum use="optional" />
+        <showmap use="optional" />
+      </attributes>
+    </masked>
+    <bit>
+      <attributes>
+        <name use="required" />
+        <mask use="required" type="hex" />
+        <temp use="optional" default="no">
+          <enumvalue value="yes" />
+          <enumvalue value="no" />
+        </temp>
+        <showname_en use="required" />
+        <showname_cn use="required" />
+        <comment_en use="optional" />
+        <comment_cn use="optional" />
+        <showfmt use="optional" default="bin">
+          <enumvalue value="dec">
+          </enumvalue>
+          <enumvalue value="bin">
+          </enumvalue>
+          <enumvalue value="hex">
+          </enumvalue>
+          <enumvalue value="ascii">
+          </enumvalue>
+        </showfmt>
+        <showmap use="optional" />
+      </attributes>
+    </bit>
+    <variable>
+      <children>
+        <expr />
+      </children>
+      <attributes>
+        <name use="required" />
+        <varend use="required">
+          <enumvalue value="size">
+          </enumvalue>
+          <enumvalue value="sentinel" />
+        </varend>
+        <termflag use="optional" type="hex" />
+        <temp use="optional" default="no">
+          <enumvalue value="yes" />
+          <enumvalue value="no" />
+        </temp>
+        <showname_en use="required" />
+        <showname_cn use="required" />
+        <comment_en use="optional" />
+        <comment_cn use="optional" />
+        <showsep use="optional" />
+        <showgrp use="optional" type="ushort" />
+        <showfmt use="optional" default="hex">
+          <enumvalue value="dec">
+          </enumvalue>
+          <enumvalue value="bin">
+          </enumvalue>
+          <enumvalue value="hex">
+          </enumvalue>
+          <enumvalue value="ascii">
+          </enumvalue>
+        </showfmt>
+        <checksum use="optional" />
+        <showmap use="optional" />
+      </attributes>
+    </variable>
+    <includeblk>
+      <attributes>
+        <showname_en use="optional" />
+        <showname_cn use="optional" />
+        <name use="required" />
+      </attributes>
+    </includeblk>
+    <block>
+      <children>
+        <fixed />
+        <variable />
+        <masked />
+        <includeblk>
+        </includeblk>
+        <if />
+        <switch />
+        <loop />
+        <checkfield />
+        <presentif />
+        <detail />
+      </children>
+      <attributes>
+        <showname_en use="required" />
+        <showname_cn use="required" />
+        <comment_en use="optional" />
+        <comment_cn use="optional" />
+        <name use="required" />
+      </attributes>
+    </block>
+    <presentif>
+      <children>
+        <expr />
+      </children>
+    </presentif>
+    <if>
+      <children sequence="true">
+        <expr />
+        <then />
+        <else />
+      </children>
+    </if>
+    <then>
+      <children>
+        <fixed />
+        <variable />
+        <masked />
+        <includeblk />
+        <if />
+        <switch />
+        <loop />
+        <checkfield />
+        <presentif />
+        <prtcl />
+        <fld />
+        <text />
+        <loopctrl />
+        <protoref />
+        <detail />
+      </children>
+    </then>
+    <else>
+      <children>
+        <fixed />
+        <variable />
+        <masked />
+        <includeblk />
+        <if />
+        <switch />
+        <loop />
+        <checkfield />
+        <presentif />
+        <prtcl />
+        <fld />
+        <text />
+        <loopctrl />
+        <protoref />
+        <detail />
+      </children>
+    </else>
+    <switch>
+      <children sequence="true">
+        <expr />
+        <case />
+      </children>
+    </switch>
+    <case>
+      <children>
+        <fixed />
+        <variable />
+        <masked />
+        <includeblk />
+        <if />
+        <switch />
+        <loop />
+        <checkfield />
+        <presentif />
+        <loopctrl />
+        <detail />
+      </children>
+      <attributes>
+        <name use="optional" />
+        <oper use="optional" default="eq">
+          <enumvalue value="eq">
+          </enumvalue>
+          <enumvalue value="ne">
+          </enumvalue>
+          <enumvalue value="ge">
+          </enumvalue>
+          <enumvalue value="gt">
+          </enumvalue>
+          <enumvalue value="le">
+          </enumvalue>
+          <enumvalue value="lt">
+          </enumvalue>
+          <enumvalue value="1">
+          </enumvalue>
+        </oper>
+        <value use="optional" type="dec" />
+        <protoref use="optional" />
+        <show_en use="required" />
+        <show_cn use="required" />
+        <showname_en use="optional" />
+        <showname_cn use="optional" />
+        <comment_en use="optional" />
+        <comment_cn use="optional" />
+      </attributes>
+    </case>
+    <loop>
+      <children>
+        <expr />
+        <fixed />
+        <variable />
+        <masked />
+        <includeblk />
+        <if />
+        <switch />
+        <loop />
+        <checkfield />
+        <presentif />
+        <loopctrl />
+        <detail />
+      </children>
+      <attributes>
+        <name use="required" />
+        <showname_en use="required" />
+        <showname_cn use="required" />
+        <comment_en use="optional" />
+        <comment_cn use="optional" />
+        <type use="required">
+          <enumvalue value="size">
+          </enumvalue>
+          <enumvalue value="times2repeat">
+          </enumvalue>
+          <enumvalue value="while">
+          </enumvalue>
+        </type>
+      </attributes>
+    </loop>
+    <loopctrl>
+      <attributes>
+        <type use="required" default="break">
+          <enumvalue value="break">
+          </enumvalue>
+        </type>
+      </attributes>
+    </loopctrl>
+    <nextproto>
+      <children>
+        <protoref />
+        <switch />
+        <if />
+      </children>
+    </nextproto>
+    <preproto>
+      <children>
+        <protoref />
+      </children>
+      <attributes>
+        <name use="required" />
+      </attributes>
+    </preproto>
+    <protoref>
+      <children>
+        <expr />
+      </children>
+      <attributes>
+        <name use="required" />
+      </attributes>
+    </protoref>
+    <defaultdata>
+      <children sequence="true">
+        <protodata />
+        <fulldata />
+      </children>
+    </defaultdata>
+    <protodata>
+      <attributes>
+        <length use="required" type="dec" />
+        <data use="required" type="hex" />
+      </attributes>
+    </protodata>
+    <fulldata>
+      <attributes>
+        <length use="required" type="dec" />
+        <data use="required" type="hex" />
+      </attributes>
+    </fulldata>
+    <expr>
+      <children>
+        <expr />
+        <number />
+        <fieldref />
+        <pattern />
+        <innervarref />
+        <lengthref />
+        <funref />
+      </children>
+      <attributes>
+        <oper use="required" />
+      </attributes>
+    </expr>
+    <number>
+      <attributes>
+        <value use="required" type="dec" />
+      </attributes>
+    </number>
+    <pattern>
+      <attributes>
+        <value use="required" />
+      </attributes>
+    </pattern>
+    <fieldref>
+      <attributes>
+        <name use="required" />
+        <proto use="optional" />
+      </attributes>
+    </fieldref>
+    <innervarref>
+      <attributes>
+        <type use="required" default="_codedlen">
+          <enumvalue value="_codedlen" />
+        </type>
+      </attributes>
+    </innervarref>
+    <funref>
+      <attributes>
+        <name use="required" />
+      </attributes>
+    </funref>
+    <lengthref>
+      <attributes>
+        <from use="required" />
+        <proto use="required" />
+        <to use="required">
+          <enumvalue value="packethead" />
+          <enumvalue value="packtail" />
+          <enumvalue value="prototail" />
+        </to>
+      </attributes>
+    </lengthref>
+    <dataref>
+      <attributes>
+        <from use="required" />
+        <proto use="required" />
+        <to use="required">
+          <enumvalue value="packethead" />
+          <enumvalue value="packtail" />
+          <enumvalue value="prototail" />
+        </to>
+      </attributes>
+    </dataref>
+    <showmap>
+      <children>
+        <case />
+      </children>
+      <attributes>
+        <name use="required" />
+      </attributes>
+    </showmap>
+    <showsum>
+      <children>
+        <prtcl />
+        <text />
+        <fld />
+        <if />
+      </children>
+    </showsum>
+    <text>
+      <children>
+        <expr />
+      </children>
+      <attributes>
+        <content_en />
+        <content_cn />
+      </attributes>
+    </text>
+    <prtcl>
+      <attributes>
+        <attrib>
+          <enumvalue value="name" />
+          <enumvalue value="showname" />
+        </attrib>
+      </attributes>
+    </prtcl>
+    <fld>
+      <attributes>
+        <name use="required" />
+        <attrib>
+          <enumvalue value="name" />
+          <enumvalue value="showname" />
+          <enumvalue value="showvalue" />
+          <enumvalue value="showmap" />
+        </attrib>
+      </attributes>
+    </fld>
+    <checkutils>
+      <children>
+        <fun />
+        <checkfield />
+      </children>
+    </checkutils>
+    <checkfield>
+      <children>
+        <expr />
+      </children>
+      <attributes>
+        <name use="required" />
+        <level use="optional" default="5">
+        </level>
+        <proto use="required" />
+        <comment_en use="optional" />
+        <comment_cn use="optional" />
+      </attributes>
+    </checkfield>
+    <fun>
+      <children>
+        <fieldref />
+        <dataref />
+        <lengthref />
+        <rawdata />
+      </children>
+      <attributes>
+        <name use="required" />
+        <arith use="required" />
+      </attributes>
+    </fun>
+    <rawdata>
+      <attributes>
+        <length use="required" type="dec" />
+        <data use="required" type="hex" />
+      </attributes>
+    </rawdata>
+  </nodes>
+  <commattris>
+    <name use="optional" />
+    <showname_en use="optional" />
+    <showname_cn use="optional" />
+    <comment_en use="optional" />
+    <comment_cn use="optional" />
+  </commattris>
+</constraint>

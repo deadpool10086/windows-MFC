@@ -1,0 +1,79 @@
+body {
+    font-family:宋体;
+	font-size:9pt;
+	margin: 0px;
+	overflow:hidden;
+}
+.btn2 {
+font-family:宋体;
+	font-size: 9pt;
+	background-image: url(../images/btn2.gif);
+	height: 32px;
+	border:0;
+	cursor:pointer;
+	color:#000000;
+	padding:0px;
+	padding-left:40px;
+	margin-top:5px;
+	margin-bottom:5px;
+	text-align:left;
+}
+.btn2d {
+font-family:宋体;
+	font-size: 9pt;
+	background-image: url(../images/btn2.gif);
+	height: 32px;
+	border:0;
+	cursor:pointer;
+	color:#0000FF;
+	padding:0px;
+	padding-left:40px;
+	margin-top:5px;
+	margin-bottom:5px;
+	text-align:left;
+}
+.btn1 {
+font-family:宋体;
+	font-size: 9pt;
+	background-image: url(../images/btn1.gif);
+	height: 28px;
+	width: 86px;
+	border:0;
+	cursor:pointer;
+	color:#FFFFFF;
+	padding-top:4px;
+	margin-left:3px;
+	margin-left:6px;
+}
+.btn1d {
+font-family:宋体;
+	font-size: 9pt;
+	background-image: url(../images/btn1d.gif);
+	height: 28px;
+	width: 86px;
+	border:0;
+	cursor:pointer;
+	color:#000000;
+	padding-top:4px;
+	margin-left:6px;
+}
+.infobody {
+    overflow-x:scroll;
+    overflow-y:scroll;
+    background-color:#D3EEF4;
+    margin-left:20px;
+    margin-right:20px;
+}
+.infotd1 {
+	background-color: #FFFFFF;
+}
+.infotd2 {
+	background-color: #3787bd;
+}
+.infotd3 {
+	background-image: url(../images/b3.gif);
+}
+td {
+	font-size:9pt;
+	line-height:200%;
+}

@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+	<!--size属性定义-->
+	<xsd:simpleType name="sizeType">
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="byte"/>
+			<xsd:enumeration value="short"/>
+			<xsd:enumeration value="word"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!--temp属性定义-->
+	<xsd:simpleType name="tempType">
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="yes"/>
+			<xsd:enumeration value="no"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!--bit_mask属性定义-->
+	<xsd:simpleType name="bit_maskType">
+		<xsd:restriction base="xsd:token">
+			<xsd:pattern value="([0-9A-Fa-f]{2}){1,2}|([0-9A-Fa-f]{2}){4}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!--variable_varend属性定义-->
+	<xsd:simpleType name="variable_varendType">
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="size"/>
+			<xsd:enumeration value="sentinel"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!--variable_termflag属性定义-->
+	<xsd:simpleType name="variable_termflagType">
+		<xsd:restriction base="xsd:token">
+			<xsd:pattern value="([0-9A-Fa-f]{2}){1,4}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!--loop_type属性定义-->
+	<xsd:simpleType name="loop_typeType">
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="size"/>
+			<xsd:enumeration value="while"/>
+			<xsd:enumeration value="times2repeat"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!--loopctrl_type属性定义-->
+	<xsd:simpleType name="loopctrl_typeType">
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="break"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!--data属性定义-->
+	<xsd:simpleType name="stdhexfmtType">
+		<xsd:restriction base="xsd:token">
+			<xsd:pattern value="[0-9A-Fa-f]{2}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="dataType">
+		<!--<xsd:list itemType="xsd:hexBinary"/>-->
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[ \t]*[0-9A-Fa-f]{2}([ \t]+[0-9A-Fa-f]{2})*[ \t]*"/><!--????????-->
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!--prtcl_attrib属性定义-->
+	<xsd:simpleType name="prtcl_attribType">
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="name"/>
+			<xsd:enumeration value="showname"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!--fld_attrib属性定义-->
+	<xsd:simpleType name="fld_attribType">
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="name"/>
+			<xsd:enumeration value="showname"/>
+			<xsd:enumeration value="showvalue"/>
+			<xsd:enumeration value="showmap"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!--checkfield_level属性定义-->
+	<xsd:simpleType name="checkfield_levelType">
+		<xsd:restriction base="xsd:token">
+			<xsd:pattern value="[1-5]"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!--showfmt属性定义-->
+	<xsd:simpleType name="showfmtType">
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="dec"/>
+			<xsd:enumeration value="bin"/>
+			<xsd:enumeration value="hex"/>
+			<xsd:enumeration value="ascii"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!--showtype属性定义-->
+	<!--
+	<xsd:simpleType name="showtypeType">
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="show"/>
+			<xsd:enumeration value="hide"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	-->
+	
+	<!--oper属性定义-->
+	<xsd:simpleType name="operType">
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="0"/>
+			<xsd:enumeration value="~"/>
+			<xsd:enumeration value="="/>
+			<xsd:enumeration value="+"/>
+			<xsd:enumeration value="-"/>
+			<xsd:enumeration value="*"/>
+			<xsd:enumeration value="/"/>
+			<xsd:enumeration value="%"/>
+			<xsd:enumeration value="@"/>
+			<xsd:enumeration value="|"/>
+			<xsd:enumeration value="@@"/>
+			<xsd:enumeration value="||"/>
+			<xsd:enumeration value="!"/>
+			<xsd:enumeration value="eq"/>
+			<xsd:enumeration value="ne"/>
+			<xsd:enumeration value="le"/>
+			<xsd:enumeration value="lt"/>
+			<xsd:enumeration value="ge"/>
+			<xsd:enumeration value="gt"/>
+			<xsd:enumeration value="match"/><!--????-->
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!--pattern_value属性定义-->
+	<xsd:simpleType name="pattern_valueType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[01x]{1,32}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!--innervarref_value属性定义-->
+	<xsd:simpleType name="innervarref_valueType">
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="_codedlen"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<!--to属性定义-->
+	<xsd:simpleType name="toType">
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="packethead"/>
+			<xsd:enumeration value="packettail"/>
+			<xsd:enumeration value="prototail"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	
+	<!--commonattribute组定义-->
+	<xsd:attributeGroup name="commonattributeGroup">
+		<xsd:attribute name="name" type="xsd:string"/>
+		<xsd:attribute name="showname_en" type="xsd:string"/>
+		<xsd:attribute name="showname_cn" type="xsd:string"/>
+		<xsd:attribute name="comment_en" type="xsd:string"/>
+		<xsd:attribute name="comment_cn" type="xsd:string"/>
+		<!--
+		<xsd:attribute name="showtype" type="showtypeType" default="show"/>
+		-->
+	</xsd:attributeGroup>
+	
+	
+	<!--elem类型定义-->
+	<xsd:complexType name="elemType">
+		<xsd:attributeGroup ref="commonattributeGroup"/>
+	</xsd:complexType>
+	
+	<!--namedelem和namedelemex类型定义-->
+	<xsd:complexType name="namedelemType">
+		<xsd:complexContent>
+			<xsd:restriction base="elemType">
+				<xsd:attribute name="name" type="xsd:string" use="required"/>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="namedelemexType">
+		<xsd:complexContent>
+			<xsd:restriction base="namedelemType">
+				<xsd:attribute name="showname_en" type="xsd:string" use="required"/>
+				<xsd:attribute name="showname_cn" type="xsd:string" use="required"/>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--valuableelem类型定义-->
+	<xsd:complexType name="valuableelemType">
+		<xsd:complexContent>
+			<xsd:extension base="namedelemexType">
+				<xsd:attribute name="temp" type="tempType" default="no"/>
+				<xsd:attribute name="showsep" type="xsd:string"/>
+				<xsd:attribute name="showgrp" type="xsd:unsignedShort"/><!--????类型选择是否准确-->
+				<xsd:attribute name="showmap" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--number类型定义-->
+	<xsd:complexType name="numberType">
+		<xsd:attribute name="value" type="xsd:integer" use="required"/><!--????类型选择是否准确-->
+	</xsd:complexType>
+	
+	
+	<!--pattern类型定义-->
+	<xsd:complexType name="patternType">
+		<xsd:attribute name="value" type="pattern_valueType" use="required"/>
+	</xsd:complexType>
+	
+	
+	<!--innervarref类型定义-->
+	<xsd:complexType name="innervarrefType">
+		<xsd:attribute name="type" type="innervarref_valueType" use="required"/>
+	</xsd:complexType>
+	
+	
+	<!--funref类型定义-->
+	<xsd:complexType name="funrefType">
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	
+	
+	<!--lengthref类型定义-->
+	<xsd:complexType name="lengthrefType">
+		<xsd:attribute name="from" type="xsd:string" use="required"/>
+		<xsd:attribute name="proto" type="xsd:string" use="required"/>
+		<xsd:attribute name="to" type="toType" use="required"/>
+	</xsd:complexType>
+	
+	
+	<!--dataref类型定义-->
+	<xsd:complexType name="datarefType">
+		<xsd:attribute name="from" type="xsd:string" use="required"/>
+		<xsd:attribute name="proto" type="xsd:string" use="required"/>
+		<xsd:attribute name="to" type="toType" use="required"/>
+	</xsd:complexType>
+	
+	
+	<!--fieldref和fieldrefex类型定义-->
+	<xsd:complexType name="fieldrefType">
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="fieldrefexType">
+		<xsd:complexContent>
+			<xsd:extension base="fieldrefType">
+				<xsd:attribute name="proto" type="xsd:string" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--operand和operandex组定义-->
+	<xsd:group name="operandGroup">
+		<xsd:choice>
+			<xsd:element name="expr" type="exprType"/>
+			<xsd:element name="number" type="numberType"/>
+			<xsd:element name="pattern" type="patternType"/>
+			<xsd:element name="innervarref" type="innervarrefType"/>
+			<xsd:element name="fieldref" type="fieldrefType"/>
+		</xsd:choice>	
+	</xsd:group>
+	<xsd:group name="operandexGroup">
+		<xsd:choice>
+			<xsd:element name="expr" type="exprexType"/>
+			<xsd:element name="number" type="numberType"/>
+			<xsd:element name="pattern" type="patternType"/>
+			<xsd:element name="innervarref" type="innervarrefType"/>
+			<xsd:element name="fieldref" type="fieldrefexType"/>
+			<xsd:element name="funref" type="funrefType"/>
+			<xsd:element name="lengthref" type="lengthrefType"/>
+		</xsd:choice>
+	</xsd:group>
+	
+	
+	<!--expr和exprex类型定义-->
+	<xsd:complexType name="exprType">
+		<xsd:sequence>
+			<xsd:group ref="operandGroup" minOccurs="0" maxOccurs="2"/>
+		</xsd:sequence>
+		<xsd:attribute name="oper" type="operType" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="exprexType">
+		<xsd:sequence>
+			<xsd:group ref="operandexGroup" minOccurs="0" maxOccurs="2"/>
+		</xsd:sequence>
+		<xsd:attribute name="oper" type="operType" use="required"/>
+	</xsd:complexType>
+	
+	
+	
+	
+	<!--group类型定义-->
+	<xsd:complexType name="groupType">
+		<xsd:complexContent>
+			<xsd:extension base="namedelemType">
+				<xsd:sequence>
+					<xsd:element name="startproto" type="namedelemType"/>
+					<xsd:element name="validproto" type="namedelemType" maxOccurs="unbounded"/>
+					<xsd:element name="validcheckfield" type="namedelemType" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="validfun" type="namedelemType" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--proto类型定义-->
+	<xsd:complexType name="protoType">
+		<xsd:complexContent>
+			<xsd:extension base="namedelemType">
+				<xsd:sequence>
+					<xsd:element name="preproto" type="preprotoType" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="fields" type="fieldsType"/>
+					<xsd:element name="block" type="blockType" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="showmap" type="showmapType" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="showsum" type="showsumType" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="defaultdata" type="defaultdataType" minOccurs="0" maxOccurs="1"/>
+				</xsd:sequence>
+				<xsd:attribute name="company" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--fields类型定义-->
+	<xsd:complexType name="fieldsType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:sequence>
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element name="fixed" type="fixedType"/>
+						<xsd:element name="variable" type="variableType"/>
+						<xsd:element name="masked" type="maskedType"/>
+						<xsd:element name="includeblk" type="namedelemType"/>
+						<xsd:element name="if" type="fields_ifType"/>
+						<xsd:element name="switch" type="fields_switchType"/>
+						<xsd:element name="loop" type="loopType"/>
+						<xsd:element name="checkfield" type="checkfieldType"/>
+						<xsd:element name="presentif" type="presentifType"/>
+						<xsd:element name="detail" type="detailType"/>
+					</xsd:choice>
+					<xsd:element name="nextproto" type="nextprotoType" minOccurs="0" maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--detail类型定义-->
+	<xsd:complexType name="detailType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:sequence>
+					<xsd:element name="expr" type="exprType" minOccurs="0"/>
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element name="fixed" type="fixedType"/>
+						<xsd:element name="variable" type="variableType"/>
+						<xsd:element name="masked" type="maskedType"/>
+						<xsd:element name="includeblk" type="namedelemType"/>
+						<xsd:element name="if" type="fields_ifType"/>
+						<xsd:element name="switch" type="fields_switchType"/>
+						<xsd:element name="loop" type="loopType"/>
+						<xsd:element name="checkfield" type="checkfieldType"/>
+						<xsd:element name="presentif" type="presentifType"/>
+					</xsd:choice>
+				</xsd:sequence>
+				<xsd:attribute name="length" type="xsd:integer"/><!--????类型选择是否准确-->
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--block类型定义-->
+	<xsd:complexType name="blockType">
+		<xsd:complexContent>
+			<xsd:extension base="namedelemType">
+				<xsd:choice minOccurs="0" maxOccurs="unbounded">
+					<xsd:element name="fixed" type="fixedType"/>
+					<xsd:element name="variable" type="variableType"/>
+					<xsd:element name="masked" type="maskedType"/>
+					<xsd:element name="includeblk" type="namedelemType"/>
+					<xsd:element name="if" type="fields_ifType"/>
+					<xsd:element name="switch" type="fields_switchType"/>
+					<xsd:element name="loop" type="loopType"/>
+					<xsd:element name="checkfield" type="checkfieldType"/>
+					<xsd:element name="presentif" type="presentifType"/>
+					<xsd:element name="detail" type="detailType"/>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--fixed类型定义-->
+	<xsd:complexType name="fixedType">
+		<xsd:complexContent>
+			<xsd:extension base="valuableelemType">
+				<xsd:attribute name="size" type="sizeType" default="byte"/>
+				<xsd:attribute name="vector" type="xsd:unsignedShort" default="1"/>
+				<xsd:attribute name="showfmt" type="showfmtType" default="hex"/>
+				<xsd:attribute name="checksum" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+	
+	<!--bit类型定义-->
+	<xsd:complexType name="bitType">
+		<xsd:complexContent>
+			<xsd:extension base="valuableelemType">
+				<xsd:attribute name="mask" type="bit_maskType" use="required"/>
+				<xsd:attribute name="showfmt" type="showfmtType" default="bin"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+		
+	<!--masked类型定义-->
+	<xsd:complexType name="maskedType">
+		<xsd:complexContent>
+			<xsd:extension base="valuableelemType">
+				<xsd:sequence>
+					<xsd:element name="bit" type="bitType" minOccurs="1" maxOccurs="unbounded"/>
+				</xsd:sequence>
+				<xsd:attribute name="size" type="sizeType" default="byte"/>
+				<xsd:attribute name="showfmt" type="showfmtType" default="hex"/>
+				<xsd:attribute name="checksum" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--variable类型定义-->
+	<xsd:complexType name="variableType">
+		<xsd:complexContent>
+			<xsd:extension base="valuableelemType">
+				<xsd:sequence>
+					<xsd:element name="expr" type="exprType" minOccurs="0"/>
+				</xsd:sequence>
+				<xsd:attribute name="varend" type="variable_varendType" use="required"/>
+				<xsd:attribute name="termflag" type="variable_termflagType"/>
+				<xsd:attribute name="showfmt" type="showfmtType" default="hex"/>
+				<xsd:attribute name="checksum" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--presentif类型定义-->
+	<xsd:complexType name="presentifType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:sequence>
+					<xsd:element name="expr" type="exprType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--fields_if类型定义-->
+	<xsd:complexType name="fields_ifType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:sequence>
+					<xsd:element name="expr" type="exprType"/>
+					<xsd:element name="then" type="fields_thenType"/>
+					<xsd:element name="else" type="fields_elseType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--fields_then和fields_else类型定义-->
+	<xsd:group name="fields_thenelsecontentGroup">
+		<xsd:choice>
+			<xsd:element name="fixed" type="fixedType"/>
+			<xsd:element name="variable" type="variableType"/>
+			<xsd:element name="masked" type="maskedType"/>
+			<xsd:element name="includeblk" type="namedelemType"/>
+			<xsd:element name="if" type="fields_ifType"/>
+			<xsd:element name="switch" type="fields_switchType"/>
+			<xsd:element name="loop" type="loopType"/>
+			<xsd:element name="checkfield" type="checkfieldType"/>
+			<xsd:element name="presentif" type="presentifType"/>
+			<xsd:element name="detail" type="detailType"/>
+						
+			<xsd:element name="loopctrl" type="loopctrlType"/>
+		</xsd:choice>
+	</xsd:group>
+	<xsd:complexType name="fields_thenType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:group ref="fields_thenelsecontentGroup" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="fields_elseType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:group ref="fields_thenelsecontentGroup" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--nextproto_if类型定义-->
+	<xsd:complexType name="nextproto_ifType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:sequence>
+					<xsd:element name="expr" type="exprType"/>
+					<xsd:element name="then" type="nextproto_thenType"/>
+					<xsd:element name="else" type="nextproto_elseType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--nextproto_then和nextproto_else类型定义-->
+	<xsd:group name="nextproto_thenexelseexcontentGroup">
+		<xsd:choice>
+			<xsd:element name="if" type="nextproto_ifType"/>
+			<xsd:element name="protoref" type="protorefType"/>
+			<xsd:element name="switch" type="nextproto_switchType"/>
+		</xsd:choice>
+	</xsd:group>
+	<xsd:complexType name="nextproto_thenType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:group ref="nextproto_thenexelseexcontentGroup" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="nextproto_elseType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:group ref="nextproto_thenexelseexcontentGroup" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--showsum_if类型定义-->
+	<xsd:complexType name="showsum_ifType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:sequence>
+					<xsd:element name="expr" type="exprType"/>
+					<xsd:element name="then" type="showsum_thenType"/>
+					<xsd:element name="else" type="showsum_elseType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--showsum_then和showsum_else类型定义-->
+	<xsd:group name="showsum_thenexelseexcontentGroup">
+		<xsd:choice>
+			<xsd:element name="if" type="showsum_ifType"/>
+			<xsd:element name="prtcl" type="prtclType"/>
+			<xsd:element name="fld" type="fldType"/>
+			<xsd:element name="text" type="textType"/>
+		</xsd:choice>
+	</xsd:group>
+	<xsd:complexType name="showsum_thenType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:group ref="showsum_thenexelseexcontentGroup" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="showsum_elseType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:group ref="showsum_thenexelseexcontentGroup" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--fields_switch类型定义-->
+	<xsd:complexType name="fields_switchType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:sequence>
+					<xsd:element name="expr" type="exprType"/>
+					<xsd:element name="case" type="fields_caseType" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--fields_case类型定义-->
+	<xsd:complexType name="fields_caseType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:sequence>
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">	
+						<xsd:element name="fixed" type="fixedType"/>
+						<xsd:element name="variable" type="variableType"/>
+						<xsd:element name="masked" type="maskedType"/>
+						<xsd:element name="includeblk" type="namedelemType"/>
+						<xsd:element name="if" type="fields_ifType"/>
+						<xsd:element name="switch" type="fields_switchType"/>
+						<xsd:element name="loop" type="loopType"/>
+						<xsd:element name="checkfield" type="checkfieldType"/>
+						<xsd:element name="presentif" type="presentifType"/>
+						<xsd:element name="detail" type="detailType"/>
+							
+						<xsd:element name="loopctrl" type="loopctrlType"/>
+					</xsd:choice>
+				</xsd:sequence>
+				<xsd:attribute name="oper" type="operType" default="eq"/>
+				<xsd:attribute name="value" type="xsd:integer"/><!--????类型选择是否准确-->
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--nextproto_switch类型定义-->
+	<xsd:complexType name="nextproto_switchType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:sequence>
+					<xsd:element name="expr" type="exprType"/>
+					<xsd:element name="case" type="nextproto_caseType" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--nextproto_case类型定义-->
+	<xsd:complexType name="nextproto_caseType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:attribute name="oper" type="operType" default="eq"/>
+				<xsd:attribute name="value" type="xsd:integer"/><!--????类型选择是否准确-->
+				<xsd:attribute name="protoref" type="xsd:string" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--showmap_case类型定义-->
+	<xsd:complexType name="showmap_caseType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:attribute name="oper" type="operType" default="eq"/>
+				<xsd:attribute name="value" type="xsd:integer"/><!--????类型选择是否准确-->
+				<xsd:attribute name="show_en" type="xsd:string" use="required"/>
+				<xsd:attribute name="show_cn" type="xsd:string" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--loop类型定义-->
+	<xsd:complexType name="loopType">
+		<xsd:complexContent>
+			<xsd:extension base="namedelemexType">
+				<xsd:sequence>
+					<xsd:element name="expr" type="exprType"/>
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element name="fixed" type="fixedType"/>
+						<xsd:element name="variable" type="variableType"/>
+						<xsd:element name="masked" type="maskedType"/>
+						<xsd:element name="includeblk" type="namedelemType"/>
+						<xsd:element name="if" type="fields_ifType"/>
+						<xsd:element name="switch" type="fields_switchType"/>
+						<xsd:element name="loop" type="loopType"/>
+						<xsd:element name="checkfield" type="checkfieldType"/>
+						<xsd:element name="presentif" type="presentifType"/>
+						<xsd:element name="detail" type="detailType"/>
+						<xsd:element name="loopctrl" type="loopctrlType"/>
+					</xsd:choice>
+				</xsd:sequence>
+				<xsd:attribute name="type" type="loop_typeType" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--loopctrl类型定义-->
+	<xsd:complexType name="loopctrlType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:attribute name="type" type="loopctrl_typeType" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--preproto类型定义-->
+	<xsd:complexType name="preprotoType">
+		<xsd:complexContent>
+			<xsd:extension base="namedelemType">
+				<xsd:sequence>
+					<xsd:element name="protoref" type="protorefType" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--nextproto类型定义-->
+	<xsd:complexType name="nextprotoType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:sequence>
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element name="protoref" type="protorefType"/>
+						<xsd:element name="if" type="nextproto_ifType"/>
+						<xsd:element name="switch" type="nextproto_switchType"/>
+					</xsd:choice>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--protoref类型定义-->
+	<xsd:complexType name="protorefType">
+		<xsd:complexContent>
+			<xsd:extension base="namedelemType">
+				<xsd:sequence>
+					<xsd:element name="expr" type="exprType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--defaultdata类型定义-->
+	<xsd:complexType name="defaultdataType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:sequence>
+					<xsd:element name="protodata" type="protodataType" minOccurs="0"/>
+					<xsd:element name="fulldata" type="fulldataType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--protodata类型定义-->
+	<xsd:complexType name="protodataType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:attribute name="length" type="xsd:integer" use="required"/>
+				<xsd:attribute name="data" type="dataType" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--fulldata类型定义-->
+	<xsd:complexType name="fulldataType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:attribute name="length" type="xsd:integer" use="required"/>
+				<xsd:attribute name="data" type="dataType" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	
+	
+	
+	<!--showmap类型定义-->
+	<xsd:complexType name="showmapType">
+		<xsd:complexContent>
+			<xsd:extension base="namedelemType">
+				<xsd:sequence>
+					<xsd:element name="case" type="showmap_caseType" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--showsum类型定义-->
+	<xsd:complexType name="showsumType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:sequence>
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element name="if" type="showsum_ifType"/>
+						<xsd:element name="prtcl" type="prtclType"/>
+						<xsd:element name="fld" type="fldType"/>
+						<xsd:element name="text" type="textType"/>
+					</xsd:choice>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--text类型定义-->
+	<xsd:complexType name="textType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:sequence>
+					<xsd:element name="expr" type="exprType" minOccurs="0"/>
+				</xsd:sequence>
+				<xsd:attribute name="content_en" type="xsd:string"/>
+				<xsd:attribute name="content_cn" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--prtcl类型定义-->
+	<xsd:complexType name="prtclType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:attribute name="attrib" type="prtcl_attribType" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--fld类型定义-->
+	<xsd:complexType name="fldType">
+		<xsd:complexContent>
+			<xsd:extension base="namedelemType">
+				<xsd:attribute name="attrib" type="fld_attribType" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	
+	<!--checkutils类型定义-->
+	<xsd:complexType name="checkutilsType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:sequence>
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element name="fun" type="funType"/>
+						<xsd:element name="checkfield" type="checkfieldexType"/>
+					</xsd:choice>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	
+	<!--checkfield和checkfieldex类型定义-->
+	<xsd:complexType name="checkfieldType">
+		<xsd:complexContent>
+			<xsd:extension base="namedelemType">
+				<xsd:sequence>
+					<xsd:element name="expr" type="exprType"/>
+				</xsd:sequence>
+				<xsd:attribute name="level" type="checkfield_levelType" default="5"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="checkfieldexType">
+		<xsd:complexContent>
+			<xsd:extension base="namedelemType">
+				<xsd:sequence>
+					<xsd:element name="expr" type="exprexType"/>
+				</xsd:sequence>
+				<xsd:attribute name="proto" type="xsd:string" use="required"/>
+				<xsd:attribute name="level" type="checkfield_levelType" default="5"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--fun类型定义-->
+	<xsd:complexType name="funType">
+		<xsd:complexContent>
+			<xsd:extension base="namedelemType">
+				<xsd:sequence>
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element name="fieldref" type="fieldrefexType"/>
+						<xsd:element name="dataref" type="datarefType"/>
+						<xsd:element name="lengthref" type="lengthrefType"/>
+						<xsd:element name="rawdata" type="rawdataType"/>
+					</xsd:choice>
+				</xsd:sequence>
+				<xsd:attribute name="arith" type="xsd:string" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--rawdata类型定义-->
+	<xsd:complexType name="rawdataType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:attribute name="length" type="xsd:integer" use="required"/>
+				<xsd:attribute name="data" type="dataType" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<!--netpdl类型定义-->
+	<xsd:complexType name="netpdlType">
+		<xsd:complexContent>
+			<xsd:extension base="elemType">
+				<xsd:sequence>
+					<xsd:element name="group" type="groupType" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="proto" type="protoType" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="checkutils" type="checkutilsType" minOccurs="0" maxOccurs="1"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	
+	<xsd:element name="netpdl" type="netpdlType"/>
+	
+
+</xsd:schema>

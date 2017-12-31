@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<concmd>
+  <proto name="HTTP" protoid="80" disc_cn="超文本传输协议" disc_en="Hypertext Transfer Protocol">
+    <cmdtype name="Method" disc_cn="方法" disc_en="Method ">
+      <cmd name="OPTIONS" opt="OPTIONS" disc_cn="获取有效的通讯选项信息" disc_en="Get information about the communication options available" />
+      <cmd name="GET" opt="GET" disc_cn="获取请求URL定义的信息" disc_en="Get information defined by Request-URL" />
+      <cmd name="HEAD" opt="HEAD" disc_cn="获取GET中消息体以外的信息" disc_en="Get the GET method information except message-body" />
+      <cmd name="POST" opt="POST" disc_cn="向服务器提交附加的实体" disc_en="Refers to server the entity enclosed" />
+      <cmd name="PUT" opt="PUT" disc_cn="向服务器提交附加的实体。如果实体已经存在，则被认为是一个修改过的版本；否则将创建该资源" disc_en="Refers to server the entity enclosed.If refers to an already existing resource,the enclosed entity should be considered as a modified version,else the server will create the resource" />
+      <cmd name="DELETE" opt="DELETE" disc_cn="根据请求URL删除服务器上的资源"  disc_en="Delete the resource identified by Request-URL on the server" />
+      <cmd name="TRACE" opt="TRACE" disc_cn="调用一个远程的应用层环回消息，不能包含任何实体"  disc_en="Invoke a remote application-layer loop-back of the request message,the request must not include an entity" />
+      <cmd name="CONNECT" opt="CONNECT" disc_cn="使用一个可以动态切换的代理成为一个通道"  disc_en="Use a proxy that can dynamically switch to being a tunnel" />
+    </cmdtype>
+    <cmdtype name="Request Header Fields" disc_cn="请求的头标题字段" disc_en="Request Header Fields">
+      <cmd name="Accept" opt="Accept:" disc_cn="客户端期望接受的媒体类型"  disc_en="Client desired media types which are acceptable" />
+      <cmd name="Accept-Charset" opt="Accept-Charset:" disc_cn="客户端期望接受数据所用的字符集"  disc_en="Client desired character sets which are acceptable" />
+      <cmd name="Accept-Encoding" opt="Accept-Encoding:" disc_cn="客户端期望接受数据的编码方式"  disc_en="Client desired character encoding which are acceptable" />
+      <cmd name="Authorization" opt="Authorization:" disc_cn="用于向服务器提供身份验证的字段"  disc_en="provide authentication information with the server" />
+      <cmd name="From" opt="From:" disc_cn="说明客户端提供的邮件源地址"  disc_en="An Internet e-mail source address provided by client" />
+      <cmd name="Host" opt="Host:" disc_cn="表明请求资源所在的主机地址"  disc_en="The host adress of the resource being requested" />
+      <cmd name="If-Modified-Since" opt="If-Modified-Since:" disc_cn="访问某个时间之后修改过的对象"  disc_en="Access variant has been modified since the time" />
+      <cmd name="If-Match" opt="If-Match:" disc_cn="访问的对象必须要符合的条件"  disc_en="Accessing variant must match for the conditions" />
+      <cmd name="If-None-Match" opt="If-None-Match:" disc_cn="访问的对象不需要符合的条件"  disc_en="Accessing variant must not match for the conditions" />
+      <cmd name="If-Range" opt="If-Range:" disc_cn="请求对象指定范围的数据是否存在"  disc_en="The range of date specified by request variant whether presence" />
+      <cmd name="Proxy-Authorization" opt="Proxy-Authorization:" disc_cn="用于向代理服务器发送认证的字段"  disc_en="The field used for the client to identify to the proxy" />
+      <cmd name="Range" opt="Range:" disc_cn="用于记录客户端获得URL资源的地址"  disc_en="It used for store the address of the URL resource getted by client" />
+      <cmd name="User-Agent" opt="User-Agent:" disc_cn="用户标明客户端身份的字段"  disc_en="The field used for users tokens of client identity" />
+      <cmd name="If-Unmodified-Since" opt="If-Unmodified-Since:" disc_cn="访问的对象在指定时间后没有被修改过"  disc_en="Accessing variant has not been modified since the time specified in this field" />
+    </cmdtype>
+    <cmdtype name="Request general-header field" disc_cn="请求的通用头字段" disc_en="Request general-header field">
+      <cmd name="Cache-Control" opt="Cache-Control:" disc_cn="指定请求和响应遵循的缓存机制"  disc_en="Specify must be obeyed by caching mechanisms along the request and response chain" />
+      <cmd name="Connection" opt="Connection:" disc_cn="允许请求方指定特殊的通信且不可由代理参与通信"  disc_en="The field allows the sender to specify options that are desired for that particular connection and must not be communicated by proxies over further connections" />
+      <cmd name="Date" opt="Date:" disc_cn="表示消息发送的时间，时间的描述格式由RFC822定义"  disc_en="The field represents the date and time at which the message was originated ,having semantics in RFC 822" />
+      <cmd name="Pragma" opt="Pragma:" disc_cn="用来包含实现特定的指令，最常用的是Pragma:no-cache"  disc_en="Pragma:no-cache  The field is used to include implementation-specific directives ,the no-cache directive is in common use in a request message" />
+      <cmd name="Trailer" opt="Trailer:" disc_cn="指出特殊的头字段"  disc_en="The field used for indicates the special header field" />
+      <cmd name="Transfer-Encoding" opt="Transfer-Encoding:" disc_cn="指出转换的类型"  disc_en="Thw field used for indicates what type of transformation" />
+      <cmd name="Upgrade" opt="Upgrade:" disc_cn="指定附加的通讯协议"  disc_en="specify what additional communication protocols" />
+      <cmd name="Via" opt="Via:" disc_cn="仅为网关和代理使用"  disc_en="The filed must be used by gateways and proxies" />
+      <cmd name="Warning" opt="Warning:" disc_cn="被用来携带附加的警告信息"  disc_en="The field is used to carry additional information about the warning" />
+    </cmdtype>
+  </proto>
+  <proto name="SMTP" protoid="25" disc_cn="简单邮件传输协议" disc_en="SIMPLE MAIL TRANSFER PROTOCOL Simple Mail Transfer Protocol">
+    <cmdtype name="Method" disc_cn="方法" disc_en="Method">
+      <cmd name="QUIT" opt="QUIT" disc_cn="终止会话"  disc_en="close the transmission channel" />
+      <cmd name="HELP" opt="HELP" disc_cn="请求SMTP命令的帮助"  disc_en="Help information of request SMTP command" />
+      <cmd name="NOOP" opt="NOOP" disc_cn="空操作"  disc_en="Null action" />
+      <cmd name="VRFY" opt="VRFY" disc_cn="验证地址（不要求一定启用）"  disc_en="Verify address(This command not must use)" />
+      <cmd name="EXPN" opt="EXPN" disc_cn="扩展一个别名"  disc_en="Expanding a alias" />
+      <cmd name="HELO" opt="HELO" disc_cn="客户机问候服务器"  disc_en="The client greeting the server" />
+      <cmd name="MAIL" opt="MAIL" disc_cn="指定邮件的发送者"  disc_en="Indicate the sender of the mail" />
+      <cmd name="RCPT" opt="RCPT" disc_cn="指定邮件的接收者"  disc_en="Indicate the recipient of the mail" />
+      <cmd name="DATA" opt="DATA" disc_cn="发送邮件的数据状态"  disc_en="The data state of the mail by sended" />
+      <cmd name="RSET" opt="RSET" disc_cn="复位会话状态"  disc_en="Resume the state of the transaction" />
+      <cmd name="SEND" opt="SEND" disc_cn="指定要发送到用户终端的邮件的发送者"  disc_en="Initiate sender of send mail to terminals" />
+      <cmd name="SOML" opt="SOML" disc_cn="（发送或邮寄）发送至用户终端或信箱"  disc_en="(Sending or Mailing)Send mail to terminals or mailboxes" />
+      <cmd name="SAML" opt="SAML" disc_cn="（发送和邮寄）发送至用户终端和信箱"  disc_en="(Sending or Mailing)Send mail to terminals or mailboxes" />
+      <cmd name="TURN" opt="TURN" disc_cn="交换客户机/服务器角色"  disc_en="Reverse the role of client/server" />
+    </cmdtype>
+    <cmdtype name="Standard mail-header field" disc_cn="标准的信头字段" disc_en="Standard mail-header field">
+      <cmd name="From" opt="From:" disc_cn="写信人"  disc_en="Mail writer" />
+      <cmd name="Sender" opt="Sender:" disc_cn="发信人"  disc_en="Sender" />
+      <cmd name="Reply-to" opt="Reply-to:" disc_cn="回复的地址"  disc_en="The address of reply" />
+      <cmd name="To" opt="To:" disc_cn="信件的主要收信人"  disc_en="The primary recipient" />
+      <cmd name="Cc" opt="Cc:" disc_cn="信件的辅助收信人（抄送人）"  disc_en="The secondary recipient(make a copy for recipient)" />
+      <cmd name="Bcc" opt="Bcc:" disc_cn="信件的密件抄送人"  disc_en="The confidential mail make a copy for recipient" />
+      <cmd name="Messsage-ID" opt="Messsage-ID:" disc_cn="信件的唯一标识符"  disc_en="The exclusive mail identifier" />
+      <cmd name="In-Reply-to" opt="In-Reply-to:" disc_cn="信件正被回复到"  disc_en="The mail is copying to " />
+      <cmd name="References" opt="References:" disc_cn="所有的信件来源"  disc_en="All of the mail source" />
+      <cmd name="Date" opt="Date:" disc_cn="信件的创建日期"  disc_en="The date of mail created" />
+      <cmd name="Received" opt="Received:" disc_cn="MTA轨迹"  disc_en="MTA trace" />
+      <cmd name="Return-Path" opt="Return-Path:" disc_cn="发信人地址"  disc_en="The address of the mail sender" />
+      <cmd name="Subject" opt="Subject:" disc_cn="信件主题"  disc_en="Mail subject" />
+      <cmd name="Comments" opt="Comments:" disc_cn="关于信件的其他说明"  disc_en="The other comments about the mail" />
+      <cmd name="Keywords" opt="Keywords:" disc_cn="与该信件有关的主题关键字"  disc_en="The subject of keywords about the mail" />
+      <cmd name="Encrypted" opt="Encrypted:" disc_cn="加密信息（过时）"  disc_en="Encrypt information(behind the times)" />
+      <cmd name="Resent-*" opt="Resent-" disc_cn="重新分发时创建的字段"  disc_en="Created field when the mail resent" />
+      <cmd name="X-*" opt="X-" disc_cn="扩展字段"  disc_en="Expanding field" />
+    </cmdtype>
+    <cmdtype name="Multipurpose Internet Mail Extensions" disc_cn="MIME 对信体字段的扩展" disc_en="Multipurpose Internet Mail Extensions">
+      <cmd name="MIME-Version" opt="MIME-Version:" disc_cn="标识MIME版本信息，目前只有一个版本可以使用MIME-Version: 1.0"  disc_en="1.0  MIME version information,at present there is only one version can use MIME-Version:1.0" />
+      <cmd name="Content-Type" opt="Content-Type:" disc_cn="描述特定MIME实体中包含的数据，这个字段有三个部分：前两个部分组成媒体类型和一个可选分号分开的参数列表Content-Type: text/html;charset=gb2312"  disc_en="Describe the data included by the special MIME entity,three parts consisted the field:two parts consisted the Content-Type,other is a parameter list separated by a optional semicolon Content-Type:text/html;charset=gb2312" />
+      <cmd name="Content-Transfer-Encoding" opt="Content-Transfer-Encoding:" disc_cn="用于解决信件中包含不允许的字符范围外的字节值或者超过长度的数据行，该字段有5个值：7bit、8bit、binary、base64、quoted-printable"  disc_en="The field used for solved the uallowed byte value over the character range in the mail,or the data line over the length,the field consisted by five values:7bit、8bit、binary、base64、quoted-printable" />
+    </cmdtype>
+    <cmdtype name="MIME Content-Type" disc_cn="MIME 媒体类型（Content-Type）" disc_en="MIME Content-Type">
+      <cmd name="Text" opt="Text:" disc_cn="用于指示基于文本的内容"  disc_en="This field used for indicate the content based text" />
+      <cmd name="Image" opt="Image" disc_cn="媒体类型"  disc_en="Content-Type" />
+      <cmd name="Audio" opt="Audio" disc_cn="媒体类型"  disc_en="Content-Type" />
+      <cmd name="Video" opt="Video" disc_cn="媒体类型"  disc_en="Content-Type" />
+      <cmd name="Application" opt="Application" disc_cn="包含与特定应用文件格式有关的任何媒体类型"  disc_en="Include all Content-Type about special application file format" />
+      <cmd name="Message" opt="Message" disc_cn="指定信体组成的实体"  disc_en="The entity consisted by indicate message-body" />
+    </cmdtype>
+  </proto>
+  <proto name="POP3" protoid="110" disc_cn="邮局协议版本3" disc_en="Post Office Protocol version 3">
+    <cmdtype name="Method" disc_cn="方法" disc_en="Method">
+      <cmd name="USER" opt="USER" disc_cn="表示用户进行验证"  disc_en="Check up users" />
+      <cmd name="PASS" opt="PASS" disc_cn="发送密码进行验证"  disc_en="Check up password" />
+      <cmd name="APOP" opt="APOP" disc_cn="转换验证机制"  disc_en="Transform the mechanism of check up" />
+      <cmd name="QUIT" opt="QUIT" disc_cn="终止会话"  disc_en="Stop communication" />
+      <cmd name="NOOP" opt="NOOP" disc_cn="空操作"  disc_en="Null action" />
+      <cmd name="STAT" opt="STAT" disc_cn="提供邮箱大小信息"  disc_en="Provide the information of the mailbox size" />
+      <cmd name="LIST" opt="LIST" disc_cn="提供邮件大小信息"  disc_en="Provide the information of the mail size" />
+      <cmd name="RETR" opt="RETR" disc_cn="从服务器取出邮件"  disc_en="Take out the mail from the server" />
+      <cmd name="TOP" opt="TOP" disc_cn="取出信头和邮件的前N行"  disc_en="Take out front N lines from the message-header and mail" />
+      <cmd name="DELE" opt="DELE" disc_cn="标记邮件被删除"  disc_en="The mail marked was deleted" />
+      <cmd name="RSET" opt="RSET" disc_cn="复位POP会话"  disc_en="Reset POP communication" />
+      <cmd name="UIDL" opt="UIDL" disc_cn="取出邮件的唯一标识符"  disc_en="Take out the exclusive identifier of the mail" />
+    </cmdtype>
+  </proto>
+  <proto name="IMAP" protoid="143" disc_cn="Internet邮件读取协议版本4" disc_en="Internet Message Access Protocol 4">
+    <cmdtype name="Random state" disc_cn="任意状态" disc_en="Random state">
+      <cmd name="CAPABILITY" opt="CAPABILITY" disc_cn="请求列出传送代理支持的能力"  disc_en="Request list the capability of abet transmit proxy" />
+      <cmd name="NOOP" opt="NOOP" disc_cn="请求不做任何事情"  disc_en="Request not do anying" />
+      <cmd name="LOGOUT" opt="LOGOUT" disc_cn="请求关闭会话"  disc_en="Request close the communication" />
+    </cmdtype>
+    <cmdtype name="The state of non-authorization" disc_cn="非授权状态" disc_en="The state of non-authorization">
+      <cmd name="AUTHENTICATE" opt="AUTHENTICATE" disc_cn="请求执行认证"  disc_en="Request implement authentication" />
+      <cmd name="LOGIN" opt="LOGIN" disc_cn="请求执行用户名和请求认证"  disc_en="Request implement user name and request authenticate" />
+    </cmdtype>
+    <cmdtype name="The state of authorization" disc_cn="授权状态" disc_en="The state of authorization">
+      <cmd name="SELECT" opt="SELECT" disc_cn="按名称选择一个邮箱"  disc_en="Select a mailbox according to appellation" />
+      <cmd name="EXAMINE" opt="EXAMINE" disc_cn="按名称选择一个邮箱，但随后的操作只能进行读操作"  disc_en="Select a mailbox according to appellation,but succedent operate only being Read" />
+      <cmd name="CREATE" opt="CREATE" disc_cn="用传来的名字创建邮箱"  disc_en="Create mailbox according to received appellation " />
+      <cmd name="DELETE" opt="DELETE" disc_cn="删除指定名字的邮箱"  disc_en="Delete mailbox indicated the appellation" />
+      <cmd name="RENAME" opt="RENAME" disc_cn="重命名一邮箱"  disc_en="Rename a mailbox" />
+      <cmd name="SUBSCRIBE" opt="SUBSCRIBE" disc_cn="在活跃或预定的列表中加入指定的邮箱"  disc_en="Append the mailbox indicated in the active or subscribe list" />
+      <cmd name="UNSUBSCRIBE" opt="UNSUBSCRIBE" disc_cn="在活跃或预定的列表中删除指定的邮箱"  disc_en="Delete the mailbox indicated in the active or subscribe list" />
+      <cmd name="LIST" opt="LIST" disc_cn="返回用户代理可用的邮箱或邮箱层次名字的子集"  disc_en="Reply user agent the usable mailbox or the subset of the mailbox layer appellation" />
+      <cmd name="LSUB" opt="LSUB" disc_cn="返回用户代理已声明活跃或预定的邮箱或邮箱层次名字的子集"  disc_en="Reply user agent declared the active or subscribe mailbox ,or the subset of the mailbox layer appellation" />
+      <cmd name="STATUS" opt="STATUS" disc_cn="返回由参数指定的邮箱的状态"  disc_en="Reply the state of mailbox indicated by parameter" />
+      <cmd name="APPEND" opt="APPEND" disc_cn="将给定的文字变量作为一个新的符合RFC822消息附加到指定邮箱尾"  disc_en="Change indicate character variable to a new message tally with RFC822 append the end of mailbox indicated" />
+    </cmdtype>
+    <cmdtype name="The state of pitch on" disc_cn="选中状态" disc_en="The state of pitch on">
+      <cmd name="CHECK" opt="CHECK" disc_cn="请求当前所选邮箱的检查点"  disc_en="Request the check point of the current mailbox selected " />
+      <cmd name="CLOSE" opt="CLOSE" disc_cn="删除所选邮箱中所有带有删除标记的消息,并返回认证状态"  disc_en="Delete the message marked the delete tag in the selected mailbox,reply the state of the authorization" />
+      <cmd name="EXPUNGE" opt="EXPUNGE" disc_cn="永久删除所选邮箱中所有带有删除标记的消息,并对于每个被删消息返回一个指示"  disc_en="Thorough delete the message marked the delete tag in the selected mailbox,reply the indication for each message deleted" />
+      <cmd name="SEARCH" opt="SEARCH" disc_cn="在所选邮箱中寻找与给定搜索准则匹配的消息"  disc_en="Search the message match the appointed rule in the selected mailbox" />
+      <cmd name="FETCH" opt="FETCH" disc_cn="检索与所选邮箱中消息相关联的数据"  disc_en="Search date associate the message in the selected mailbox" />
+      <cmd name="STORE" opt="STORE" disc_cn="修改与所选邮箱中消息相关联的数据"  disc_en="Modify date associate the message in the selected mailbox" />
+      <cmd name="COPY" opt="COPY" disc_cn="复制指定的消息到指定目标邮箱的末尾"  disc_en="Copy appointed message to the end of appointed mailbox" />
+      <cmd name="UID" opt="UID" disc_cn="按唯一标识符(UID)检索消息"  disc_en="Search message according to UID" />
+    </cmdtype>
+  </proto>
+  <proto name="TELNET" protoid="23" disc_cn="远程登录" disc_en="Telnet">
+    <cmdtype name="Telnet control character" disc_cn="远程控制字符" disc_en="Telnet control character">
+      <cmd name="EOF" opt="EC" disc_cn="文件结束，十六进制码为EC"  disc_en="End of file,hex code is EC" />
+      <cmd name="EOR" opt="EF" disc_cn="记录结束，十六进制码为EF"  disc_en="End of record,hex code is EF" />
+      <cmd name="SE" opt="F0" disc_cn="子选项结束，十六进制码为F0"  disc_en="sub-option end,hex code is F0" />
+      <cmd name="NOP" opt="F1" disc_cn="无操作，十六进制码为F1"  disc_en="No operate,hex code is F1" />
+      <cmd name="DM" opt="F2" disc_cn="数据标记，十六进制码为F2"  disc_en="Data marker,hex code is F2" />
+      <cmd name="BRK" opt="F3" disc_cn="断开，十六进制码为F3"  disc_en="Break,hex code is F3" />
+      <cmd name="IP" opt="F4" disc_cn="中断过程，十六进制码为F4"  disc_en="Intermit process,hex code is F4" />
+      <cmd name="AO" opt="F5" disc_cn="异常终止输出，十六进制码为F5"  disc_en="Abend output,hex code is F5" />
+      <cmd name="AYT" opt="F6" disc_cn="对方是否还在运行，十六进制码为F6"  disc_en="Are you there,hex code is F6" />
+      <cmd name="EC" opt="F7" disc_cn="擦除字符，十六进制码为F7"  disc_en="Erasure character,hex code is F7" />
+      <cmd name="EL" opt="F8" disc_cn="擦除行，十六进制码为F8"  disc_en="Erasure line,hex code is F8" />
+      <cmd name="GA" opt="F9" disc_cn="前进，十六进制码为F9"  disc_en="Go ahead,hex code is F9" />
+      <cmd name="SB" opt="FA" disc_cn="子选项开始，十六进制码为FA"  disc_en="sub-option begin,hex code is FA" />
+      <cmd name="WILL" opt="FB" disc_cn="同意允许(enable)选项，十六进制码为FB"  disc_en="Agree enable option,hex code is FB" />
+      <cmd name="WONT" opt="FC" disc_cn="拒绝允许(enable)选项，十六进制码为FC"  disc_en="Refuse enable option,hex code is FC" />
+      <cmd name="DO" opt="FD" disc_cn="认可选项请求，十六进制码为FD"  disc_en="Ratify option request,hex code is FD" />
+      <cmd name="DONT" opt="FE" disc_cn="拒绝选项请求，十六进制码为FE"  disc_en="Refuse option request,hex coed is FE" />
+      <cmd name="IAC" opt="FF" disc_cn="解释(下一个字符)为控制，十六进制码为FF"  disc_en="Interpret(the next character) as control,hex code is FF" />
+    </cmdtype>
+  </proto>
+  <proto name="FTP" protoid="21" disc_cn="文件传输协议" disc_en="File Transfer Protocol">
+    <cmdtype name="Command" disc_cn="命令" disc_en="Command">
+      <cmd name="LITERAL" opt="LITERAL" disc_cn="将参数逐字发送到远程FTP服务器。返回单一FTP答复代码" disc_en="Literal send the parameter  to the FTP server.Reply single FTP responses code">
+      </cmd>
+      <cmd name="QUOTE" opt="QUOTE" disc_cn="将参数逐字发送到远程FTP服务器。返回单一FTP答复代码。"  disc_en="Literal send the parameter  to the FTP server.Reply single FTP responses code" />
+      <cmd name="ASCII" opt="ASCII" disc_cn="将文件传输类型设置为 ASCII。" disc_en="Set the file transfer type is ASCII.">
+      </cmd>
+      <cmd name="BINARY" opt="BINARY" disc_cn="将文件传输类型设置为二进制。" disc_en="Set the file transfer type is binary.">
+      </cmd>
+      <cmd name="BYE" opt="BYE" disc_cn="结束与远程计算机的 FTP 会话并退出 ftp。" disc_en="Close the FTP communication and exit FTP.">
+      </cmd>
+      <cmd name="CLOSE" opt="CLOSE" disc_cn="结束与远程服务器的 FTP 会话，并停留在 ftp&gt; 提示符下。" disc_en="Close the FTP server communication and rest on ftp> prompt.">
+      </cmd>
+      <cmd name="QUIT" opt="QUIT" disc_cn="结束与远程计算机的 FTP 会话并退出 ftp 到命令提示符下。" disc_en="Close the FTP communication and exit ftp to command prompt.">
+      </cmd>
+      <cmd name="TRACE" opt="TRACE" disc_cn="切换数据包跟踪。" disc_en="Switch data package trace.">
+      </cmd>
+      <cmd name="USER" opt="USER" disc_cn="指定计算机的用户。" disc_en="Indicate computer user.">
+      </cmd>
+      <cmd name="PASS" opt="PASS" disc_cn="指定计算机的密码。" disc_en="Indicate computer password.">
+      </cmd>
+      <cmd name="DISCONNECT" opt="DISCONNECT" disc_cn="从远程计算机断开连接，同时保留 ftp&gt; 提示符。" disc_en="Break the connect from the long-distance computer,save ftp> prompt at the same time.">
+      </cmd>
+      <cmd name="HELP" opt="HELP" disc_cn="显示 ftp 子命令的说明。" disc_en="Display ftp sub-command.">
+      </cmd>
+      <cmd name="LCD" opt="LCD" disc_cn="更改本地计算机上的工作目录。默认情况下，工作目录是启动 ftp 的目录。" disc_en="Modify the working directory on local computer.Default,working directory is the directory used for startup ftp.">
+      </cmd>
+      <cmd name="PROMPT" opt="PROMPT" disc_cn="在 prompt 模式的开启和关闭之间切换。" disc_en="In prompt model switch to turn on and close.">
+      </cmd>
+      <cmd name="REMOTEHELP" opt="REMOTEHELP" disc_cn="显示远程命令的帮助。" disc_en="Display long-distance command help.">
+      </cmd>
+      <cmd name="STATUS" opt="STATUS" disc_cn="显示 FTP 连接的当前状态。" disc_en="Display the current state of FTP connect.">
+      </cmd>
+      <cmd name="TYPE" opt="TYPE" disc_cn="设置或显示文件传输类型。" disc_en="Set or display the type of file transfer.">
+      </cmd>
+      <cmd name="VERBOSE" opt="VERBOSE" disc_cn="切换 verbose 模式。" disc_en="Switch to verbose model.">
+      </cmd>
+      <cmd name="APPEND" opt="APPEND" disc_cn="使用当前文件类型设置，将本地文件附加到远程计算机上的文件。" disc_en="Use current file type set,append the local file to long-distance computer.">
+      </cmd>
+      <cmd name="BELL" opt="BELL" disc_cn="执行完每个文件传输命令后，将会切换到一个可听见的声音。" disc_en="When the command implement finished would listen a voice.">
+      </cmd>
+      <cmd name="CD" opt="CD" disc_cn="更改远程计算机上的工作目录。" disc_en="Modify the working directory on the long-distance computer.">
+      </cmd>
+      <cmd name="DEBUG" opt="DEBUG" disc_cn="切换到调试模式。" disc_en="Switch to debug model.">
+      </cmd>
+    </cmdtype>
+  </proto>
+</concmd>

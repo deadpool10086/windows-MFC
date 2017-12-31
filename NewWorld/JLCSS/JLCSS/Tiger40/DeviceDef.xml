@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item>
+    <Type>连线</Type>
+    <ImgPath>./Pic/line.ICO</ImgPath>
+  </Item>
+  <Item>
+    <Type>矩形</Type>
+    <ImgPath>./Pic/rectangle.ICO</ImgPath>
+  </Item>
+  <Item>
+    <Type>自由文本</Type>
+    <ImgPath>./Pic/text.ICO</ImgPath>
+  </Item>
+  <Item>
+    <Type>图片</Type>
+    <ImgPath>./Pic/pic.ICO</ImgPath>
+    <Properties>
+      <Property Type="File" Enable="True">
+        <Name>图片</Name>
+        <Description>图片路径</Description>
+        <Value>
+        </Value>
+      </Property>
+    </Properties>
+  </Item>
+  <Item>
+    <Type>普通PC</Type>
+    <ImgPath>./Pic/generalPC.ico</ImgPath>
+    <Properties>
+      <Property Type="Text" Enable="True">
+        <Name>名称</Name>
+        <Description>计算机的名称</Description>
+        <Value>PC1</Value>
+      </Property>
+      <Property Type="Text" Enable="True">
+        <Name>IP</Name>
+        <Description>IP地址</Description>
+        <Value>172.16.0.1</Value>
+      </Property>
+      <Property Type="Text" Enable="True">
+        <Name>子网掩码</Name>
+        <Description>IP地址的子网掩码</Description>
+        <Value>255.255.255.0</Value>
+      </Property>
+    </Properties>
+  </Item>
+  <Item>
+    <Type>双网卡PC</Type>
+    <ImgPath>./Pic/doublePC.ICO</ImgPath>
+    <Properties>
+      <Property Type="Text" Enable="True">
+        <Name>名称</Name>
+        <Description>计算机的名称</Description>
+        <Value>PC1</Value>
+      </Property>
+      <Property Type="Text" Enable="True">
+        <Name>IP1</Name>
+        <Description>IP地址1</Description>
+        <Value>172.16.0.1</Value>
+      </Property>
+      <Property Type="Text" Enable="True">
+        <Name>子网掩码1</Name>
+        <Description>IP地址1的子网掩码</Description>
+        <Value>255.255.255.0</Value>
+      </Property>
+      <Property Type="Text" Enable="True">
+        <Name>IP2</Name>
+        <Description>IP地址2</Description>
+        <Value>192.168.0.1</Value>
+      </Property>
+      <Property Type="Text" Enable="True">
+        <Name>子网掩码2</Name>
+        <Description>IP地址2的子网掩码</Description>
+        <Value>255.255.255.0</Value>
+      </Property>
+    </Properties>
+  </Item>
+  <Item>
+    <Type>服务器</Type>
+    <ImgPath>./Pic/server.ico</ImgPath>
+    <Properties>
+      <Property Type="Text" Enable="True">
+        <Name>名称</Name>
+        <Description>计算机的名称</Description>
+        <Value>服务器</Value>
+      </Property>
+      <Property Type="Text" Enable="True">
+        <Name>IP</Name>
+        <Description>IP地址</Description>
+        <Value>172.16.0.1</Value>
+      </Property>
+      <Property Type="Text" Enable="True">
+        <Name>子网掩码</Name>
+        <Description>IP地址的子网掩码</Description>
+        <Value>255.255.255.0</Value>
+      </Property>
+    </Properties>
+  </Item>
+  <Item>
+    <Type>交换机</Type>
+    <ImgPath>./Pic/switch.ICO</ImgPath>
+    <Properties>
+      <Property Type="Text" Enable="True">
+        <Name>名称</Name>
+        <Description>计算机的名称</Description>
+        <Value>SWITCH</Value>
+      </Property>
+    </Properties>
+  </Item>
+  <Item>
+    <Type>路由器</Type>
+    <ImgPath>./Pic/center.ICO</ImgPath>
+    <Properties>
+      <Property Type="Text" Enable="True">
+        <Name>名称</Name>
+        <Description>计算机的名称</Description>
+        <Value>路由器</Value>
+      </Property>
+      <Property Type="Text" Enable="True">
+        <Name>IP1</Name>
+        <Description>IP地址1</Description>
+        <Value>172.16.0.1</Value>
+      </Property>
+      <Property Type="Text" Enable="True">
+        <Name>子网掩码1</Name>
+        <Description>IP地址1的子网掩码</Description>
+        <Value>255.255.255.0</Value>
+      </Property>
+      <Property Type="Text" Enable="True">
+        <Name>IP2</Name>
+        <Description>IP地址2</Description>
+        <Value>192.168.0.1</Value>
+      </Property>
+      <Property Type="Text" Enable="True">
+        <Name>子网掩码2</Name>
+        <Description>IP地址2的子网掩码</Description>
+        <Value>255.255.255.0</Value>
+      </Property>
+    </Properties>
+  </Item>
+  <Item>
+    <Type>集线器</Type>
+    <ImgPath>./Pic/shared.ICO</ImgPath>
+    <Properties>
+      <Property Type="Text" Enable="True">
+        <Name>名称</Name>
+        <Description>计算机的名称</Description>
+        <Value>HUB</Value>
+      </Property>
+    </Properties>
+  </Item>
+  <Item>
+    <Type>双网卡VPC</Type>
+    <ImgPath>./Pic/virtual.ICO</ImgPath>
+    <Properties>
+      <Property Type="Text" Enable="True">
+        <Name>名称</Name>
+        <Description>计算机的名称</Description>
+        <Value>PC1</Value>
+      </Property>
+      <Property Type="Text" Enable="True">
+        <Name>IP1</Name>
+        <Description>IP地址1</Description>
+        <Value>172.16.0.1</Value>
+      </Property>
+      <Property Type="Text" Enable="True">
+        <Name>子网掩码1</Name>
+        <Description>IP地址1的子网掩码</Description>
+        <Value>255.255.255.0</Value>
+      </Property>
+      <Property Type="Text" Enable="True">
+        <Name>IP2</Name>
+        <Description>IP地址2</Description>
+        <Value>192.168.0.1</Value>
+      </Property>
+      <Property Type="Text" Enable="True">
+        <Name>子网掩码2</Name>
+        <Description>IP地址2的子网掩码</Description>
+        <Value>255.255.255.0</Value>
+      </Property>
+    </Properties>
+  </Item>
+</Items>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<body label="Tree" >
+<dir label="IPv4网络协议">
+<element label="以太网访问模式" filepath="../upload/1228182701562_swf.swf" info="以太网访问模式"  />
+<element label="ARP的运行过程" filepath="../upload/1228182880250_swf.swf" info="ARP的运行过程"  />
+<element label="代理ARP" filepath="../upload/1228182980906_swf.swf" info="代理ARP"  />
+<element label="多播组成员的加入与退出" filepath="../upload/1228183070781_swf.swf" info="多播组成员的加入与退出"  />
+<element label="TCP连接建立与释放-三次握手" filepath="../upload/1228183270812_swf.swf" info="TCP连接建立与释放-三次握手"  />
+<element label="TCP连接建立与释放-半关闭的四次握手方式终止连接" filepath="../upload/1235193155140_swf.swf" info="TCP连接建立与释放-半关闭的四次握手方式终止连接"  />
+<element label="滑动窗口协议" filepath="../upload/1235193343093_swf.swf" info="滑动窗口协议"  />
+<element label="DHCP运行过程-提供阶段" filepath="../upload/1228187321718_swf.swf" info="DHCP运行过程-提供阶段"  />
+<element label="DHCP运行过程-更新租约" filepath="../upload/1228187385734_swf.swf" info="DHCP运行过程-更新租约"  />
+<element label="域名协议DNS-递归解析" filepath="../upload/1228187679718_swf.swf" info="域名协议DNS-递归解析"  />
+<element label="域名服务DNS-迭代解析" filepath="../upload/1228187731656_swf.swf" info="域名服务DNS-迭代解析"  />
+<element label="NAT地址转换方式" filepath="../upload/1228188257437_swf.swf" info="NAT地址转换方式"  />
+<element label="FTP连接主动模式" filepath="../upload/1238377246609_swf.swf" info="FTP连接主动模式"  />
+<element label="FTP连接被动模式" filepath="../upload/1238377278640_swf.swf" info="FTP连接被动模式 "  />
+<element label="SMTP协议运行过程" filepath="../upload/1228196426921_swf.swf" info="SMTP协议运行过程"  />
+<element label="POP3协议运行过程" filepath="../upload/1228196546109_swf.swf" info="POP3协议运行过程"  />
+<element label="IMAP协议运行过程" filepath="../upload/1228196617046_swf.swf" info="IMAP协议运行过程"  />
+<element label="WINS名字注册" filepath="../upload/1228197367953_swf.swf" info="WINS名字注册"  />
+<element label="WINS名字更新" filepath="../upload/1228197403375_swf.swf" info="WINS名字更新"  />
+<element label="WINS名字释放" filepath="../upload/1228197436031_swf.swf" info="WINS名字释放"  />
+<element label="WINS名字解析" filepath="../upload/1228197465890_swf.swf" info="WINS名字解析"  />
+<element label="SMB协议数据交互过程" filepath="../upload/1228197631171_swf.swf" info="SMB协议数据交互过程"  />
+<element label="RIP运行过程" filepath="../upload/1228200177000_swf.swf" info="RIP运行过程"  />
+<element label="OSPF维护路由信息 " filepath="../upload/1238378097640_swf.swf" info="OSPF维护路由信息 "  />
+</dir>
+<dir label="IPv6网络协议">
+<element label="分片选项头报文格式与选项的结构" filepath="../upload/1228201226156_swf.swf" info="分片选项头报文格式与选项的结构"  />
+<element label="PMTU的改变" filepath="../upload/1228201490734_swf.swf" info="PMTU的改变"  />
+<element label="MLD协议运行过程" filepath="../upload/1228201673578_swf.swf" info="MLD协议运行过程"  />
+<element label="邻居发现过程-地址解析" filepath="../upload/1228201788843_swf.swf" info="邻居发现过程-地址解析"  />
+<element label="邻居发现过程-重复地址检测" filepath="../upload/1228201850812_swf.swf" info="邻居发现过程-重复地址检测"  />
+<element label="邻居发现过程-邻居不可达检测" filepath="../upload/1228201890625_swf.swf" info="邻居发现过程-邻居不可达检测"  />
+<element label="邻居发现过程-路由器发现" filepath="../upload/1228201928828_swf.swf" info="邻居发现过程-路由器发现"  />
+<element label="邻居发现过程-重定向" filepath="../upload/1228201965109_swf.swf" info="邻居发现过程-重定向"  />
+<element label="OSPF维护路由信息" filepath="../upload/1238377921203_swf.swf" info="OSPF维护路由信息"  />
+<element label="6over4隧道" filepath="../upload/1238377563968_swf.swf" info="6over4隧道"  />
+<element label="6to4隧道" filepath="../upload/1234921165578_swf.swf" info="6to4隧道"  />
+<element label="ISATAP隧道" filepath="../upload/1228202401593_swf.swf" info="ISATAP隧道"  />
+<element label="FTP连接主动模式" filepath="../upload/1238378995656_swf.swf" info="FTP连接主动模式"  />
+<element label="FTP连接被动模式 " filepath="../upload/1238379019718_swf.swf" info="FTP连接被动模式 "  />
+</dir>
+</body>

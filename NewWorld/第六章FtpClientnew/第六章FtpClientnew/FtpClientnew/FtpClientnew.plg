@@ -1,0 +1,40 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: FtpClientnew - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/FtpClientnew.res" /d "_DEBUG" /d "_AFXDLL" "C:\Users\john\Desktop\NewWorld\第六章FtpClientnew\第六章FtpClientnew\FtpClientnew\FtpClientnew.rc"" 
+Creating temporary file "C:\Users\john\AppData\Local\Temp\RSPD9C3.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/FtpClientnew.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Users\john\Desktop\NewWorld\第六章FtpClientnew\第六章FtpClientnew\FtpClientnew\FtpClientnew.cpp"
+"C:\Users\john\Desktop\NewWorld\第六章FtpClientnew\第六章FtpClientnew\FtpClientnew\FtpClientnewDlg.cpp"
+]
+Creating command line "cl.exe @C:\Users\john\AppData\Local\Temp\RSPD9C3.tmp" 
+Creating temporary file "C:\Users\john\AppData\Local\Temp\RSPD9D4.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/FtpClientnew.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Users\john\Desktop\NewWorld\第六章FtpClientnew\第六章FtpClientnew\FtpClientnew\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\john\AppData\Local\Temp\RSPD9D4.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:yes /pdb:"Debug/FtpClientnew.pdb" /debug /machine:I386 /out:"Debug/FtpClientnew.exe" /pdbtype:sept  ".\Debug\FtpClientnew.obj" ".\Debug\FtpClientnewDlg.obj" ".\Debug\StdAfx.obj" ".\Debug\FtpClientnew.res" "
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+FtpClientnew.cpp
+FtpClientnewDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+FtpClientnew.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<config>
+<ServletUrl>http://172.16.1.200/emcpcns/Getadj?flag=cns</ServletUrl>
+<ProName>计算机网络实验教学平台</ProName>
+<ProVersion>
+计算机网络实验教学平台 1.0.300.100511
+
+版权所有 Copyright (C) 2008-2009 吉林中软吉大信息技术有限公司     
+
+联系电话：400-6568-911、0431-85111911
+</ProVersion>
+</config>

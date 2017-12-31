@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topo version="1.0">
+  <groups>
+    <group name="IPv4" layout="四图布局">
+      <file path=".\map\NetTopoPic1.ntp" pic=".\img\ipv4\TopoPicNor1_v4.bmp" sel=".\img\ipv4\TopoPicSel1_v4.bmp" />
+      <file path=".\map\NetTopoPic2.ntp" pic=".\img\ipv4\TopoPicNor2_v4.bmp" sel=".\img\ipv4\TopoPicSel2_v4.bmp" />
+      <file path=".\map\NetTopoPic3.ntp" pic=".\img\ipv4\TopoPicNor3_v4.bmp" sel=".\img\ipv4\TopoPicSel3_v4.bmp" />
+      <file path=".\map\NetTopoPic4.ntp" pic=".\img\ipv4\TopoPicNor4_v4.bmp" sel=".\img\ipv4\TopoPicSel4_v4.bmp" />
+    </group>
+    <group name="IPv6" layout="三图布局">
+      <file path=".\map\NetTopoPic1.ntp" pic=".\img\ipv6\TopoPicNor1_v6.bmp" sel=".\img\ipv6\TopoPicSel1_v6.bmp" />
+      <file path=".\map\NetTopoPic3.ntp" pic=".\img\ipv6\TopoPicNor2_v6.bmp" sel=".\img\ipv6\TopoPicSel2_v6.bmp" />
+      <file path=".\map\NetTopoPic5.ntp" pic=".\img\ipv6\TopoPicNor3_v6.bmp" sel=".\img\ipv6\TopoPicSel3_v6.bmp" />
+    </group>
+    <group name="IPv46" layout="五图布局">
+      <file path=".\map\NetTopoPic1.ntp" pic=".\img\ipv46\TopoPicNor1_v46.bmp" sel=".\img\ipv46\TopoPicSel1_v46.bmp" />
+      <file path=".\map\NetTopoPic2.ntp" pic=".\img\ipv46\TopoPicNor2_v46.bmp" sel=".\img\ipv46\TopoPicSel2_v46.bmp" />
+      <file path=".\map\NetTopoPic3.ntp" pic=".\img\ipv46\TopoPicNor3_v46.bmp" sel=".\img\ipv46\TopoPicSel3_v46.bmp" />
+      <file path=".\map\NetTopoPic5.ntp" pic=".\img\ipv46\TopoPicNor4_v46.bmp" sel=".\img\ipv46\TopoPicSel4_v46.bmp" />
+      <file path=".\map\NetTopoPic4.ntp" pic=".\img\ipv46\TopoPicNor5_v46.bmp" sel=".\img\ipv46\TopoPicSel5_v46.bmp" />
+    </group>
+  </groups>
+  <layouts>
+    <layout name="三图布局" type="pixel">
+      <window width="860" height="660">
+        <picture left="10" top="60" width="426" height="282" />
+        <picture left="433" top="60" width="426" height="282" />
+        <picture left="10" top="340" width="850" height="282" />
+      </window>
+    </layout>
+    <layout name="四图布局" type="pixel">
+      <window width="860" height="660">
+        <picture left="10" top="62" width="426" height="282" />
+        <picture left="433" top="62" width="426" height="282" />
+        <picture left="10" top="340" width="426" height="282" />
+        <picture left="433" top="340" width="426" height="282" />
+      </window>
+    </layout>
+    <layout name="五图布局" type="pixel">
+      <window width="1000" height="660">
+        <picture left="16" top="62" width="323" height="280" />
+        <picture left="339" top="62" width="323" height="280" />
+        <picture left="662" top="62" width="323" height="280" />
+        <picture left="16" top="342" width="485" height="280" />
+        <picture left="501" top="342" width="485" height="280" />
+      </window>
+    </layout>
+    <layout name="六图布局" type="pixel">
+      <window width="1000" height="660">
+        <picture left="16" top="62" width="323" height="280" />
+        <picture left="339" top="62" width="323" height="280" />
+        <picture left="662" top="62" width="323" height="280" />
+        <picture left="16" top="342" width="323" height="280" />
+        <picture left="339" top="342" width="323" height="280" />
+        <picture left="662" top="342" width="323" height="280" />
+      </window>
+    </layout>
+  </layouts>
+</topo>

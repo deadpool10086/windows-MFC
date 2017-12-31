@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<netpdl xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="netpdl.xsd" 
+>
+	<group name="test">
+		<startproto name="Ethernet"/>
+		<validproto name="Ethernet"/>
+		<validproto name="temp"/>
+	</group>
+
+	<proto name="temp" showname_en="Temporary Protocol" showname_cn="临时的协议">
+		<fields>
+			
+			<nextproto/>
+		</fields>
+	</proto>
+	
+	<checkutils/>
+	
+</netpdl>
